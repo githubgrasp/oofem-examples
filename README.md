@@ -46,16 +46,18 @@ More to follow as blog posts are published.
 - The exact OOFEM commit baked into each image release is recorded at
   `/opt/oofem/OOFEM_COMMIT` inside the container.
 
-## Local helper
+## Interactive shell
 
-`test.sh` opens an interactive shell in the image with the current directory
-mounted at `/work` and X11 forwarded (macOS: requires XQuartz running and
-`xhost +localhost`):
+If you want to poke around inside the container instead of running a single
+example via `bash run.sh`, `test.sh` opens an interactive shell with the
+current directory mounted at `/work`:
 
 ```bash
-./test.sh                                     # uses oofem-private:dev
 ./test.sh ghcr.io/githubgrasp/oofem-public:latest
 ```
+
+Once inside the container, `cd /work/<example>` and run any command (oofem,
+extractor, gnuplot, …). Files you create are visible on your host.
 
 ## Feedback
 
