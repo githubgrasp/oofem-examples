@@ -1,0 +1,17 @@
+# Generated artefacts in any subfolder
+**/oofem.out
+**/std.out
+**/ld.dat
+**/ld.pdf
+**/*.vtu
+**/*.log
+
+# Combined outputs at parent level
+ld-all.pdf
+ld-all.gif
+ld-all.mp4
+
+# Editor backups
+**/*~
+**/.#*
+**/\#*\#

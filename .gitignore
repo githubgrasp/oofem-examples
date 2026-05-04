@@ -1,0 +1,27 @@
+# Local working notes — not for the public repo
+CLAUDE.md
+
+# Maintainer-only build/publish scripts (hard-code local paths and the
+# githubgrasp account). End users pull from ghcr.io instead.
+build-private.sh
+build-public.sh
+push-public.sh
+save-private.sh
+
+# Image build recipes — kept out of the public repo because the private
+# variant references T3D (closed-source, licensed). End users pull the
+# pre-built image from ghcr.io.
+Dockerfile.private
+Dockerfile.public
+
+# macOS
+.DS_Store
+
+# Editor backups
+*~
+.#*
+\#*\#
+
+# Saved-image tarballs (built by save-private.sh, intended for OneDrive)
+oofem-private-*.tar.gz
+oofem-public-*.tar.gz
