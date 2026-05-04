@@ -1,9 +1,6 @@
 # CDPM2 — single-element monotonic verification set
 
-Four single-tetrahedron, single-Gauss-point analyses that together cover the
-principal axes of the Concrete Damage Plasticity Model 2 (`con2dpm`) under
-monotonic loading. Same element, same material parameters; only the boundary
-conditions and loading change.
+Four single-tetrahedron, single-Gauss-point analyses that together cover an important range of the response of the Concrete Damage Plasticity Model 2 (`con2dpm`) under monotonic loading. Same element, same material parameters; only the boundary conditions and loading change.
 
 | sub-test       | strain state imposed              | stress state           |
 |----------------|-----------------------------------|------------------------|
@@ -12,18 +9,13 @@ conditions and loading change.
 | `SimpleShear/` | pure γxy, all normal strains = 0  | σxy + confinement      |
 | `PureShear/`   | only γxy elastically (free dilatn)| σxy ≠ 0; rest = 0      |
 
-The simple-shear / pure-shear pairing is deliberate. Their elastic peaks
-match (both reach σ1 = ft), but post-peak diverges:
+The simple-shear / pure-shear pairing is deliberate:
 
-- **simple shear** suppresses dilation → confinement builds up → CDPM2's cap
-  / confinement-sensitive branch is exercised.
+- **simple shear** suppresses dilation → confinement builds up.
 - **pure shear** lets normal strains develop → conventional shear failure
   along the σ1 direction at 45° to element axes.
 
-Anyone implementing CDPM2 needs to reproduce all four. Matching peaks is the
-easy bit (just the failure surface); reproducing the post-peak divergence
-between SimpleShear and PureShear is the discriminating test for damage
-evolution, dilatancy, and crack-band scaling.
+Anyone implementing CDPM2 should reproduce all four.
 
 ## Reproduce
 
@@ -70,11 +62,8 @@ compare sensitivities.
 ## Why single tetra / single GP
 
 Constant-strain tet (`ltrspace`) with one integration point means the GP
-response IS the element response. No mesh-bias, no spatial gradients, no
-quadrature artefacts — purely the constitutive law. Bug-hunting in CDPM2
-implementations is much faster when the test harness has no other moving
-parts.
+response is the element response. Element length of 0.1~m is chosen here.
 
 ## Referenced by
 
-- (TODO) Blog post: <url>
+- Blog post: https://petergrassl.com/blog/cdpm2-single-monotonic/
