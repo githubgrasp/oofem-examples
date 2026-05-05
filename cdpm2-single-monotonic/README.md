@@ -22,8 +22,7 @@ Anyone implementing CDPM2 should reproduce all four.
 With the public Docker image (no compilation needed):
 
 ```bash
-docker run --rm -v "$PWD":/work ghcr.io/githubgrasp/oofem-public:latest \
-  bash /work/Tension/run.sh        # one of the four
+docker run --rm -v "$PWD":/work ghcr.io/githubgrasp/oofem-public:latest bash /work/Tension/run.sh        # one of the four
 ```
 
 Or with a local checkout of `oofem-examples`:
