@@ -1,16 +1,18 @@
 #!/bin/bash
-# Remove generated artefacts in all four sub-tests; return to git-clean state.
+# Remove generated artefacts in the four sub-tests. Uses an explicit
+# allow-list — never `git clean -fdx`, which would wipe every untracked
+# file in the working tree (e.g. a sibling example folder you haven't
+# committed yet).
 set -e
 cd "$(dirname "$0")"
 
-if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
-  git clean -fdx .
-else
-  for d in Tension Compression SimpleShear PureShear; do
-    rm -f "$d"/oofem.out "$d"/std.out "$d"/ld.dat "$d"/ld.pdf "$d"/*.vtu "$d"/*.log
+for d in Tension Compression SimpleShear PureShear; do
+    [ -d "$d" ] || continue
+    rm -f "$d"/oofem.out "$d"/std.out "$d"/ld.dat "$d"/ld.pdf
+    rm -f "$d"/*.vtu "$d"/*.log
     rm -f "$d"/*~ "$d"/.\#* "$d"/\#*\#
-  done
-  rm -f ld-all.pdf ld-all.gif ld-all.mp4
-fi
+done
+
+rm -f ld-all.pdf ld-all.gif ld-all.mp4
 
 echo "Cleaned $(pwd)"
