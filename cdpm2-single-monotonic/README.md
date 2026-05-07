@@ -36,6 +36,11 @@ cd /work/cdpm2-single-monotonic/Tension
 bash run.sh
 ```
 
+`:latest` always points at the current OOFEM build and may evolve. For the
+exact image used to produce the figures in the linked blog post, replace
+`:latest` with the per-example tag:
+`ghcr.io/githubgrasp/oofem-public:cdpm2-single-monotonic`.
+
 Each sub-test produces in its own folder:
 
 | file        | content                                |
