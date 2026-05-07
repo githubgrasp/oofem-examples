@@ -12,9 +12,8 @@
 set -e
 cd "$(dirname "$0")"
 
-echo "Generating particle distribution..."
+echo "Generating node distribution..."
 generator mesh.in
-mv -f nodes.dat mesh.nodes
 
 echo "Building Voronoi tessellation..."
 qvoronoi p Fv < mesh.nodes > mesh.voronoi

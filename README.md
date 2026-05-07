@@ -20,8 +20,7 @@ The goal is two-command reproducibility — no compilation, no toolchain.
 ```bash
 git clone https://github.com/githubgrasp/oofem-examples.git
 cd oofem-examples/<example-folder>
-docker run --rm -v "$PWD":/work ghcr.io/githubgrasp/oofem-public:latest \
-  bash run.sh
+docker run --rm -v "$PWD":/work ghcr.io/githubgrasp/oofem-public:latest bash run.sh
 ```
 
 Outputs (PDF plots, extracted data, OOFEM logs) appear in the example
@@ -32,6 +31,7 @@ folder, viewable on your host with any normal application.
 | folder | what it shows |
 |---|---|
 | [`cdpm2-single-monotonic/`](cdpm2-single-monotonic/) | CDPM2 verification set: tension, compression, simple shear, pure shear on a single tetrahedron with one Gauss point. |
+| [`lattice-tensile-periodic-2d/`](lattice-tensile-periodic-2d/) | 2D direct tensile lattice analysis on a 100×100 mm prism, comparing a non-periodic mesh (crack locks onto the boundary) with a periodic mesh (crack goes through the random mesh). |
 
 More to follow as blog posts are published.
 

@@ -1,6 +1,6 @@
 # 2D periodic tensile analysis
 # bbox-widening is essential for periodic-partner lookup.
-#@output nodes.dat
+#@output mesh.nodes
 #@domain 2
 #@diam 0.002
 #@maxiter 100000

@@ -15,7 +15,7 @@ discretisation, not of the material.
 
 Rebuilding the mesh so elements cross the boundary and connect to their
 counterparts on the opposite face removes the artefact: the crack now
-reflects the heterogeneity of the random particle distribution.
+reflects the heterogeneity of the random node distribution.
 
 ## Reproduce
 
@@ -58,7 +58,7 @@ Each sub-test produces in its own folder:
 
 Each `run.sh` runs the same four-step pipeline:
 
-1. `generator mesh.in` — random particle distribution → `nodes.dat`.
+1. `generator mesh.in` — random node distribution → `mesh.nodes`.
 2. `qvoronoi p Fv < mesh.nodes > mesh.voronoi` — Voronoi tessellation.
 3. `converter control.in mesh.nodes mesh.voronoi` — builds the lattice
    topology, merges with `control.in` to produce `oofem.in`.
@@ -72,7 +72,7 @@ displacement-control node setup.
 
 | file         | knobs to play with                                                                        |
 |--------------|-------------------------------------------------------------------------------------------|
-| `mesh.in`    | particle diameter (`#@diam`), domain size (`#@rect`), periodicity flag (`#@perflag`)      |
+| `mesh.in`    | node minimum distance (`#@diam`), domain size (`#@rect`), periodicity flag (`#@perflag`)      |
 | `control.in` | material parameters (`latticedamage`), load history (`PiecewiseLinFunction`), time stepping |
 
 ## Material parameters (lattice damage)

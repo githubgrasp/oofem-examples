@@ -1,5 +1,5 @@
 # 2D regular tensile analysi
-#@output nodes.dat
+#@output mesh.nodes
 #@domain 2
 #@diam 0.002
 #@maxiter 100000
