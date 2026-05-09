@@ -1,0 +1,30 @@
+oofem.out
+2D unsaturated mass-transport on 100x100 mm rect with circular inclusions
+nltransienttransportproblem nsteps 100 deltat 1.0 rtol 1.e-3 alpha 1. nsmax 200 nmodules 1
+vtkxmllattice tstep_step 1 dofman_all primvars 1 6
+domain 2dMassLatticeTransport
+OutputManager tstep_all dofman_all
+ncrosssect 0 nmat 2 nbc 1 nic 1 nltf 1 nset 1
+# matrix: high permeability
+latticetransmat 1 d 1.e3 k 1.e-12 vis 1.e-3 thetas 0.10 thetar 0. ctor 0.001
+# aggregate: low permeability
+latticetransmat 2 d 1.e3 k 1.e-18 vis 1.e-3 thetas 0.01 thetar 0. ctor 0.001
+# Saturated bottom (y=ymin); the rest of the specimen starts dry via the
+# initial condition below and saturates over time.
+BoundaryCondition 1 loadTimeFunction 1 prescribedvalue 1.
+InitialCondition 1 Conditions 1 u 0.0 dofs 1 11 set 1
+ConstantFunction 1 f(t) 1.
+Set 1 allelements
+#@grid 2dTM
+#@mesher qhull
+#@diam 0.002
+#@perflag 2 0 0
+#@thickness 1.0
+#@lumpedcapacity 1
+#@rect 1 box 4 0. 0. 0.1 0.1
+# Any element with at least one endpoint in an aggregate disk takes the
+# low-permeability aggregate material (mat 2) — both `inside` (both ends
+# in) and `interface` (one in, one out) route to mat 2. Edges with both
+# endpoints in the matrix keep the default mat 1.
+#@inclusionfile packing.dat itz 1.e-9 inside 2 interface 2
+#@nodebc 1 face 2 min

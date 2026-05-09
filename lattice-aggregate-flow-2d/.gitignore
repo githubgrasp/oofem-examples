@@ -1,0 +1,20 @@
+# OOFEM run outputs
+oofem.out
+std.out
+*.vtu
+*.vtk
+*.osf
+*.log
+
+# Mesh / aggregate / converter intermediates
+packing.dat
+mesh.nodes
+mesh.voronoi
+
+# OOFEM input assembled by the converter
+oofem.in
+
+# Editor backups
+*~
+.#*
+\#*\#
