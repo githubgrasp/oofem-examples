@@ -1,0 +1,21 @@
+# OOFEM run outputs
+**/oofem.out
+**/std.out
+**/*.vtu
+**/*.vtk
+**/*.pvd
+**/*.log
+
+# T3D mesh output (regenerated from mesh.in by `t3d`)
+**/mesh.out
+
+# Per-step solver state
+**/*.osf
+
+# Maintainer-only working folder (copyrighted PDFs, hero PNGs, animations)
+**/local/
+
+# Editor backups and emacs lock/auto-save files
+**/*~
+**/.#*
+**/\#*\#
