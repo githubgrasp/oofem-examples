@@ -1,0 +1,30 @@
+# OOFEM run outputs
+**/oofem.out
+**/std.out
+**/ld.dat
+**/ld.pdf
+**/*.vtu
+**/*.vtk
+**/*.log
+
+# Mesh / converter intermediates
+**/nodes.dat
+**/mesh.nodes
+**/mesh.voronoi
+**/random.dat
+**/stat.dat
+
+# OOFEM input assembled by the converter (from control.in + mesh)
+**/oofem.in
+
+# Per-step solver state
+**/*.osf
+
+# Combined parent-level plots
+ld-compare.pdf
+ld-compare.png
+
+# Editor backups and emacs lock/auto-save files
+**/*~
+**/.#*
+**/\#*\#

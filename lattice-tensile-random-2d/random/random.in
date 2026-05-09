@@ -1,0 +1,28 @@
+# Genran input for the 2D periodic specimen.
+# Field covers the rect [0, 0.1] x [0, 0.1] with a small margin so the
+# OOFEM InterpolatingFunction lookup is always interior.
+numberOfDimensions = 2
+
+# Deterministic seed.
+ranint = -3
+
+# Origin slightly outside the rect.
+xOrigin = -0.02
+yOrigin = -0.02
+
+# Powers of two — radix-2 FFT requirement.
+realNumber1 = 256
+realNumber2 = 256
+
+# Autocorrelation length
+autoLength1 = 0.0025
+autoLength2 = 0.0025
+
+typeOfCDF = 1
+
+#Converter that relates real numbers to field dimensions
+converter = 1829
+
+#Mean and standard deviation
+mean = 1.
+cov = 0.2
