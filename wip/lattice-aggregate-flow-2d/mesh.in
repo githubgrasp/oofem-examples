@@ -10,4 +10,4 @@
 #@vertex 1 coords 2 -0.005 -0.005 refine 1. radius 0.
 #@vertex 2 coords 2  0.105  0.105 refine 1. radius 0.
 #@rect 1 box 4 0. 0. 0.1 0.1 refine 1.
-#@inclusionfile packing.dat itz 1.e-9 refine 0.5
+#@inclusionfile packing.dat itz 1.e-4 refine 0.5

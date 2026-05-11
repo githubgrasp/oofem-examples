@@ -1,0 +1,19 @@
+# 2D RVE: 100x100 mm box, periodic placement (the placer wraps disks across
+# the box; the downstream generator is set non-periodic so disks crossing
+# the boundary appear clipped).
+# Disks via Fuller grading; in 2D mode `fraction` is interpreted as area fraction.
+#@output packing.dat
+#@box 2 0.1 0.1
+# Periodic packing — disks can wrap or cross the rect faces. The generator
+# handles boundary-crossing disks via per-intersection anchor pairs on the
+# face (see Grid::generateInclusionBoundaryAnchors), so wall clearance is
+# not required. Disk-vs-disk overlap, however, must leave room for both
+# ITZ rings plus a `diam` mesh-spacing buffer — so the placer requires a
+# centre-to-centre gap of `r1 + r2 + diam + 2 * itz`. Tune `#@diam` /
+# `#@itz` to match the mesher's `#@diam` and `#@inclusionfile … itz`.
+#@periodicity 2 1 1
+#@seed 42
+#@maxiter 1000
+#@diam 0.002
+#@itz 1.e-4
+#@grading dmin 0.005 dmax 0.012 fraction 0.30
