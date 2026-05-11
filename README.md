@@ -32,6 +32,8 @@ folder, viewable on your host with any normal application.
 |---|---|
 | [`cdpm2-single-monotonic/`](cdpm2-single-monotonic/) | CDPM2 verification set: tension, compression, simple shear, pure shear on a single tetrahedron with one Gauss point. |
 | [`lattice-tensile-periodic-2d/`](lattice-tensile-periodic-2d/) | 2D direct tensile lattice analysis on a 100×100 mm prism, comparing a non-periodic mesh (crack locks onto the boundary) with a periodic mesh (crack goes through the random mesh). |
+| [`lattice-tensile-random-2d/`](lattice-tensile-random-2d/) | 2D direct tensile lattice analysis on a periodic 100×100 mm prism, comparing a uniform `e0` (crack pattern driven by mesh randomness only) with a spatially random `e0` (heterogeneity controls crack location). |
+| [`nonlocal-dynamic-idm1/`](nonlocal-dynamic-idm1/) | Explicit-dynamic fracture of a 254×254 mm Homalite-100 cruciform with a central crack under biaxial impulsive loading, comparing local (`idm1` crack-band) vs nonlocal damage regularisation. |
 
 More to follow as blog posts are published.
 
