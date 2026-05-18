@@ -1,0 +1,25 @@
+# OOFEM run outputs
+**/oofem.out
+**/std.out
+**/*.vtu
+**/*.vtk
+**/*.log
+
+# Mesh / converter intermediates
+**/mesh.nodes
+**/mesh.voronoi
+
+# OOFEM input assembled by the converter
+**/oofem.in
+
+# Extracted profile and analytical data
+**/profile_*.dat
+**/analytical_*.dat
+
+# Comparison plot
+compare.pdf
+
+# Editor backups
+**/*~
+**/.#*
+**/\#*\#

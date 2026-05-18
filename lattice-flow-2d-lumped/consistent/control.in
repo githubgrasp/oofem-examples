@@ -1,0 +1,29 @@
+oofem.out
+2D unsaturated transport on 100x100 mm rect, van Genuchten (mild), consistent capacity
+nltransienttransportproblem nsteps 500 rtol 1.e-3 alpha 1. nsmax 200 nmodules 1 deltatfunction 2
+vtkxmllattice tstep_step 1 dofman_all primvars 1 5
+domain 2dMassLatticeTransport
+OutputManager tstep_all dofman_all
+ncrosssect 0 nmat 1 nbc 1 nic 1 nltf 2 nset 1
+# Van Genuchten benchmark with mild curves (m = 0.5 / n = 2). The capacity
+# c(p) peaks at p ≈ a; the relative permeability k_r drops to ~0.7% at
+# u = 2 a (S ≈ 0.45) but stays non-zero. This is the standard regime in
+# which lumped converges monotonically and consistent shows oscillations
+# near the wetting front — the textbook Celia (1990) demonstration.
+latticetransmat 1 d 1. k 1.e-4 vis 1. thetas 1. thetar 0. thetam 1. contype 1 m 0.5 a 1000. paev 0.
+# Dry IC u = 2000 (S ≈ 0.45) meets saturated boundary u = 0 from t = 0.
+# Adaptive time stepping via deltatfunction (LTF 2): dt = 1e-6 for the
+# first 50 steps to absorb the initial Jacobian stiffness, then grows
+# linearly to 1e-4 by step 500. Standard Picard converges throughout.
+BoundaryCondition 1 loadTimeFunction 1 prescribedvalue 2000.
+InitialCondition 1 conditions 1 u 2000. valtype 1 dofs 1 11 set 1
+ConstantFunction 1 f(t) 0.
+PiecewiseLinFunction 2 nPoints 3 t 3 0. 50. 500. f(t) 3 0.000001 0.000001 0.0001
+Set 1 allelements
+#@grid 2dTM
+#@mesher qhull
+#@diam 0.002
+#@perflag 2 0 0
+#@thickness 1.0
+#@rect 1 box 4 0. 0. 0.1 0.1
+#@nodebc 1 face 2 min

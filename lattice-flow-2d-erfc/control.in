@@ -1,0 +1,27 @@
+oofem.out
+2D linear mass-transport on 100x100 mm rect, consistent capacity (verification vs analytical)
+nltransienttransportproblem nsteps 100 deltat 0.05 rtol 1.e-3 alpha 1. nsmax 200 nmodules 1
+vtkxmllattice tstep_step 1 dofman_all primvars 1 5
+domain 2dMassLatticeTransport
+OutputManager tstep_all dofman_all
+ncrosssect 0 nmat 1 nbc 1 nic 1 nltf 1 nset 1
+# Linear (constant k, constant c) transport. `contype 0` is the default and
+# `m` / `a` are not parsed in that branch. Diffusivity D = k/(vis·c) = 1e-4
+# m²/s. Run length 5 s → diffusion length sqrt(D·t_end) ≈ 22 mm, well
+# below the 100 mm specimen height, so the far face stays at p ≈ 0
+# (semi-infinite regime, matches p(y,t) = erfc(y/(2√(Dt))) analytically).
+latticetransmat 1 d 1. k 1.e-4 vis 1. c 1. thetas 1. thetar 0.
+# Saturated bottom (prescribed pressure = 1); rest of the specimen starts
+# at 0 via the initial condition. Linear problem — Picard converges in
+# one iteration per step so no BC ramping is needed.
+BoundaryCondition 1 loadTimeFunction 1 prescribedvalue 1.
+InitialCondition 1 Conditions 1 u 0. dofs 1 11 set 1
+ConstantFunction 1 f(t) 1.
+Set 1 allelements
+#@grid 2dTM
+#@mesher qhull
+#@diam 0.002
+#@perflag 2 0 0
+#@thickness 1.0
+#@rect 1 box 4 0. 0. 0.1 0.1
+#@nodebc 1 face 2 min

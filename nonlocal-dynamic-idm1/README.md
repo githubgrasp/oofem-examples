@@ -45,6 +45,11 @@ cd oofem-examples/nonlocal-dynamic-idm1/idm1
 docker run --rm -v "$PWD":/work ghcr.io/githubgrasp/oofem-public:latest bash run.sh --yes
 ```
 
+`:latest` always points at the current OOFEM build and may evolve. For the
+exact image used to produce the figures in the linked blog post, replace
+`:latest` with the per-example tag:
+`ghcr.io/githubgrasp/oofem-public:nonlocal-dynamic-idm1`.
+
 Regenerating the mesh from `mesh.in` requires the
 [T3D mesh generator](http://mech.fsv.cvut.cz/~dr/t3d.html), which is not
 bundled in the public Docker image. If `t3d` and `t3d2oofem` are on your
