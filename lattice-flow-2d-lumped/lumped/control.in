@@ -13,8 +13,9 @@ ncrosssect 0 nmat 1 nbc 1 nic 1 nltf 2 nset 1
 latticetransmat 1 d 1. k 1.e-4 vis 1. thetas 1. thetar 0. thetam 1. contype 1 m 0.5 a 1000. paev 0.
 # Dry IC u = 2000 (S ≈ 0.45) meets saturated boundary u = 0 from t = 0.
 # Adaptive time stepping via deltatfunction (LTF 2): dt = 1e-6 for the
-# first 50 steps to absorb the initial Jacobian stiffness, then grows
-# linearly to 1e-4 by step 500. Standard Picard converges throughout.
+# first 50 steps to absorb the initial matrix stiffness, then grows
+# linearly to 1e-4 by step 500. The modified Newton-Raphson loop
+# converges throughout.
 BoundaryCondition 1 loadTimeFunction 1 prescribedvalue 2000.
 InitialCondition 1 conditions 1 u 2000. valtype 1 dofs 1 11 set 1
 ConstantFunction 1 f(t) 0.

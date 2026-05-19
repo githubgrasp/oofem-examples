@@ -28,15 +28,22 @@ both variants agree on the long-term profile.
 ## Adaptive time stepping
 
 A direct step from `u_IC = 2000` to `u_BC = 0` with a fixed `dt` gives
-Picard a nearly-singular first-step Jacobian (the dry-side `k_r ≈ 0.7%`).
+the nonlinear solver a nearly-singular first-step matrix (the dry-side
+`k_r ≈ 0.7%`). OOFEM's `nltransienttransportproblem` uses **modified
+Newton-Raphson**: the conductivity-plus-capacity matrix is assembled
+once per step and held constant for all iterations within that step,
+only the residual updates. With a too-large initial `dt` no number of
+iterations recovers the dry-side stiffness.
+
 This example uses OOFEM's `deltatfunction` to drive the solver with a
 **piecewise-linear `dt` schedule** indexed by step:
 
     PiecewiseLinFunction 2 nPoints 3 t 3 0. 50. 500. f(t) 3 1e-6 1e-6 1e-4
 
-→ `dt = 10⁻⁶` for the first 50 steps (absorbs the initial Jacobian
-stiffness), then growing linearly to `dt = 10⁻⁴` by step 500. Standard
-Picard converges throughout for both variants — even with the step BC.
+→ `dt = 10⁻⁶` for the first 50 steps (absorbs the initial stiffness),
+then growing linearly to `dt = 10⁻⁴` by step 500. The modified Newton-
+Raphson loop converges throughout for both variants — even with the
+step BC.
 
 ## Reproduce
 

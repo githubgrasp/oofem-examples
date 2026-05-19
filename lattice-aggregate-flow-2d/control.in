@@ -18,8 +18,8 @@ latticetransmat 1 d 1. k 2.e-5 vis 1. c 1. thetas 1. thetar 0.
 # simulation and the wetting front gets clearly deflected around them.
 latticetransmat 2 d 1. k 2.e-9 vis 1. c 1. thetas 1. thetar 0.
 # Saturated bottom (prescribed pressure = 1); rest of the specimen starts at 0
-# via the initial condition. Linear problem — Picard converges in 1 iter/step
-# so no BC ramping needed.
+# via the initial condition. Linear problem — the modified Newton-Raphson
+# loop converges in 1 iter/step so no BC ramping needed.
 BoundaryCondition 1 loadTimeFunction 1 prescribedvalue 1.
 InitialCondition 1 Conditions 1 u 0. dofs 1 11 set 1
 ConstantFunction 1 f(t) 1.
