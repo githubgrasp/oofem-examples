@@ -14,9 +14,12 @@ the far face stays at `p ≈ 0`, so the early-time semi-infinite limit
 
 The purpose of this example is twofold:
 
-1. **Introduce the transport lattice as a discrete dual** of the
-   mechanical lattice — same Voronoi tessellation, same `dim 2` capacity
-   convention, just `latticemt2D` instead of `latticedamage`.
+1. **Introduce the transport lattice as the geometric dual** of the
+   mechanical lattice. Both share the underlying Voronoi–Delaunay
+   tessellation, but each lives on a different part of the duality:
+   structural frame elements (`latticedamage`) along the Delaunay
+   edges, transport conduit elements (`latticemt2D`) along the dual
+   Voronoi edges.
 2. **Verify** that the discrete transport scheme matches the continuum
    solution to mesh-randomness accuracy (~3% at this resolution).
 
