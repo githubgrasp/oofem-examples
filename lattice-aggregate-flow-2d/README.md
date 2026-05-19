@@ -97,4 +97,4 @@ nonlinearity.
 
 ## Referenced by
 
-- Blog post: *(to be written)*
+- Blog post: https://petergrassl.com/blog/lattice-aggregate-flow-2d/

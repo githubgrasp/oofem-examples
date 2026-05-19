@@ -3,25 +3,19 @@
 A 100×100 mm prism with prescribed pressure on the bottom face and zero
 pressure (dry) initial condition everywhere else. Linear, isotropic
 transport (constant capacity `c` and permeability `k`), so the governing
-equation reduces to 1D diffusion with diffusivity `D = k / (vis · c)`. The
-analytical solution is the classical finite-slab series
-
-    p(y, t) = 1 - Σ_n [4/((2n+1)π)] sin((2n+1)π y / (2H)) exp(-((2n+1)π/(2H))² D t)
-
-which the lattice must reproduce. The total run time is short enough that
-the far face stays at `p ≈ 0`, so the early-time semi-infinite limit
-`p(y, t) ≈ erfc(y / (2√(D t)))` is also a useful intuition.
+equation reduces to 1D diffusion with diffusivity `D = k / (vis · c)`.
+The total run time is short enough that the far face stays at `p ≈ 0`, so the early-time semi-infinite limit `p(y, t) ≈ erfc(y / (2√(D t)))` is also a useful intuition.
 
 The purpose of this example is twofold:
 
 1. **Introduce the transport lattice as the geometric dual** of the
    mechanical lattice. Both share the underlying Voronoi–Delaunay
    tessellation, but each lives on a different part of the duality:
-   structural frame elements (`latticedamage`) along the Delaunay
+   structural frame elements (`lattice2d`) along the Delaunay
    edges, transport conduit elements (`latticemt2D`) along the dual
    Voronoi edges.
 2. **Verify** that the discrete transport scheme matches the continuum
-   solution to mesh-randomness accuracy (~3% at this resolution).
+   solution.
 
 ## Reproduce
 
@@ -102,4 +96,4 @@ infinite regime).
 
 ## Referenced by
 
-- Blog post: *(to be written)*
+- Blog post: https://petergrassl.com/blog/lattice-flow-2d-erfc/
