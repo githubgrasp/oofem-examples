@@ -135,7 +135,3 @@ to converge at all (see the project memory on adaptive-`dt` patterns).
 ## Referenced by
 
 - Blog post: https://petergrassl.com/blog/lattice-flow-2d-lumped/
-- Celia, M. A., Bouloutas, E. T. & Zarba, R. L. (1990). *A general
-  mass-conservative numerical solution for the unsaturated flow
-  equation.* Water Resources Research, 26(7), 1483–1496.
-  [doi:10.1029/WR026i007p01483](https://doi.org/10.1029/WR026i007p01483)
