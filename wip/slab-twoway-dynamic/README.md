@@ -20,16 +20,21 @@ function.
 
 ## Reproduce
 
-This example needs T3D (no committed `oofem.in` fallback yet), so use
-the private Docker image — see the
-[student-projects](https://petergrassl.com/student-projects/) page for
-setup.
+Both `oofem.in` files are committed, so the public Docker image (no T3D
+needed) is enough to rerun the analyses:
 
 ```bash
 git clone https://github.com/githubgrasp/oofem-examples.git
 cd oofem-examples/wip/slab-twoway-dynamic
-docker run --rm -v "$PWD":/work -w /work oofem-private:dev bash run-all.sh
+docker run --rm -v "$PWD":/work \
+  ghcr.io/githubgrasp/oofem-public:latest bash run-all.sh
 ```
+
+If you want to regenerate the mesh from `mesh.in` (e.g. to change slab
+dimensions or mesh size) you need T3D, which is bundled in the private
+image — see the
+[student-projects](https://petergrassl.com/student-projects/) page for
+setup.
 
 `run-all.sh` runs `static/` then `dynamic/` in turn. To run just one
 case, `cd` into that sub-folder and `bash run.sh`. `bash clean.sh`

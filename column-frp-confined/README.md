@@ -15,20 +15,17 @@ two contrasting macroscopic responses that CFRP confinement produces:
    though the concrete inside the wrap is already damaging.
 
 The hardening mechanism is the competition between two effects. As the
-concrete damages, its stiffness drops, and lateral expansion accelerates.
+concrete damages, its stiffness drops, and lateral expansion continues.
 The CFRP wrap reacts elastically to that expansion and applies a passive
 confining pressure, which pushes the stress state up the CDPM2 yield
 surface. Confinement wins fast enough that the axial load capacity keeps
-growing despite the stiffness loss. This matches what is seen
-experimentally when FRP-wrapped specimens are cut open: the interior
-concrete shows damage typical of softening under unconfined loading, but
-the macroscopic load–displacement curve never softens.
+growing despite the stiffness loss. 
 
 The CFRP wrap is discretised as `truss3d` elements oriented in the
 circumferential direction only — the wrap carries hoop force but no
 axial or shear force. This mirrors a circumferentially wound CFRP sheet,
 which is strongly orthotropic: stiff and strong along the fibres, soft
-across them. Modelling the wrap as a continuum shell would impose an
+across them. Modelling the wrap as an isotropic continuum shell would impose an
 axial stiffness that the real material does not have.
 
 One detail to keep in mind when looking at the damage field: the top
@@ -58,11 +55,6 @@ The `:column-frp-confined` tag is the immutable image baked against the
 OOFEM commit that produced the committed `ld.dat` reference curves; use
 `:latest` to track the current OOFEM build instead.
 
-If you want to regenerate the mesh from `mesh.in` (e.g. to change
-geometry or wrap layout) you need T3D, which is bundled in the private
-image — see the
-[student-projects](https://petergrassl.com/student-projects/) page for
-setup.
 
 `run-all.sh` runs `unconfined/` then `confined/` in turn. To run just
 one case, `cd` into that sub-folder and `bash run.sh`.
