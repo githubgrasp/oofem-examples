@@ -31,20 +31,41 @@ which is strongly orthotropic: stiff and strong along the fibres, soft
 across them. Modelling the wrap as a continuum shell would impose an
 axial stiffness that the real material does not have.
 
+One detail to keep in mind when looking at the damage field: the top
+and bottom end faces of the cylinder have prescribed axial displacement
+but are also restrained from radial expansion (the prescribed-displacement
+BC fixes all three DOFs at the loaded nodes). That acts as a built-in
+confinement source near the end zones — a platen-like effect — so even
+the unconfined cylinder is laterally confined for free at z = 0 and
+z = L. Damage in the unconfined case therefore localises in the middle
+of the specimen, away from the over-confined end bands. The contour to
+look at is the compressive damage variable ω_c in CDPM2 (the tensile
+damage ω_t follows ω_c under this load path).
+
 ## Reproduce
 
-With the private Docker image (T3D bundled — see the
-[student-projects](https://petergrassl.com/student-projects/) page for
-setup):
+Both `oofem.in` files are committed, so the public Docker image (no T3D
+needed) is enough to rerun the analyses:
 
 ```bash
 git clone https://github.com/githubgrasp/oofem-examples.git
-cd oofem-examples/wip/column-frp-confined
-docker run --rm -v "$PWD":/work ghcr.io/githubgrasp/oofem-private:latest bash run-all.sh
+cd oofem-examples/column-frp-confined
+docker run --rm -v "$PWD":/work \
+  ghcr.io/githubgrasp/oofem-public:column-frp-confined bash run-all.sh
 ```
 
-`run-all.sh` runs both `unconfined/` then `confined/` in turn. To run
-just one case, `cd` into that sub-folder and `bash run.sh`.
+The `:column-frp-confined` tag is the immutable image baked against the
+OOFEM commit that produced the committed `ld.dat` reference curves; use
+`:latest` to track the current OOFEM build instead.
+
+If you want to regenerate the mesh from `mesh.in` (e.g. to change
+geometry or wrap layout) you need T3D, which is bundled in the private
+image — see the
+[student-projects](https://petergrassl.com/student-projects/) page for
+setup.
+
+`run-all.sh` runs `unconfined/` then `confined/` in turn. To run just
+one case, `cd` into that sub-folder and `bash run.sh`.
 
 `bash clean.sh` removes everything generated in both sub-folders.
 
