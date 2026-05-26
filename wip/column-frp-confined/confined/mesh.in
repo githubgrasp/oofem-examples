@@ -1,0 +1,192 @@
+# t3d -d 0.01 -p 8 -i mesh.in -o mesh.out
+
+# FRP concrete cylinder, height = 0.20 m, diameter = 0.10 m
+# (matches the unconfined geometry; difference is the FRP wrap).
+
+vertex 1 xyz 0.05 0.0 0.0
+vertex 2 xyz 0.05 0.1 0.0
+
+vertex 3 xyz 0.05 0.0 0.20
+vertex 4 xyz 0.05 0.1 0.20
+
+curve 101 order 4 vertex 1 2 property 6 output yes
+polygon 1 xyz 0.15 0.0 0.0 weight 0.3333333
+polygon 2 xyz 0.15 0.1 0.0 weight 0.333333
+curve 102 order 4 vertex 1 2 property 6 output yes
+polygon 1 xyz -0.05 0.0 0.0 weight 0.3333333
+polygon 2 xyz -0.05 0.1 0.0 weight 0.333333
+
+curve 103 order 4 vertex 3 4 property 6 output yes
+polygon 1 xyz 0.15 0. 0.20 weight 0.3333333
+polygon 2 xyz 0.15 0.1 0.20 weight 0.333333
+curve 104 order 4 vertex 3 4 property 6 output yes
+polygon 1 xyz -0.05 0. 0.20 weight 0.3333333
+polygon 2 xyz -0.05 0.1 0.20 weight 0.333333
+
+curve 5 order 2 vertex 1 3
+curve 6 order 2 vertex 2 4
+
+patch 1 normal 0 0 -1 boundary curve -101 102
+patch 2 normal 0 0 -1 boundary curve -103 104
+surface 3 curve 101 5 103 6 size def
+surface 4 curve 102 5 104 6 size def
+
+# The 31 intermediate FRP hoop layers on the cylinder surface,
+# at z = 0.00625, 0.0125, ..., 0.19375 (spacing 6.25 mm).
+
+vertex 105 xyz 0.05 0. 0.00625 fixed curve 5
+vertex 106 xyz 0.05 0.1 0.00625 fixed curve 6
+curve 105 order 4 vertex 105 106 fixed surface 3 output yes property 5
+curve 106 order 4 vertex 105 106 fixed surface 4 output yes property 5
+
+vertex 107 xyz 0.05 0. 0.01250 fixed curve 5
+vertex 108 xyz 0.05 0.1 0.01250 fixed curve 6
+curve 107 order 4 vertex 107 108 fixed surface 3 output yes property 5
+curve 108 order 4 vertex 107 108 fixed surface 4 output yes property 5
+
+vertex 109 xyz 0.05 0. 0.01875 fixed curve 5
+vertex 110 xyz 0.05 0.1 0.01875 fixed curve 6
+curve 109 order 4 vertex 109 110 fixed surface 3 output yes property 5
+curve 110 order 4 vertex 109 110 fixed surface 4 output yes property 5
+
+vertex 111 xyz 0.05 0. 0.02500 fixed curve 5
+vertex 112 xyz 0.05 0.1 0.02500 fixed curve 6
+curve 111 order 4 vertex 111 112 fixed surface 3 output yes property 5
+curve 112 order 4 vertex 111 112 fixed surface 4 output yes property 5
+
+vertex 113 xyz 0.05 0. 0.03125 fixed curve 5
+vertex 114 xyz 0.05 0.1 0.03125 fixed curve 6
+curve 113 order 4 vertex 113 114 fixed surface 3 output yes property 5
+curve 114 order 4 vertex 113 114 fixed surface 4 output yes property 5
+
+vertex 115 xyz 0.05 0. 0.03750 fixed curve 5
+vertex 116 xyz 0.05 0.1 0.03750 fixed curve 6
+curve 115 order 4 vertex 115 116 fixed surface 3 output yes property 5
+curve 116 order 4 vertex 115 116 fixed surface 4 output yes property 5
+
+vertex 117 xyz 0.05 0. 0.04375 fixed curve 5
+vertex 118 xyz 0.05 0.1 0.04375 fixed curve 6
+curve 117 order 4 vertex 117 118 fixed surface 3 output yes property 5
+curve 118 order 4 vertex 117 118 fixed surface 4 output yes property 5
+
+vertex 119 xyz 0.05 0. 0.05000 fixed curve 5
+vertex 120 xyz 0.05 0.1 0.05000 fixed curve 6
+curve 119 order 4 vertex 119 120 fixed surface 3 output yes property 5
+curve 120 order 4 vertex 119 120 fixed surface 4 output yes property 5
+
+vertex 121 xyz 0.05 0. 0.05625 fixed curve 5
+vertex 122 xyz 0.05 0.1 0.05625 fixed curve 6
+curve 121 order 4 vertex 121 122 fixed surface 3 output yes property 5
+curve 122 order 4 vertex 121 122 fixed surface 4 output yes property 5
+
+vertex 123 xyz 0.05 0. 0.06250 fixed curve 5
+vertex 124 xyz 0.05 0.1 0.06250 fixed curve 6
+curve 123 order 4 vertex 123 124 fixed surface 3 output yes property 5
+curve 124 order 4 vertex 123 124 fixed surface 4 output yes property 5
+
+vertex 125 xyz 0.05 0. 0.06875 fixed curve 5
+vertex 126 xyz 0.05 0.1 0.06875 fixed curve 6
+curve 125 order 4 vertex 125 126 fixed surface 3 output yes property 5
+curve 126 order 4 vertex 125 126 fixed surface 4 output yes property 5
+
+vertex 127 xyz 0.05 0. 0.07500 fixed curve 5
+vertex 128 xyz 0.05 0.1 0.07500 fixed curve 6
+curve 127 order 4 vertex 127 128 fixed surface 3 output yes property 5
+curve 128 order 4 vertex 127 128 fixed surface 4 output yes property 5
+
+vertex 129 xyz 0.05 0. 0.08125 fixed curve 5
+vertex 130 xyz 0.05 0.1 0.08125 fixed curve 6
+curve 129 order 4 vertex 129 130 fixed surface 3 output yes property 5
+curve 130 order 4 vertex 129 130 fixed surface 4 output yes property 5
+
+vertex 131 xyz 0.05 0. 0.08750 fixed curve 5
+vertex 132 xyz 0.05 0.1 0.08750 fixed curve 6
+curve 131 order 4 vertex 131 132 fixed surface 3 output yes property 5
+curve 132 order 4 vertex 131 132 fixed surface 4 output yes property 5
+
+vertex 133 xyz 0.05 0. 0.09375 fixed curve 5
+vertex 134 xyz 0.05 0.1 0.09375 fixed curve 6
+curve 133 order 4 vertex 133 134 fixed surface 3 output yes property 5
+curve 134 order 4 vertex 133 134 fixed surface 4 output yes property 5
+
+vertex 135 xyz 0.05 0. 0.10000 fixed curve 5
+vertex 136 xyz 0.05 0.1 0.10000 fixed curve 6
+curve 135 order 4 vertex 135 136 fixed surface 3 output yes property 5
+curve 136 order 4 vertex 135 136 fixed surface 4 output yes property 5
+
+vertex 137 xyz 0.05 0. 0.10625 fixed curve 5
+vertex 138 xyz 0.05 0.1 0.10625 fixed curve 6
+curve 137 order 4 vertex 137 138 fixed surface 3 output yes property 5
+curve 138 order 4 vertex 137 138 fixed surface 4 output yes property 5
+
+vertex 139 xyz 0.05 0. 0.11250 fixed curve 5
+vertex 140 xyz 0.05 0.1 0.11250 fixed curve 6
+curve 139 order 4 vertex 139 140 fixed surface 3 output yes property 5
+curve 140 order 4 vertex 139 140 fixed surface 4 output yes property 5
+
+vertex 141 xyz 0.05 0. 0.11875 fixed curve 5
+vertex 142 xyz 0.05 0.1 0.11875 fixed curve 6
+curve 141 order 4 vertex 141 142 fixed surface 3 output yes property 5
+curve 142 order 4 vertex 141 142 fixed surface 4 output yes property 5
+
+vertex 143 xyz 0.05 0. 0.12500 fixed curve 5
+vertex 144 xyz 0.05 0.1 0.12500 fixed curve 6
+curve 143 order 4 vertex 143 144 fixed surface 3 output yes property 5
+curve 144 order 4 vertex 143 144 fixed surface 4 output yes property 5
+
+vertex 145 xyz 0.05 0. 0.13125 fixed curve 5
+vertex 146 xyz 0.05 0.1 0.13125 fixed curve 6
+curve 145 order 4 vertex 145 146 fixed surface 3 output yes property 5
+curve 146 order 4 vertex 145 146 fixed surface 4 output yes property 5
+
+vertex 147 xyz 0.05 0. 0.13750 fixed curve 5
+vertex 148 xyz 0.05 0.1 0.13750 fixed curve 6
+curve 147 order 4 vertex 147 148 fixed surface 3 output yes property 5
+curve 148 order 4 vertex 147 148 fixed surface 4 output yes property 5
+
+vertex 149 xyz 0.05 0. 0.14375 fixed curve 5
+vertex 150 xyz 0.05 0.1 0.14375 fixed curve 6
+curve 149 order 4 vertex 149 150 fixed surface 3 output yes property 5
+curve 150 order 4 vertex 149 150 fixed surface 4 output yes property 5
+
+vertex 151 xyz 0.05 0. 0.15000 fixed curve 5
+vertex 152 xyz 0.05 0.1 0.15000 fixed curve 6
+curve 151 order 4 vertex 151 152 fixed surface 3 output yes property 5
+curve 152 order 4 vertex 151 152 fixed surface 4 output yes property 5
+
+vertex 153 xyz 0.05 0. 0.15625 fixed curve 5
+vertex 154 xyz 0.05 0.1 0.15625 fixed curve 6
+curve 153 order 4 vertex 153 154 fixed surface 3 output yes property 5
+curve 154 order 4 vertex 153 154 fixed surface 4 output yes property 5
+
+vertex 155 xyz 0.05 0. 0.16250 fixed curve 5
+vertex 156 xyz 0.05 0.1 0.16250 fixed curve 6
+curve 155 order 4 vertex 155 156 fixed surface 3 output yes property 5
+curve 156 order 4 vertex 155 156 fixed surface 4 output yes property 5
+
+vertex 157 xyz 0.05 0. 0.16875 fixed curve 5
+vertex 158 xyz 0.05 0.1 0.16875 fixed curve 6
+curve 157 order 4 vertex 157 158 fixed surface 3 output yes property 5
+curve 158 order 4 vertex 157 158 fixed surface 4 output yes property 5
+
+vertex 159 xyz 0.05 0. 0.17500 fixed curve 5
+vertex 160 xyz 0.05 0.1 0.17500 fixed curve 6
+curve 159 order 4 vertex 159 160 fixed surface 3 output yes property 5
+curve 160 order 4 vertex 159 160 fixed surface 4 output yes property 5
+
+vertex 161 xyz 0.05 0. 0.18125 fixed curve 5
+vertex 162 xyz 0.05 0.1 0.18125 fixed curve 6
+curve 161 order 4 vertex 161 162 fixed surface 3 output yes property 5
+curve 162 order 4 vertex 161 162 fixed surface 4 output yes property 5
+
+vertex 163 xyz 0.05 0. 0.18750 fixed curve 5
+vertex 164 xyz 0.05 0.1 0.18750 fixed curve 6
+curve 163 order 4 vertex 163 164 fixed surface 3 output yes property 5
+curve 164 order 4 vertex 163 164 fixed surface 4 output yes property 5
+
+vertex 165 xyz 0.05 0. 0.19375 fixed curve 5
+vertex 166 xyz 0.05 0.1 0.19375 fixed curve 6
+curve 165 order 4 vertex 165 166 fixed surface 3 output yes property 5
+curve 166 order 4 vertex 165 166 fixed surface 4 output yes property 5
+
+region 1 boundary patch 1 -2 boundary surface 3 -4 size def

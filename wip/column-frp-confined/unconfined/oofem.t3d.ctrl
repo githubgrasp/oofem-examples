@@ -1,0 +1,42 @@
+oofem.out
+Plain Concrete Column
+NonLinearStatic nmsteps 1  nmodules 1 nsteps 1 profileopt 1 contextOutputStep 1000 smtype 8 lstype 4
+nsteps 100 rtolf 1.e-3 stiffMode 2 maxiter 200 controllmode 1 donotfixload lstype 4
+vtkxml primvars 2 1 4 cellvars 8 1 2 4 5 13 46 12 41 tstep_step 1 domain_all  
+domain 3d
+OutputManager tstep_all dofman_output {1 3}
+ncrosssect 1 nmat 1 nbc 2 nic 0 nltf 2
+SimpleCS 1
+con2dpm 1 d 2400 E 31.0e9 n 0.2 talpha 0. wf 2.22e-4 fc 30.0e6 ft 2.7e6 hp 0.01 yieldtol 1.e-6 asoft 15. stype 2 kinit 0.3 ecc 0.518 efc 1.e-4 ahard 8.e-2 bhard 3.3e-3 chard 2. dhard 1.e-6 dilation 0.85
+BoundaryCondition  1 loadTimeFunction 1 prescribedvalue 0.0 
+BoundaryCondition  2 loadTimeFunction 2 prescribedvalue -0.003
+ConstantFunction 1 f(t) 1.0  
+PiecewiseLinFunction 2 t 2 0. 100. f(t) 2 0.0 1
+
+region 1
+elemprop crossSect 1 mat 1 
+tetratype ltrspace
+
+vertex 1
+nodeprop bc 3 1 1 1
+
+curve 101 102
+patch 1
+vertex 2
+nodeprop mastermask 3 1 1 1 doftype 3 1 1 1
+
+
+vertex 3
+nodeprop bc 3 1 1 2
+
+curve 103 104
+patch 2
+vertex 4
+nodeprop mastermask 3 3 3 3 doftype 3 1 1 1
+
+###### Used for Extractor
+###
+#%BEGIN_CHECK%
+#DOFMAN  number 3 dof 3 type d
+#REACTION number 1 dof 3
+#%END_CHECK%
