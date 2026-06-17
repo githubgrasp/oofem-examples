@@ -1,0 +1,49 @@
+oofem.out
+Corrosion-induced cracking cylinder (axial slice, eigenstrain on rust ITZ)
+NonLinearStatic nsteps 100 contextOutputStep 200 nmodules 2 rtolv 1.e-3 stiffMode 1 manrmsteps 10 maxiter 200 controllmode 1 deltat 1.0 lstype 4 smtype 8
+vtkxmllattice primvars 1 1 cellvars 9 138 139 140 156 157 158 52 46 103 tstep_step 1 domain_all cross 1 crossstep 1
+gpexportmodule vars 2 46 139 tstep_all
+domain 3dLattice
+OutputManager tstep_all dofman_output { #@CTL1 }
+ncrosssect 3 nmat 3 nbc 3 nic 0 nltf 3 nset 2
+latticecs 1 material 1
+latticecs 2 material 2
+latticecs 3 material 3
+# Concrete: combined plasticity + damage. Plasticity gives a finite compressive
+# yield surface, so the radial compression around the corroding rebar is
+# bounded — pure damage models keep accumulating tensile damage from the
+# compression-side strains and unphysically lose stiffness. ft randomised via
+# random.dat.
+latticeplastdam 1 d 0 talpha 0. calpha 0. e 30.e9 ft 3.e6 fc 30.e6 wf 50.e-6 ahard 1.e-3 randvars 1 800 randgen 1 3
+# Steel rebar core (inside R=8mm cylinder): linear elastic, no expansion
+latticelinearelastic 2 d 0 talpha 0. calpha 0. em 200.e9 nu 0.3
+# Corrosion ITZ (0.1mm shell at R=8mm): steel-stiff in the radial direction
+# (`e`), shear-free with the surrounding concrete (`a1` near zero) so the
+# layer can expand radially without transmitting shear to the matrix.
+# calpha drives the eigenstrain via the StructTemperatureLoad below.
+latticelinearelastic 3 d 0 talpha 0. e 200.e9 a1 0.001 calpha 0.5e-4
+# CTL1 fully fixed (anchors RBM); CTL2 only locks lateral DOFs so the slice
+# can expand axially under the corrosion pressure
+BoundaryCondition 1 loadTimeFunction 1 dofs 4 1 2 3 4 values 4 0 0 0 0 set 1
+BoundaryCondition 2 loadTimeFunction 1 dofs 3 2 3 4 values 3 0 0 0 set 2
+StructTemperatureLoad 3 loadTimeFunction 2 Components 1 1.0
+ConstantFunction 1 f(t) 1.
+# Linear ramp of the rust eigenstrain over the simulation
+PiecewiseLinFunction 2 nPoints 2 t 2 0. 100. f(t) 2 0. 1.
+InterpolatingFunction 3 name random.dat dim 3
+Set 1 nodes 1 #@CTL1
+Set 2 nodes 1 #@CTL2
+#%BEGIN_CHECK%
+#NODE number #@CTL1 dof 2 unknown d
+#LOADLEVEL
+#TIME
+#%END_CHECK%
+#@grid 3dSM
+#@mesher qhull
+#@diam 5.e-3
+#@perflag 3 0 0 0
+#@cylinder 1 line 6 0. 0. 0. 10.e-3 0. 0. radius 75.e-3 refine 1.
+#@cylinderinclusion 1 line 6 0. 0. 0. 10.e-3 0. 0. radius 8.e-3 itz 0.1e-3 inside 2 interface 3
+#@bodyload 3 3
+#@controlvertex 1 coords 3 0.     0. 0.
+#@controlvertex 2 coords 3 10.e-3 0. 0.

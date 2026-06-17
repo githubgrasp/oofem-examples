@@ -1,0 +1,31 @@
+numberOfDimensions = 3
+
+ranint = -2
+
+xOrigin = -0.01
+yOrigin = -0.08
+zOrigin = -0.08
+
+#Real numbers
+realNumber1 = 8
+realNumber2 = 64
+realNumber3 = 64
+
+#Autocorrelation length
+autoLength1 = 0.01
+autoLength2 = 0.01
+autoLength3 = 0.01
+
+typeOfCDF = 1
+
+#Converter that relates real numbers to field dimensions.
+# Step = 1/converter. Here 1/320 = 3.125 mm, ~ autoLength/3 (still good FFT
+# fidelity). With 8x64x64 grid this gives 25 mm x 200 mm x 200 mm coverage —
+# wraps the 10 mm x 150 mm x 150 mm specimen with margin on all sides.
+# Larger step (smaller converter) is preferred over a finer grid because the
+# random.dat file size scales with grid points (8x64x64 ~ 256 KB).
+converter = 320
+
+#Mean and standard deviation
+mean = 1.
+cov = 0.2

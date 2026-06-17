@@ -5,7 +5,7 @@ vtkxmllattice primvars 1 1 cellvars 4 46 60 90 111 tstep_step 100 domain_all cro
 domain 3d
 OutputManager tstep_step 100 dofman_output { 5 }
 ncrosssect 1 nmat 1 nbc 1 nic 0 nltf 2 nset 1
-LatticeCS 1 material 1 shape 2
+LatticeCS 1 material 1
 LatticeFrameElastic 1 d 2400. tAlpha 0.0 E 30.e9 n 0.0
 #@mesher t3d
 #@INSERT_LIVELOADS

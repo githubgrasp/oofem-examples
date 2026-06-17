@@ -1,0 +1,16 @@
+random.dat
+nodes.dat
+voronoi.dat
+oofem.in
+oofem.out
+oofem.out.*
+*.vtu
+*.pvd
+*.gp
+*.log
+pressure.dat
+stdMeshGenerator.out
+stdMeshConverter.out
+stat.dat
+*~
+pressure-penetration.pdf
