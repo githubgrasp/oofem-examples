@@ -1,0 +1,34 @@
+numberOfDimensions = 3
+
+# Negative seed = deterministic; positive would re-seed from the clock.
+ranint = -2
+
+# Origin extends a 15 mm halo around the 30 mm periodic cell so the
+# InterpolatingFunction lookup stays inside the field grid for fibres and
+# lattice nodes that cross the cell boundary (mesh.in's bounding box is
+# -12 mm to +42 mm).
+xOrigin = -0.015
+yOrigin = -0.015
+zOrigin = -0.015
+
+# Powers of two — radix-2 FFT requirement.
+# 16 x 16 x 16 grid with step 4 mm spans 64 mm, fully wrapping the bounding box.
+realNumber1 = 16
+realNumber2 = 16
+realNumber3 = 16
+
+# Autocorrelation length ~10 mm — coarse-aggregate scale of heterogeneity.
+autoLength1 = 0.01
+autoLength2 = 0.01
+autoLength3 = 0.01
+
+# Step = 1/converter. Here 1/250 = 4 mm, ~ autoLength/2.5 (acceptable FFT
+# fidelity; the field is multiplicative noise on ft, not a smooth feature).
+# Larger step than autoLength/4 traded for coverage that wraps fibres /
+# lattice nodes sticking past the periodic cell.
+converter = 250
+
+# Gaussian marginal, mean 1, CoV 20% — multiplicative factor on ft (e0).
+typeOfCDF = 1
+mean = 1.
+cov  = 0.2

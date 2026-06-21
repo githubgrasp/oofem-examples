@@ -28,8 +28,7 @@ With the public Docker image (no compilation needed):
 ```bash
 git clone https://github.com/githubgrasp/oofem-examples.git
 cd oofem-examples/lattice-corrosion-3d
-docker run --rm -v "$PWD":/work ghcr.io/githubgrasp/oofem-public:latest \
-  bash -c "bash run.sh && oofem -f oofem.in > std.out && perl pressureExtractor.pl && gnuplot pressure-plot.gp"
+docker run --rm -v "$PWD":/work ghcr.io/githubgrasp/oofem-public:latest bash -c "bash run.sh && oofem -f oofem.in > std.out && perl pressureExtractor.pl && gnuplot pressure-plot.gp"
 ```
 
 `:latest` always points at the current OOFEM build and may evolve. For the

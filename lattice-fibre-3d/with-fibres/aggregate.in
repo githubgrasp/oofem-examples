@@ -1,0 +1,8 @@
+# Aggregate-placer input — periodic 30x30x30 mm cube with steel fibres only.
+# No #@grading: aggregates are skipped, the cube is matrix + fibres only.
+#@output packing.dat
+#@box 3 0.03 0.03 0.03
+#@periodicity 3 1 1 1
+#@seed 42
+#@maxiter 10000
+#@fibres fraction 0.01 length 0.015 diameter 0.0004

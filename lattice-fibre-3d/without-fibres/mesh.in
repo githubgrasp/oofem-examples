@@ -1,0 +1,14 @@
+# Periodic 3D SM mesh on 30x30x30 mm cube. Lattice nodes are placed without
+# reference to the fibres — those come in at the converter stage via
+# #@inclusionfile and are discretised on top of the matrix Voronoi.
+#@output nodes.dat
+#@domain 3
+#@diam 4.e-3
+#@maxiter 10000
+#@ranint -2
+#@perflag 3 1 1 1
+#@ranflag 1
+# Bounding-box corners widen the localiser so periodic neighbour lookup works.
+#@vertex 1 coords 3 -0.012 -0.012 -0.012
+#@vertex 2 coords 3  0.042  0.042  0.042
+#@prism 1 box 6 0. 0. 0. 0.03 0.03 0.03 refine 1. edgerefine 0.5 surfacerefine 0.7 regionrefine 1.
