@@ -10,9 +10,8 @@ poroelastic solution.
 This reproduces the elastic part of the benchmark in:
 
 > P. Grassl, C. Fahy, D. Gallipoli, S.J. Wheeler,
-> *A hydro-mechanical lattice approach for modelling hydraulic fracture*,
+> [*A hydro-mechanical lattice approach for modelling hydraulic fracture*](https://petergrassl.com/publications/grafahgal15a/),
 > J. Mech. Phys. Solids **75** (2015) 104–118 — Fig. 7 and Appendix A (eq. A.22).
-> 
 
 but with a different ratio of outer and inner radii to make it run faster.
 
@@ -35,16 +34,24 @@ normalised radius `r / r_i` for two Biot coefficients, each as raw lattice nodes
 
 Biot's coefficient gives contrasting qualitative responses.
 
-## Run it
+## Reproduce
+
+With the public Docker image (no compilation needed):
+
+```bash
+git clone https://github.com/githubgrasp/oofem-examples.git
+cd oofem-examples/lattice-coupling-pressure-2d
+docker run --rm -v "$PWD":/work ghcr.io/githubgrasp/oofem-public:latest bash run.sh
+```
+
+Or with a local build — `generator`, `qvoronoi`, `converter`, `oofem` on the
+PATH, plus `python3` and `gnuplot`:
 
 ```bash
 bash run.sh      # runs both Biot cases (b0/ and b1/) and the combined compare.pdf
 bash b0/run.sh   # or run a single case on its own (self-contained)
 bash clean.sh    # back to a git-clean folder (keeps b0/ b1/ sources + local/)
 ```
-
-Requires `generator`, `qvoronoi`, `converter`, `oofem` on the PATH (all in the
-example Docker image), plus `python3` and `gnuplot` for post-processing.
 
 Each Biot case lives in its own self-contained folder — `b0/` (b = 0) and `b1/`
 (b = 1) — holding its own `mesh.in`, `control.in` (the Biot value), `control.tm.in`,
