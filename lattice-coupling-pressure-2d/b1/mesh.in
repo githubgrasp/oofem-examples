@@ -1,0 +1,16 @@
+# 2D node distribution: thick-walled cylinder (annulus)
+# inner radius r_i = 0.008 m, outer radius r_o = 0.025 m  (r_o/r_i = 3.125)
+#@output mesh.nodes
+#@domain 2
+#@diam 0.001
+#@maxiter 100000
+#@ranint -1
+#@perflag 2 0 0
+#@ranflag 1
+#@vertex 1 coords 2 -0.026 -0.026 refine 1. radius 0.
+#@vertex 2 coords 2  0.026  0.026 refine 1. radius 0.
+#@disk 1 centre 2 0.0 0.0 radius 0.025
+#@holedisk 1 centre 2 0.0 0.0 radius 0.008 refine 0.5
+#@controlvertex 1 coords 2  0.025  0.0
+#@controlvertex 2 coords 2  0.0    0.025
+#@controlvertex 3 coords 2  0.0   -0.025

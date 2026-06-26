@@ -1,0 +1,14 @@
+# generated everywhere (top level and b0/ b1/)
+mesh.nodes
+mesh.voronoi
+control.work.in
+oofem.sm.in
+oofem.tm.in
+*.out
+oofem.sm.out.*
+oofem.tm.out.*
+*.vtu
+*.pvd
+*.dat
+*.pdf
+local/

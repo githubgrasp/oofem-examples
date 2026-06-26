@@ -1,0 +1,3 @@
+oofem.smtm.out
+2D annulus hydro-mechanical coupling (staggered master)
+StaggeredProblem nsteps 100 deltat 1. prob1 "oofem.tm.in" prob2 "oofem.sm.in" coupling 3 2 1 0
