@@ -41,7 +41,7 @@ With the public Docker image (no compilation needed):
 ```bash
 git clone https://github.com/githubgrasp/oofem-examples.git
 cd oofem-examples/lattice-coupling-pressure-2d
-docker run --rm -v "$PWD":/work ghcr.io/githubgrasp/oofem-public:latest bash run.sh
+docker run --rm -v "$PWD":/work ghcr.io/githubgrasp/oofem-public:lattice-coupling-pressure-2d bash run.sh
 ```
 
 Or with a local build — `generator`, `qvoronoi`, `converter`, `oofem` on the
