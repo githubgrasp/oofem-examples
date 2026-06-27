@@ -39,13 +39,13 @@ set title "Displacement-driven coupling: transport lattice vs logarithmic P_f"
 plot 'pres_lattice.dat'  using 1:2 with points pt 6 ps 0.35 lc rgb '#1f77b4' title 'lattice (transport)', \
      'pres_analytic.dat' using 1:2 with lines  lw 2.5        lc rgb '#d62728' title 'P_a ln(b/r)/ln(b/a_p)'
 
-# Mechanical check: matrix displacement vs Lame annulus
+# Mechanical: matrix displacement vs poroelastic annulus (Biot feedback)
 set output 'displacement.pdf'
 set xlabel 'normalised radius  r / a'
 set ylabel 'normalised radial displacement  u_r / a'
-set title "Displacement-driven inclusion: matrix lattice vs Lame annulus"
+set title "Displacement-driven inclusion: matrix lattice vs poroelastic annulus"
 plot 'disp_lattice.dat'  using 1:2 with points pt 6 ps 0.35 lc rgb '#1f77b4' title 'lattice (matrix)', \
-     'disp_analytic.dat' using 1:2 with lines  lw 2.5        lc rgb '#d62728' title 'Lame (prescribed u(a), free outer)'
+     'disp_analytic.dat' using 1:2 with lines  lw 2.5        lc rgb '#d62728' title 'poroelastic (prescribed u(a), Biot, free outer)'
 EOF
 
 # Keep the transport VTU frames (pore-pressure field) for ParaView.
@@ -55,5 +55,5 @@ mv -f oofem.sm.out.m0.*.vtu oofem.sm.out.m0.pvd local/vtu/ 2>/dev/null || true
 
 echo "Done: $(pwd)"
 echo "  pressure.pdf      (transport P_f vs logarithmic  -- the transferred quantity)"
-echo "  displacement.pdf  (matrix u_r vs Lame annulus    -- mechanical check)"
+echo "  displacement.pdf  (matrix u_r vs poroelastic annulus -- Biot feedback)"
 echo "  local/vtu/        (oofem.tm.out.m0.pvd = pore pressure, oofem.sm.out.m0.pvd = displacement)"

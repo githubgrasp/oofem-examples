@@ -5,13 +5,17 @@ separated by a thin **interfacial transition zone (ITZ)**. The ITZ expands
 radially (an eigen-displacement, as in a corrosion / swelling problem), pushing
 the surrounding matrix outward. The compressive axial stress this generates in
 the radial ITZ struts is transferred to the **transport** lattice as a pore
-pressure — the *mechanical → transport* coupling.
+pressure (the *mechanical → transport* coupling), and through Biot's
+effective-stress coupling (`b = 1`) that pore pressure feeds **back** into the
+matrix stress (the *transport → mechanical* coupling) — a genuinely two-way
+staggered analysis.
 
 This is the mirror image of the companion
 [`lattice-coupling-pressure-2d`](../lattice-coupling-pressure-2d/) example. There
 a fluid pressure was transferred *onto* the mechanical mesh and the **displacement**
-was validated; here a mechanical displacement is imposed and the transferred
-**pore pressure** is validated (with the displacement as a secondary check).
+was validated; here a mechanical displacement is imposed, the transferred
+**pore pressure** is validated, and the matrix displacement (now altered by the
+fed-back pressure) is validated against the poroelastic solution.
 
 It uses the displacement-driven (Dirichlet) coupling of:
 
@@ -24,21 +28,25 @@ It uses the displacement-driven (Dirichlet) coupling of:
 Because the inclusion is much stiffer than the matrix, the ITZ eigen-displacement
 at the interface acts like a *prescribed inner radial displacement* of a
 thick-walled cylinder (the matrix annulus `a … b`, free outer edge). Both fields
-are therefore classical:
+are classical:
 
-- **`pressure.pdf` — the transferred quantity.** With the outer boundary drained
-  (`P_f = 0`) and no storage (`c = 0`), steady radial conduction gives a
+- **`pressure.pdf` — the forward-transferred quantity.** With the outer boundary
+  drained (`P_f = 0`) and no storage (`c = 0`), steady radial conduction gives a
   **logarithmic** pore-pressure field `P_f(r) = P_a · ln(b/r) / ln(b/a_p)` between
   the ITZ-midline coupling ring (radius `a_p`, where the pressure is injected) and
   the drained outer edge. The transport lattice nodes fall on this curve.
-- **`displacement.pdf` — the mechanical check.** The matrix radial displacement
-  follows the **Lamé** annulus solution `u_r(r) = A r + B/r` (prescribed `u(a)`,
-  traction-free outer). With `a1 = 1` the lattice Poisson ratio is `ν = 0`, giving
-  a clean closed form.
+- **`displacement.pdf` — the fed-back response.** With Biot coupling the matrix
+  also carries the distributed pore-pressure body force, so the radial
+  displacement is no longer plain Lamé but the **poroelastic** annulus solution
+  `u_r(r) = (κ/2) r ln r + D r + C1/r` (prescribed `u(a)`, free outer,
+  `κ ∝ b·P_a`). The pressure feedback makes the wall **thicken** — `u_r` *increases*
+  with radius — instead of the Lamé thinning of the uncoupled (`b = 0`) case. With
+  `a1 = 1` the lattice Poisson ratio is `ν = 0`. (At `b = 0`, `κ = 0` and the
+  formula collapses back to Lamé.)
 
 The amplitude of each curve (set by the eigenstrain and the stiffness contrast) is
-taken from the simulation; the example validates the *shape* of both transferred
-fields against the analytical solutions.
+taken from the simulation; the example validates the *shape* of both fields against
+the analytical solutions — they match to ~1 %.
 
 ## Reproduce
 
@@ -79,7 +87,12 @@ bash clean.sh    # back to a git-clean folder (keeps sources + local/)
 - `#@coupling inclusion 1 dirichlet ltf 1` — emits one `LatticeDirichletCoupling`
   per ITZ-midline transport node, driven by its two flanking radial ITZ structural
   elements (compression → pore pressure). This is the *mechanical → transport*
-  coupling and **must** run SM-first (`coupling 3 1 2 0` in `oofem.smtm.in`).
+  coupling; the staggered driver runs SM-first (`coupling 3 1 2 0` in
+  `oofem.smtm.in`) so the mechanical stress exists before the transport reads it.
+- `latticelinearelastic 1 … bio 1.0` + `#@couplingflag` — the *transport →
+  mechanical* feedback: every matrix element adds `σ_total = σ_eff + b·P_f`, reading
+  the pore pressure of its dual transport element. `#@couplingflag` writes the
+  `couplingnumber` linking each `lattice2D` to its dual `latticemt2D`.
 - `#@edgebc region 1 bc 1` — holds the **outer** boundary at zero pore pressure
   (drainage), so the steady field is logarithmic. Without it the outer boundary is
   insulated and the field would be uniform.
@@ -106,16 +119,23 @@ local/ (gitignored):    vtu/  — ParaView opens oofem.tm.out.m0.pvd (pore
 
 ## Notes
 
-- **Why two materials with `a1 = 1`.** The matrix uses `a1 = 1` so its effective
-  Poisson ratio is `ν = 0`, which makes the Lamé comparison a clean closed form.
-  The ITZ uses a small `a1` and a thermal-expansion coefficient to act as the
-  eigen-strain driver.
+- **`a1 = 1` on the matrix.** Gives the matrix an effective Poisson ratio `ν = 0`,
+  which makes the poroelastic comparison a clean closed form. The ITZ uses a small
+  `a1` and a thermal-expansion coefficient to act as the eigen-strain driver. Biot
+  feedback (`bio 1.0`) is applied to the matrix only — the validated bulk region.
 - **Anchoring.** Both analytical curves are anchored to the simulated amplitude:
-  the matrix inner-ring displacement `u(a)` for the Lamé curve, and the mean
-  ITZ-midline pore pressure `P_a` for the logarithmic curve. The validation is of
-  the radial *profile shape*, which is the part fixed by the physics.
-- **Coupling direction.** Unlike the pressure example (transport→mechanical,
-  TM-first), this one is mechanical→transport and runs **SM-first**: the mechanical
-  stress must exist before the transport reads it. The two examples use opposite
-  staggered orders by design.
+  the matrix inner-ring displacement `u(a)` for the displacement curve, and the
+  mean ITZ-midline pore pressure `P_a` for the pressure curve (which also sets the
+  Biot term `κ ∝ b·P_a`). The validation is of the radial *profile shape*, the part
+  fixed by the physics.
+- **Two-way coupling.** This example couples in both directions: deformation drives
+  the pore pressure (`LatticeDirichletCoupling`), and the pore pressure feeds back
+  into the matrix stress (distributed Biot, `bio 1.0` + `#@couplingflag`). Set
+  `bio 0.0` and drop `#@couplingflag` for the one-way case, where the matrix
+  reverts to the plain Lamé thinning (`compare.py` switches curves automatically).
+- **Coupling direction & write order.** The driver is SM-first (`coupling 3 1 2 0`),
+  the opposite of the pressure example (TM-first). The converter writes both
+  subproblems from one shared numbering (`#@grid 2dSMTM`), numbering both meshes
+  before emitting either file, so the cross-references work in both directions
+  regardless of order.
 ```
