@@ -1,0 +1,16 @@
+# 2D inclusion: matrix disk + ITZ shell + steel inclusion
+# matrix R = 0.025, inclusion R = 0.008, ITZ thickness = 0.5 mm
+#@output mesh.nodes
+#@domain 2
+#@diam 0.002
+#@maxiter 100000
+#@ranint -1
+#@perflag 2 0 0
+#@ranflag 1
+#@vertex 1 coords 2 -0.026 -0.026 refine 1. radius 0.
+#@vertex 2 coords 2  0.026  0.026 refine 1. radius 0.
+#@disk 1 centre 2 0.0 0.0 radius 0.025
+#@interfacedisk 1 centre 2 0.0 0.0 radius 0.008 refine 0.5 itz 0.0005
+#@controlvertex 1 coords 2  0.025  0.0
+#@controlvertex 2 coords 2  0.0    0.025
+#@controlvertex 3 coords 2  0.0   -0.025

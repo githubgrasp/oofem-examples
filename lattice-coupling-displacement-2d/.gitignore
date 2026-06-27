@@ -1,0 +1,13 @@
+# generated
+mesh.nodes
+mesh.voronoi
+oofem.sm.in
+oofem.tm.in
+*.out
+oofem.sm.out.*
+oofem.tm.out.*
+*.vtu
+*.pvd
+*.dat
+*.pdf
+local/

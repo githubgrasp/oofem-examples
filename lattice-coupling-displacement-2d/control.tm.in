@@ -1,0 +1,14 @@
+oofem.tm.out
+2D inclusion transport — matrix + ITZ flow, low-k steel inclusion
+TransientTransport nsteps 100 deltat 1.0 alpha 1.0 nmodules 1 profileopt 1
+vtkxmllattice tstep_step 1 dofman_all primvars 1 5
+domain 2dMassLatticeTransport
+OutputManager tstep_all dofman_all element_all
+ncrosssect 0 nmat 3 nbc 1 nic 0 nltf 1 nset 0
+latticetransmat 1 d 1.e3 k 1.e-19 vis 1.e-3 thetas 1. thetar 0. contype 0 c 0. ctor 0.001
+latticetransmat 2 d 1.e3 k 1.e-25 vis 1.e-3 thetas 1. thetar 0. contype 0 c 0. ctor 0.001
+latticetransmat 3 d 1.e3 k 1.e-19 vis 1.e-3 thetas 1. thetar 0. contype 0 c 0. ctor 0.001
+BoundaryCondition 1 loadTimeFunction 1 dofs 1 11 values 1 0.0
+#@couplingbc
+ConstantFunction 1 f(t) 1.
+#@couplingset

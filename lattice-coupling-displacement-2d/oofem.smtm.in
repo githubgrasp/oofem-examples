@@ -1,0 +1,3 @@
+oofem.smtm.out
+2D inclusion displacement-driven coupling (staggered master, sm-first)
+StaggeredProblem nsteps 100 deltat 1. prob1 "oofem.sm.in" prob2 "oofem.tm.in" coupling 3 1 2 0
