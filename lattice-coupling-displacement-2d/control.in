@@ -22,11 +22,11 @@ Set 2 nodes 2 #@CTL2 #@CTL3
 #@tmcontrol control.tm.in
 #@edgebc region 1 bc 1
 #@mesher qhull
-#@diam 0.002
+#@diam 0.001
 #@perflag 2 0 0
 #@thickness 1.0
 #@disk 1 centre 2 0.0 0.0 radius 0.025
-#@diskinclusion 1 centre 2 0.0 0.0 radius 0.008 itz 0.0005 inside 2 interface 3
+#@diskinclusion 1 centre 2 0.0 0.0 radius 0.008 itz 0.00001 inside 2 interface 3
 #@coupling inclusion 1 dirichlet ltf 1
 #@couplingflag
 #@bodyload 3 3

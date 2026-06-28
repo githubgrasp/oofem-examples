@@ -25,28 +25,30 @@ It uses the displacement-driven (Dirichlet) coupling of:
 
 ## The physics in two figures
 
-Because the inclusion is much stiffer than the matrix, the ITZ eigen-displacement
-at the interface acts like a *prescribed inner radial displacement* of a
-thick-walled cylinder (the matrix annulus `a … b`, free outer edge). Both fields
-are classical:
+The matrix is a thick-walled cylinder (annulus `a … b`, free outer edge). Both
+fields are classical and both are **predicted from the computed pore pressure**
+— no amplitude fitting:
 
 - **`pressure.pdf` — the forward-transferred quantity.** With the outer boundary
   drained (`P_f = 0`) and no storage (`c = 0`), steady radial conduction gives a
   **logarithmic** pore-pressure field `P_f(r) = P_a · ln(b/r) / ln(b/a_p)` between
   the ITZ-midline coupling ring (radius `a_p`, where the pressure is injected) and
   the drained outer edge. The transport lattice nodes fall on this curve.
-- **`displacement.pdf` — the fed-back response.** With Biot coupling the matrix
-  also carries the distributed pore-pressure body force, so the radial
-  displacement is no longer plain Lamé but the **poroelastic** annulus solution
-  `u_r(r) = (κ/2) r ln r + D r + C1/r` (prescribed `u(a)`, free outer,
-  `κ ∝ b·P_a`). The pressure feedback makes the wall **thicken** — `u_r` *increases*
-  with radius — instead of the Lamé thinning of the uncoupled (`b = 0`) case. With
-  `a1 = 1` the lattice Poisson ratio is `ν = 0`. (At `b = 0`, `κ = 0` and the
-  formula collapses back to Lamé.)
+- **`displacement.pdf` — the fed-back response.** The coupling pressure `P_a` *is*
+  the ITZ axial stress, i.e. the radial traction the ITZ applies to the matrix, so
+  the matrix annulus is loaded by `σ_r(a) = P_a` (inner), `σ_r(b) = 0` (free outer),
+  plus the distributed Biot body force. The radial displacement is the
+  **poroelastic** solution `u_r(r) = (κ/2) r ln r + D r + C1/r`, `κ ∝ b·P_a`. The
+  feedback makes the wall **thicken** — `u_r` *increases* with radius — instead of
+  the Lamé thinning of the uncoupled (`b = 0`) case. With `a1 = 1` the lattice
+  Poisson ratio is `ν = 0`. (At `b = 0`, `κ = 0`, recovering the Lamé annulus under
+  inner pressure `P_a`.)
 
-The amplitude of each curve (set by the eigenstrain and the stiffness contrast) is
-taken from the simulation; the example validates the *shape* of both fields against
-the analytical solutions — they match to ~1 %.
+Both curves are absolute predictions from `P_a` (the same spirit as the pressure
+example, which predicts displacement from the prescribed cavity pressure): the
+pressure matches to ~0.3 %, the displacement to ~2 % (the irregular lattice being
+slightly more compliant than the nominal modulus — the same small effective-
+property offset the pressure example notes).
 
 ## Reproduce
 
@@ -80,8 +82,11 @@ bash clean.sh    # back to a git-clean folder (keeps sources + local/)
 
 ### Key input ingredients
 
-- `#@diskinclusion 1 … radius 0.008 itz 0.0005 inside 2 interface 3` — the steel
-  inclusion (material 2) and its ITZ shell (material 3) inside the matrix.
+- `#@diskinclusion 1 … radius 0.008 itz 0.00001 inside 2 interface 3` — the steel
+  inclusion (material 2) and its thin ITZ shell (material 3) inside the matrix.
+  The ITZ is deliberately thin (0.01 mm) so the mechanical matrix inner radius
+  and the transport coupling ring both collapse onto ≈ `r_i`, leaving no
+  radius mismatch between the two cylinders.
 - `#@bodyload 3 3` + `StructTemperatureLoad 3` — the ITZ eigen-expansion (applied
   to every ITZ element, material 3).
 - `#@coupling inclusion 1 dirichlet ltf 1` — emits one `LatticeDirichletCoupling`
@@ -123,11 +128,12 @@ local/ (gitignored):    vtu/  — ParaView opens oofem.tm.out.m0.pvd (pore
   which makes the poroelastic comparison a clean closed form. The ITZ uses a small
   `a1` and a thermal-expansion coefficient to act as the eigen-strain driver. Biot
   feedback (`bio 1.0`) is applied to the matrix only — the validated bulk region.
-- **Anchoring.** Both analytical curves are anchored to the simulated amplitude:
-  the matrix inner-ring displacement `u(a)` for the displacement curve, and the
-  mean ITZ-midline pore pressure `P_a` for the pressure curve (which also sets the
-  Biot term `κ ∝ b·P_a`). The validation is of the radial *profile shape*, the part
-  fixed by the physics.
+- **Predicted, not fitted.** Both analytical curves are absolute predictions from
+  the single measured quantity `P_a` (the mean ITZ-midline pore pressure): it sets
+  the logarithmic pressure field, the inner mechanical traction `σ_r(a) = P_a`, and
+  the Biot term `κ ∝ b·P_a`. Nothing is fitted to the displacement field — the
+  amplitude is a prediction, so the ~2 % gap is a genuine effective-property
+  residual, not a leftover degree of freedom.
 - **Two-way coupling.** This example couples in both directions: deformation drives
   the pore pressure (`LatticeDirichletCoupling`), and the pore pressure feeds back
   into the matrix stress (distributed Biot, `bio 1.0` + `#@couplingflag`). Set
