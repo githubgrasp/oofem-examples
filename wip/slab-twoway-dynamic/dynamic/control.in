@@ -14,7 +14,7 @@ ConstantFunction 1 f(t) 1.0
 # rest of the analysis (free vibration / dissipation phase).
 PiecewiseLinFunction 2 nPoints 4 t 4 0.0 0.0005 0.001 0.02 f(t) 4 0.0 1.0 0.0 0.0
 #@INSERT_SETS
-#@LOAD patch 1 q 1.e2
+#@LOAD patch 1 q 1.e2 ltf 2
 #@DIR 0 0 -1
 #@THICKNESS 0.01
 
