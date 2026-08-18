@@ -1,0 +1,4 @@
+# Per-step deformed-shape files written by post.pl (animation intermediates).
+# oofem.out*, *.vtu, *.pvd and editor backups are handled by the repo-root
+# .gitignore; ld.dat is intentionally kept trackable as a precomputed result.
+outputStep*.dat
