@@ -1,0 +1,67 @@
+oofem.out
+Buckling of strut. 10 elements with t0 = 0.1
+NonlinearStatic nmsteps 1 nsteps 1 nmodules 1
+nsteps 1000 stiffmode 0 rtolf 1.e-3 maxiter 20000 initialguess 1 controlmode 1 manrmsteps 1
+vtkxmllattice tstep_step 10 primvars 1 1 cellvars 8 138 139 140 47 46 45 141 52 domain_all element_all cross 1
+domain 3dLattice
+OutputManager tstep_step 1 dofman_all element_all
+ndofman 12 nelem 11 ncrosssect 1 nmat 1 nbc 2 nic 0 nltf 2 nset 1
+node 1 coords 3 0.000000 0.000000 0. bc 6 1 1 1 1 0 0
+node 2 coords 3 0.285535 0.008452 0.
+node 3 coords 3 0.571070 0.016219 0.
+node 4 coords 3 0.856605 0.022672 0.
+node 5 coords 3 1.142140 0.027289 0.
+node 6 coords 3 1.427676 0.029695 0.
+node 7 coords 3 1.713211 0.029695 0.
+node 8 coords 3 1.998746 0.027289 0.
+node 9 coords 3 2.284281 0.022672 0.
+node 10 coords 3 2.569816 0.016219 0.
+node 11 coords 3 2.855351 0.008452 0.
+node 12 coords 3 3.140886 0.000000 0. bc 6 2 1 1 0 0 0
+lattice3dnl 1 nodes 2 1 2 zaxis 3 0 0 1 crossSect 1 mat 1
+lattice3dnl 2 nodes 2 2 3 zaxis 3 0 0 1 crossSect 1 mat 1
+lattice3dnl 3 nodes 2 3 4 zaxis 3 0 0 1 crossSect 1 mat 1
+lattice3dnl 4 nodes 2 4 5 zaxis 3 0 0 1 crossSect 1 mat 1
+lattice3dnl 5 nodes 2 5 6 zaxis 3 0 0 1 crossSect 1 mat 1
+lattice3dnl 6 nodes 2 6 7 zaxis 3 0 0 1 crossSect 1 mat 1
+lattice3dnl 7 nodes 2 7 8 zaxis 3 0 0 1 crossSect 1 mat 1
+lattice3dnl 8 nodes 2 8 9 zaxis 3 0 0 1 crossSect 1 mat 1
+lattice3dnl 9 nodes 2 9 10 zaxis 3 0 0 1 crossSect 1 mat 1
+lattice3dnl 10 nodes 2 10 11 zaxis 3 0 0 1 crossSect 1 mat 1
+lattice3dnl 11 nodes 2 11 12 zaxis 3 0 0 1 crossSect 1 mat 1
+latticecs 1 material 1 iy 8.3e-6 iz 8.3e-6 ik 16.6e-6 shearCoeff 0.83 area 0.01 shape 3
+latticeframesteelplastic 1 d 7600. E 200e9 n 0.3 talpha 0 nx0 2.e6 mx0 0.0889e6 my0 0.05e6 mz0 0.05e6 tol 1.e-6 iter 100 sub 10
+BoundaryCondition 1 loadTimeFunction 1 prescribedvalue 0.0
+BoundaryCondition 2 loadTimeFunction 2 prescribedvalue -1.
+ConstantFunction 1 f(t) 1 
+PiecewiseLinFunction 2 t 3 -1 200 1000 f(t) 3 0 0.01 2.
+Set 1 nodes 1 12
+#%BEGIN_CHECK% 
+#DOFMAN number 1 dof 6 type d
+#REACTION number 1 dof 1
+#TIME
+#DOFMAN number 1 dof 1 type d
+#DOFMAN number 2 dof 1 type d
+#DOFMAN number 3 dof 1 type d
+#DOFMAN number 4 dof 1 type d
+#DOFMAN number 5 dof 1 type d
+#DOFMAN number 6 dof 1 type d
+#DOFMAN number 7 dof 1 type d
+#DOFMAN number 8 dof 1 type d
+#DOFMAN number 9 dof 1 type d
+#DOFMAN number 10 dof 1 type d
+#DOFMAN number 11 dof 1 type d
+#DOFMAN number 12 dof 1 type d
+#DOFMAN number 1 dof 2 type d
+#DOFMAN number 2 dof 2 type d
+#DOFMAN number 3 dof 2 type d
+#DOFMAN number 4 dof 2 type d
+#DOFMAN number 5 dof 2 type d
+#DOFMAN number 6 dof 2 type d
+#DOFMAN number 7 dof 2 type d
+#DOFMAN number 8 dof 2 type d
+#DOFMAN number 9 dof 2 type d
+#DOFMAN number 10 dof 2 type d
+#DOFMAN number 11 dof 2 type d
+#DOFMAN number 12 dof 2 type d
+#%END_CHECK%
