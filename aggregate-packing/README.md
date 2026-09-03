@@ -11,7 +11,7 @@ aggregates are later coupled with a mesh to build a full OOFEM analysis.
 
 ## Referenced by
 
-- 2026-08 Blog: https://petergrassl.com/blog/aggregate-packing/
+- 2026-08 Blog: https://petergrassl.com/blog/aggregate-placement/
 
 ## What it does
 
