@@ -1,0 +1,20 @@
+# Pull-out of a centrically embedded rebar from a concrete cylinder.
+# Node generator input (T3D-free qhull pipeline).
+#
+# Specimen: cylinder length 100 mm (axis along x), diameter 100 mm (R = 50 mm).
+# Rebar:    diameter 16 mm (R = 8 mm), centric, with a 0.1 mm interface (ITZ)
+#           shell that carries the steel<->concrete bond contact elements.
+# Coarse mesh (diam = 10 mm) because the specimen is long; the interface is
+# refined so the bond shell is resolved around the bar circumference.
+#@output nodes.dat
+#@domain 3
+#@diam 1.0e-2
+#@maxiter 100000
+#@ranint -2
+#@perflag 3 0 0 0
+#@ranflag 1
+# bounding-box corners widen the localiser beyond the cylinder region
+#@vertex 1 coords 3 -0.01 -0.055 -0.055
+#@vertex 2 coords 3  0.11  0.055  0.055
+#@cylinder 1 line 6 0. 0. 0. 0.1 0. 0. radius 0.05 refine 1.0
+#@interfacecylinder 1 line 6 0. 0. 0. 0.1 0. 0. radius 0.008 refine 0.5 itz 0.1e-3

@@ -1,0 +1,71 @@
+oofem.out
+Pull-out of a centrically embedded rebar (lattice, bond-plasticity contact interface)
+NonLinearStatic nsteps 1000 contextOutputStep 200 nmodules 1 rtolv 1.e-3 stiffMode 1 manrmsteps 10 maxiter 2000 controllmode 1 deltat 1.0 lstype 4 smtype 8
+vtkxmllattice tstep_step 1 primvars 1 1 cellvars 8 138 139 140 47 46 45 141 52 domain_all element_all cross 1
+domain 3dLattice
+OutputManager tstep_all dofman_output { #@CTL1 }
+ncrosssect 4 nmat 4 nbc 2 nic 0 nltf 2 nset 1
+latticecs 1 material 1
+latticecs 2 material 2
+latticecs 3 material 3
+latticecs 4 material 4
+# Concrete matrix: damage-PLASTICITY lattice. Plasticity gives a finite
+# compressive yield surface (fc), so the radial compression the dilating bond
+# drives into the matrix is bounded and taken largely as plastic strain. A
+# pure-damage model would instead accumulate damage under that compression and
+# unphysically shed axial stiffness too; damage-plasticity keeps that effect in
+# check. ft = tensile (splitting) strength, wf = crack opening, ahard = plastic
+# hardening.
+latticeplastdam 1 d 0. talpha 0. e 30.e9 nu 0.2 ft 3.e6 fc 30.e6 wf 50.e-6 ahard 1.e-3
+# Steel rebar core: linear elastic.
+latticelinearelastic 2 d 0. talpha 0. e 200.e9 nu 0.2
+# Bonded interface (Grassl & Davies 2011 bond model): Mohr-Coulomb friction +
+# compression cap. latticecontact3d feeds the displacement JUMP (not a strain)
+# to the material, so e is a stiffness per unit jump [Pa/m] = E_b/h, not a
+# modulus: the physical value for a 0.1 mm interface with E_b ~ 52 GPa is
+# ~52e9/1e-4 = 5.2e14. A STIFF interface is essential to the mechanism: pull-out
+# slip drives the dilatant plastic flow (flowangle), whose radial (normal)
+# component is resisted by e, generating the radial confinement stress that both
+# stresses/splits the matrix and mobilises friction (angle1*sigma_n). Too soft
+# an e (e.g. 5e10-5e11) leaves the bond nearly elastic -> negligible sigma_n ->
+# no matrix stress. 5.2e13 is a penalty compromise that mobilises the mechanism
+# (~25 kN at 0.04 mm slip) while staying solvable; the full 5.2e14 needs
+# adaptive step subdivision (minsteplength) to converge.
+# a1 = shear/normal stiffness ratio, fc = concrete compressive strength,
+# angle1 = friction, flowangle = dilation (drives the radial wedging).
+latticebondplast 3 d 0. talpha 0. e 5.2e13 a1 0.175 a2 0. fc 40.e6 angle1 0.24 flowangle 0.12 iter 100 tol 1.e-9 ef 0.01
+# Debonded interface (first 20 mm from the loaded face): frictionless (angle1 0)
+# so it transmits no shear -- radial contact only, i.e. a bond-free sleeve.
+latticebondplast 4 d 0. talpha 0. e 5.2e13 a1 0.175 a2 0. fc 40.e6 angle1 0.0 flowangle 0.0 iter 100 tol 1.e-9 ef 0.01
+# BC1: concrete support face at x=0 supported in x only (frictionless roller);
+# matrix nodes only, so the bar/interface nodes on that plane are left free and
+# y/z are free so the face can expand/split radially without a spurious
+# confinement cone (see #@nodebc ... matrixonly dofs 1 1). The assembly's
+# rigid-body modes are removed instead by the rigid bar grip (BC2), not by this
+# face.
+# BC2: rigid grip on the bar's loaded-end cross-section. The axis node #@CTL1 is
+# prescribed in all three translations (x = pull, y = z = 0) and the rest of the
+# x=0 bar face is slaved to it in x, y AND z (#@slaveside ... dofs 1 2 3), so the
+# cross-section translates as a rigid plate (a machine grip holding the bar
+# centred). The x-reaction at #@CTL1 is the TOTAL pull-out force. (Rigid-body
+# modes of the assembly are already removed by the clamped support face BC1.)
+BoundaryCondition 1 loadTimeFunction 1 prescribedvalue 0.0
+BoundaryCondition 2 loadTimeFunction 2 dofs 3 1 2 3 values 3 1. 0. 0. set 1
+ConstantFunction 1 f(t) 1.
+PiecewiseLinFunction 2 nPoints 2 t 2 0. 1000. f(t) 2 0. -1.e-3
+Set 1 nodes 1 #@CTL1
+#%BEGIN_CHECK%
+#NODE number #@CTL1 dof 1 unknown d
+#REACTION number #@CTL1 dof 1
+#%END_CHECK%
+#@grid 3dSM
+#@mesher qhull
+#@diam 1.0e-2
+#@perflag 3 0 0 0
+#@cylinder 1 line 6 0. 0. 0. 0.1 0. 0. radius 0.05 refine 1.
+#@cylinderinclusion 1 line 6 0. 0. 0. 0.1 0. 0. radius 0.008 itz 0.1e-3 inside 2 interface 3 debond 0.0 0.02 4
+#@element material 3 latticecontact3d
+#@element material 4 latticecontact3d
+#@nodebc 1 face 1 min matrixonly dofs 1 1
+#@slaveside 1 face 1 min dofs 1 2 3 inclusiononly
+#@controlvertex 1 coords 3 0. 0. 0.

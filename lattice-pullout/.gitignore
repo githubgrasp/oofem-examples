@@ -1,0 +1,13 @@
+nodes.dat
+voronoi.dat
+oofem.in
+oofem.out
+oofem.out.*
+*.vtu
+*.vtk
+*.pvd
+*.gp
+*.log
+stdMeshGenerator.out
+stdMeshConverter.out
+*~
