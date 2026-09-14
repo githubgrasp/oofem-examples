@@ -4,7 +4,9 @@ nltransienttransportproblem nsteps 500 rtol 1.e-3 alpha 1. nsmax 200 nmodules 1 
 vtkxmllattice tstep_step 1 dofman_all primvars 1 5
 domain 2dMassLatticeTransport
 OutputManager tstep_all dofman_all
-ncrosssect 0 nmat 1 nbc 1 nic 1 nltf 2 nset 1
+ncrosssect 1 nmat 1 nbc 1 nic 1 nltf 2 nset 1
+# Transport cross-section (converter now tags each latticemt2D with crossSect).
+simpletransportcs 1 mat 1
 # Van Genuchten benchmark with mild curves (m = 0.5 / n = 2). The capacity
 # c(p) peaks at p ≈ a; the relative permeability k_r drops to ~0.7% at
 # u = 2 a (S ≈ 0.45) but stays non-zero. This is the standard regime in

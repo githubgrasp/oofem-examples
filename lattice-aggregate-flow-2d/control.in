@@ -4,7 +4,11 @@ nltransienttransportproblem nsteps 100 deltat 1.0 rtol 1.e-3 alpha 1. nsmax 200 
 vtkxmllattice tstep_step 1 dofman_all primvars 1 5
 domain 2dMassLatticeTransport
 OutputManager tstep_all dofman_all
-ncrosssect 0 nmat 2 nbc 1 nic 1 nltf 1 nset 1
+ncrosssect 2 nmat 2 nbc 1 nic 1 nltf 1 nset 1
+# One transport cross-section per material (the converter now tags each
+# latticemt2D element with `crossSect <mat>`, mirroring the SM path).
+simpletransportcs 1 mat 1
+simpletransportcs 2 mat 2
 # Linear (constant k, constant c) transport — `contype 0` is the default and
 # `m` / `a` are not parsed in that branch. Diffusivity D = k / (vis · c).
 # Matrix: D = 2e-5 m²/s → diffusion length sqrt(D · t) ≈ 45 mm over the
