@@ -23,6 +23,22 @@ carried by the fibres crossing the crack.
 
 ## Reproduce
 
+With the public Docker image (no compilation needed):
+
+```bash
+git clone https://github.com/githubgrasp/oofem-examples.git
+cd oofem-examples/lattice-fibre-3d
+docker run --rm -v "$PWD":/work ghcr.io/githubgrasp/oofem-public:latest bash run-all.sh
+```
+
+`:latest` always points at the current OOFEM build and may evolve. For the
+exact image used to produce the figures in the linked blog post, replace
+`:latest` with the per-example tag
+`ghcr.io/githubgrasp/oofem-public:lattice-fibre-3d`.
+
+Or with a local build (`generator`, `qvoronoi`, `converter`, `oofem`,
+`aggregate` on the PATH, plus `gnuplot`):
+
 ```bash
 cd oofem-examples/lattice-fibre-3d
 bash run-all.sh

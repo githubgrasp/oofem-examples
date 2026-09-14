@@ -47,12 +47,13 @@ needed) is enough to rerun the analyses:
 ```bash
 git clone https://github.com/githubgrasp/oofem-examples.git
 cd oofem-examples/column-frp-confined
-docker run --rm -v "$PWD":/work ghcr.io/githubgrasp/oofem-public:column-frp-confined bash run-all.sh
+docker run --rm -v "$PWD":/work ghcr.io/githubgrasp/oofem-public:latest bash run-all.sh
 ```
 
-The `:column-frp-confined` tag is the immutable image baked against the
-OOFEM commit that produced the committed `ld.dat` reference curves; use
-`:latest` to track the current OOFEM build instead.
+`:latest` always points at the current OOFEM build and may evolve. For the
+exact image baked against the OOFEM commit that produced the committed
+`ld.dat` reference curves, replace `:latest` with the per-example tag
+`ghcr.io/githubgrasp/oofem-public:column-frp-confined`.
 
 
 `run-all.sh` runs `unconfined/` then `confined/` in turn. To run just

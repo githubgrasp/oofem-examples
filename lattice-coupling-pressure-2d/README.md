@@ -41,8 +41,13 @@ With the public Docker image (no compilation needed):
 ```bash
 git clone https://github.com/githubgrasp/oofem-examples.git
 cd oofem-examples/lattice-coupling-pressure-2d
-docker run --rm -v "$PWD":/work ghcr.io/githubgrasp/oofem-public:lattice-coupling-pressure-2d bash run.sh
+docker run --rm -v "$PWD":/work ghcr.io/githubgrasp/oofem-public:latest bash run.sh
 ```
+
+`:latest` always points at the current OOFEM build and may evolve. For the
+exact image used to produce the figures in the linked blog post, replace
+`:latest` with the per-example tag
+`ghcr.io/githubgrasp/oofem-public:lattice-coupling-pressure-2d`.
 
 Or with a local build — `generator`, `qvoronoi`, `converter`, `oofem` on the
 PATH, plus `python3` and `gnuplot`:
