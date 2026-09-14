@@ -23,6 +23,11 @@ cd oofem-examples/<example-folder>
 docker run --rm -v "$PWD":/work ghcr.io/githubgrasp/oofem-public:latest bash run.sh
 ```
 
+Copy the exact one-line command from the **Reproduce** section of that
+example's own `README.md` — both the image tag (some examples pin their own,
+e.g. `:cdpm2-single-monotonic`) and the run script (`run.sh` or
+`run-all.sh`) vary by example; the line above is only a template.
+
 Outputs (PDF plots, extracted data, OOFEM logs) appear in the example
 folder, viewable on your host with any normal application.
 
@@ -40,6 +45,7 @@ folder, viewable on your host with any normal application.
 | [`column-frp-confined/`](column-frp-confined/) | CFRP-confined vs unconfined 3D concrete cylinder under axial compression (CDPM2). The wrap is discretised as circumferential truss hoops; the unconfined cylinder softens past the peak while the confined one keeps hardening, even though both interiors damage. |
 | [`lattice-corrosion-3d/`](lattice-corrosion-3d/) | 3D lattice slice of a thick-walled concrete cylinder with a single embedded steel bar. A thin rust ITZ around the bar expands radially via an eigendisplacement ramp, producing splitting cracks and an internal pressure–corrosion penetration curve normalised by the ductile limit. |
 | [`lattice-fibre-3d/`](lattice-fibre-3d/) | 3D periodic lattice of a steel-fibre-reinforced concrete cube (`Vf = 1%`) in uniaxial tension, run twice on the identical matrix — with and without fibres. The matrix damages into a localised crack; the fibres crossing it bridge the crack, holding a post-peak plateau while the plain matrix softens toward zero. Fibres placed by the `aggregate` packer and discretised on the matrix Voronoi by the `converter`. |
+| [`lattice-pullout/`](lattice-pullout/) | 3D lattice pull-out of a centric 16 mm steel bar from a 100 mm concrete cylinder. The steel/concrete interface is a thin shell of `latticecontact3d` bond-contact elements running the Grassl & Davies (2011) plasticity bond; axial slip drives a dilatant normal plastic strain that confines and splits the matrix. A 20 mm bond-free length sits at the loaded face, and the rigid grip's reaction gives the total pull-out force. |
 | [`lattice-coupling-pressure-2d/`](lattice-coupling-pressure-2d/) | 2D coupled hydro-mechanical lattice: a fluid-pressurised thick-walled cylinder. Steady-state radial flow sets up a logarithmic pore-pressure field; Biot's coefficient flips the wall response — `b=0` thins, `b=1` thickens (full Biot) — verified against the Grassl et al. (2015) poroelastic analytical. The first coupled SM↔TM (staggered) example, driving the mechanical lattice from the transport lattice. |
 | [`lattice-coupling-displacement-2d/`](lattice-coupling-displacement-2d/) | 2D **two-way** coupled hydro-mechanical lattice, the mirror of the pressure example: a stiff steel inclusion with an expanding ITZ pushes the matrix outward (corrosion/swelling-style eigen-displacement), the ITZ stress is transferred to the transport lattice as a pore pressure, and with Biot coupling that pressure feeds back into the matrix stress. The transferred pore pressure matches the logarithmic field; the fed-back pressure makes the matrix thicken, matching the poroelastic annulus solution (vs the Lamé thinning of the uncoupled case). |
 | [`lattice-large-rotation/`](lattice-large-rotation/) | A slender cantilever bent into a full circle by a prescribed end rotation of `2π`, a large-rotation benchmark for the geometrically nonlinear lattice element `lattice3dnl` (the rigid-body–spring frame element of Abdelrhim & Grassl 2026). The reaction moment stays on the exact `M = (EI/L)·θ` line and the free end returns to the clamp, while the 8-element octagon converges to the elastica circle under refinement. |
