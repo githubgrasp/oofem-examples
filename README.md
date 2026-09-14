@@ -20,7 +20,7 @@ The goal is two-command reproducibility — no compilation, no toolchain.
 ```bash
 git clone https://github.com/githubgrasp/oofem-examples.git
 cd oofem-examples/<example-folder>
-docker run --rm -v "$PWD":/work ghcr.io/githubgrasp/oofem-public:latest bash run.sh
+docker run --rm -v "$PWD":/work ghcr.io/githubgrasp/oofem-public:<tag> bash <run-script>
 ```
 
 Copy the exact one-line command from the **Reproduce** section of that
