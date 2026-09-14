@@ -47,8 +47,7 @@ needed) is enough to rerun the analyses:
 ```bash
 git clone https://github.com/githubgrasp/oofem-examples.git
 cd oofem-examples/column-frp-confined
-docker run --rm -v "$PWD":/work \
-  ghcr.io/githubgrasp/oofem-public:column-frp-confined bash run-all.sh
+docker run --rm -v "$PWD":/work ghcr.io/githubgrasp/oofem-public:column-frp-confined bash run-all.sh
 ```
 
 The `:column-frp-confined` tag is the immutable image baked against the
