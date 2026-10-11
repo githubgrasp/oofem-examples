@@ -47,3 +47,4 @@ oofem-public-*.tar.gz
 **/*.pvtu
 **/*.pvd
 **/*.osf
+**/*.log

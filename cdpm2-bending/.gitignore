@@ -1,0 +1,6 @@
+# Per-mesh single-curve plots (regenerated from ld.dat by run.sh).
+# The combined ld_mesh_compare.* figure IS committed, so it is not ignored.
+**/ld.pdf
+
+# Runtime outputs (oofem.out*, std.out, *.vtu, *.pvd, *.osf, local/) and
+# editor backups are already covered by the repo-root .gitignore.

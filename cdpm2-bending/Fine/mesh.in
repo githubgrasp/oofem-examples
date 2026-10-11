@@ -1,0 +1,46 @@
+# t3d -d 0.2 -p 8 -i mesh.in -o mesh.out
+
+# bottom vertices
+vertex 1 xyz 0.0 0.0 0.0
+vertex 2 xyz 0.59335 0.0 0.0
+vertex 3 xyz 0.59335 0.15 0.0
+vertex 30 xyz 0.59515 0.15 0.0
+vertex 4 xyz 0.59515 0.0 0.0
+vertex 5 xyz 1.1885 0.0 0.0
+vertex 6 xyz 1.1885 0.5 0.
+vertex 7 xyz 0. 0.5 0.
+#
+vertex 8 xyz 0.588 0.15 0.0
+vertex 9 xyz 0.6005 0.15 0.0
+vertex 10 xyz 0.588 0.5 0.0
+vertex 11 xyz 0.6005 0.5 0.0
+vertex 12 xyz 0.588 0.50625 0.0
+vertex 13 xyz 0.6005 0.50625 0.0
+#
+curve 1 order 2 vertex 1 2 
+curve 2 order 2 vertex 2 3
+curve 20 order 2 vertex 3 30
+curve 3 order 2 vertex 30 4
+curve 4 order 2 vertex 4 5 
+curve 5 order 2 vertex 5 6
+curve 6 order 2 vertex 6 11
+curve 7 order 2 vertex 11 10
+curve 8 order 2 vertex 10 7
+curve 9 order 2 vertex 7 1
+curve 10 order 2 vertex 8 3
+curve 11 order 2 vertex 30 9
+curve 12 order 2 vertex 9 11
+curve 13 order 2 vertex 8 10
+curve 14 order 2 vertex 12 13
+curve 15 order 2 vertex 10 12
+curve 16 order 2 vertex 11 13
+
+vertex 14 xyz 0.05 0. 0.0 fixed curve 1
+vertex 15 xyz 1.1385 0. 0. fixed curve 4 
+vertex 16 xyz 0.59425 0.50625 0. fixed curve 14
+
+#
+patch 1 normal 0 0 1 boundary curve 1 2 -10 13 8 9 size def
+patch 2 normal 0 0 1 boundary curve 10 20 11 12 7 -13 size def * 0.035
+patch 3 normal 0 0 1 boundary curve 3 4 5 6 -12 -11 size def
+patch 4 normal 0 0 -1 boundary curve 14 -16 7 15
