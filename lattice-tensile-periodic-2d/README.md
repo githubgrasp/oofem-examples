@@ -1,6 +1,6 @@
-# 2D direct tensile lattice — periodic vs regular mesh
+# 2D direct tensile lattice: periodic vs regular mesh
 
-Two 2D Voronoi-lattice analyses of a 100×100 mm concrete prism in direct
+Two 2D Voronoi-lattice analyses of a 100 x 100 mm concrete prism in direct
 uniaxial tension, identical in every respect except the meshing strategy.
 
 | sub-test    | mesh                          | crack pattern                |
@@ -10,7 +10,7 @@ uniaxial tension, identical in every respect except the meshing strategy.
 
 In direct tension, a non-periodic lattice forces every element near the
 loaded face to terminate at that face. The shortest-path crack runs along
-the boundary instead of through the bulk material — an artefact of the
+the boundary instead of through the bulk material, an artefact of the
 discretisation, not of the material.
 
 Rebuilding the mesh so elements cross the boundary and connect to their
@@ -58,11 +58,11 @@ Each sub-test produces in its own folder:
 
 Each `run.sh` runs the same four-step pipeline:
 
-1. `generator mesh.in` — random node distribution → `mesh.nodes`.
-2. `qvoronoi p Fv < mesh.nodes > mesh.voronoi` — Voronoi tessellation.
-3. `converter control.in mesh.nodes mesh.voronoi` — builds the lattice
+1. `generator mesh.in`: random node distribution to `mesh.nodes`.
+2. `qvoronoi p Fv < mesh.nodes > mesh.voronoi`: Voronoi tessellation.
+3. `converter control.in mesh.nodes mesh.voronoi`: builds the lattice
    topology, merges with `control.in` to produce `oofem.in`.
-4. `oofem -f oofem.in > std.out` — solve.
+4. `oofem -f oofem.in > std.out`: solve.
 
 The only difference between the two sub-tests is the periodicity flag
 (`#@perflag`) in `mesh.in` and a small change in `control.in` for the
@@ -82,8 +82,8 @@ Same in both `control.in` files (on the `latticedamage` line).
 | parameter | value     | meaning                              |
 |-----------|-----------|--------------------------------------|
 | `e`       | 30 GPa    | elastic modulus                      |
-| `e0`      | 100×10⁻⁶  | strain at peak tensile stress        |
-| `wf`      | 33 µm     | crack opening at zero stress (mode I)|
+| `e0`      | 100&times;10<sup>-6</sup>  | strain at peak tensile stress        |
+| `wf`      | 33 &micro;m     | crack opening at zero stress (mode I)|
 | `coh`     | 2.0       | shear-to-tension cohesion ratio      |
 | `ec`      | 10        | compressive-to-tensile strength ratio|
 

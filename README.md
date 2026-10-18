@@ -4,14 +4,14 @@ Reproducible OOFEM analyses that accompany blog posts at
 [petergrassl.com](https://petergrassl.com). Each folder is a self-contained
 example: input file, run script, README explaining what it shows.
 
-The goal is two-command reproducibility — no compilation, no toolchain.
+The goal is two-command reproducibility: no compilation, no toolchain.
 
-> **Note** — these examples use my OOFEM fork at
+> **Note:** these examples use my OOFEM fork at
 > [github.com/githubgrasp/oofem](https://github.com/githubgrasp/oofem),
 > not the upstream
 > [oofem/oofem](https://github.com/oofem/oofem).
 > The fork contains features that aren't (yet) upstream (aggregate,
-> converter, generator, …) and may lag upstream on others. Examples here
+> converter, generator, ...) and may lag upstream on others. Examples here
 > are guaranteed to run against the published `oofem-public` Docker image,
 > not against arbitrary OOFEM builds.
 
@@ -24,7 +24,7 @@ docker run --rm -v "$PWD":/work ghcr.io/githubgrasp/oofem-public:<tag> bash <run
 ```
 
 Copy the exact one-line command from the **Reproduce** section of that
-example's own `README.md` — both the image tag (some examples pin their own,
+example's own `README.md`. Both the image tag (some examples pin their own,
 e.g. `:cdpm2-single-monotonic`) and the run script (`run.sh` or
 `run-all.sh`) vary by example; the line above is only a template.
 
@@ -36,22 +36,23 @@ folder, viewable on your host with any normal application.
 | folder | what it shows |
 |---|---|
 | [`cdpm2-single-monotonic/`](cdpm2-single-monotonic/) | CDPM2 verification set: tension, compression, simple shear, pure shear on a single tetrahedron with one Gauss point. |
-| [`cdpm2-bending/`](cdpm2-bending/) | Notched concrete beam in three-point bending (plane stress, CDPM2), CMOD-controlled. The same beam is run on three meshes that differ only in the ligament above the notch, showing the effect of ligament element size on the load–CMOD curve. |
-| [`lattice-tensile-periodic-2d/`](lattice-tensile-periodic-2d/) | 2D direct tensile lattice analysis on a 100×100 mm prism, comparing a non-periodic mesh (crack locks onto the boundary) with a periodic mesh (crack goes through the random mesh). |
-| [`lattice-tensile-random-2d/`](lattice-tensile-random-2d/) | 2D direct tensile lattice analysis on a periodic 100×100 mm prism, comparing a uniform `e0` (crack pattern driven by mesh randomness only) with a spatially random `e0` (heterogeneity controls crack location). |
-| [`nonlocal-dynamic-idm1/`](nonlocal-dynamic-idm1/) | Explicit-dynamic fracture of a 254×254 mm Homalite-100 cruciform with a central crack under biaxial impulsive loading, comparing local (`idm1` crack-band) vs nonlocal damage regularisation. |
-| [`lattice-flow-2d-erfc/`](lattice-flow-2d-erfc/) | 2D lattice mass-transport on a homogeneous 100×100 mm prism with constant capacity and permeability, verified against the 1D finite-slab analytical (erfc / cosine series). Introduces the transport lattice as a discrete dual of the mechanical lattice. |
-| [`lattice-flow-2d-lumped/`](lattice-flow-2d-lumped/) | 2D unsaturated lattice transport (mild van Genuchten) comparing **lumped** and **consistent** capacity matrices. The consistent variant overshoots the IC bound at the wetting front — the textbook Celia (1990) artefact. |
+| [`cdpm2-bending/`](cdpm2-bending/) | Notched concrete beam in three-point bending (plane stress, CDPM2), CMOD-controlled. The same beam is run on three meshes that differ only in the ligament above the notch, showing the effect of ligament element size on the load-CMOD curve. |
+| [`cdpm2-reinforced-2d/`](cdpm2-reinforced-2d/) | Reinforced concrete beam without stirrups failing in shear (Leonhardt & Walther beam no. 5), plane stress CDPM2 with crack band. The reinforcement is a line placed across the concrete mesh in T3D; OOFEM finds the host element of each bar node and embeds it as a hanging node (perfect bond, no conforming mesh). Indirect control in two metasteps (load point, then a combination with the opening of the splitting crack along the bars) traces the snap-back through the shear failure. |
+| [`lattice-tensile-periodic-2d/`](lattice-tensile-periodic-2d/) | 2D direct tensile lattice analysis on a 100 x 100 mm prism, comparing a non-periodic mesh (crack locks onto the boundary) with a periodic mesh (crack goes through the random mesh). |
+| [`lattice-tensile-random-2d/`](lattice-tensile-random-2d/) | 2D direct tensile lattice analysis on a periodic 100 x 100 mm prism, comparing a uniform `e0` (crack pattern driven by mesh randomness only) with a spatially random `e0` (heterogeneity controls crack location). |
+| [`nonlocal-dynamic-idm1/`](nonlocal-dynamic-idm1/) | Explicit-dynamic fracture of a 254 x 254 mm Homalite-100 cruciform with a central crack under biaxial impulsive loading, comparing local (`idm1` crack-band) vs nonlocal damage regularisation. |
+| [`lattice-flow-2d-erfc/`](lattice-flow-2d-erfc/) | 2D lattice mass-transport on a homogeneous 100 x 100 mm prism with constant capacity and permeability, verified against the 1D finite-slab analytical (erfc / cosine series). Introduces the transport lattice as a discrete dual of the mechanical lattice. |
+| [`lattice-flow-2d-lumped/`](lattice-flow-2d-lumped/) | 2D unsaturated lattice transport (mild van Genuchten) comparing **lumped** and **consistent** capacity matrices. The consistent variant overshoots the IC bound at the wetting front, the textbook Celia (1990) artefact. |
 | [`lattice-aggregate-flow-2d/`](lattice-aggregate-flow-2d/) | 2D lattice mass-transport through a matrix with discrete low-permeability circular inclusions, generated by the `aggregate` packer and meshed via the `generator`/`converter` toolchain. The wetting front threads around the aggregates. |
 | [`column-frp-confined/`](column-frp-confined/) | CFRP-confined vs unconfined 3D concrete cylinder under axial compression (CDPM2). The wrap is discretised as circumferential truss hoops; the unconfined cylinder softens past the peak while the confined one keeps hardening, even though both interiors damage. |
-| [`lattice-corrosion-3d/`](lattice-corrosion-3d/) | 3D lattice slice of a thick-walled concrete cylinder with a single embedded steel bar. A thin rust ITZ around the bar expands radially via an eigendisplacement ramp, producing splitting cracks and an internal pressure–corrosion penetration curve normalised by the ductile limit. |
-| [`lattice-fibre-3d/`](lattice-fibre-3d/) | 3D periodic lattice of a steel-fibre-reinforced concrete cube (`Vf = 1%`) in uniaxial tension, run twice on the identical matrix — with and without fibres. The matrix damages into a localised crack; the fibres crossing it bridge the crack, holding a post-peak plateau while the plain matrix softens toward zero. Fibres placed by the `aggregate` packer and discretised on the matrix Voronoi by the `converter`. |
+| [`lattice-corrosion-3d/`](lattice-corrosion-3d/) | 3D lattice slice of a thick-walled concrete cylinder with a single embedded steel bar. A thin rust ITZ around the bar expands radially via an eigendisplacement ramp, producing splitting cracks and an internal pressure-corrosion penetration curve normalised by the ductile limit. |
+| [`lattice-fibre-3d/`](lattice-fibre-3d/) | 3D periodic lattice of a steel-fibre-reinforced concrete cube (`Vf = 1%`) in uniaxial tension, run twice on the identical matrix, with and without fibres. The matrix damages into a localised crack; the fibres crossing it bridge the crack, holding a post-peak plateau while the plain matrix softens toward zero. Fibres placed by the `aggregate` packer and discretised on the matrix Voronoi by the `converter`. |
 | [`lattice-pullout/`](lattice-pullout/) | 3D lattice pull-out of a centric 16 mm steel bar from a 100 mm concrete cylinder. The steel/concrete interface is a thin shell of `latticecontact3d` bond-contact elements running the Grassl & Davies (2011) plasticity bond; axial slip drives a dilatant normal plastic strain that confines and splits the matrix. A 20 mm bond-free length sits at the loaded face, and the rigid grip's reaction gives the total pull-out force. |
-| [`lattice-coupling-pressure-2d/`](lattice-coupling-pressure-2d/) | 2D coupled hydro-mechanical lattice: a fluid-pressurised thick-walled cylinder. Steady-state radial flow sets up a logarithmic pore-pressure field; Biot's coefficient flips the wall response — `b=0` thins, `b=1` thickens (full Biot) — verified against the Grassl et al. (2015) poroelastic analytical. The first coupled SM↔TM (staggered) example, driving the mechanical lattice from the transport lattice. |
+| [`lattice-coupling-pressure-2d/`](lattice-coupling-pressure-2d/) | 2D coupled hydro-mechanical lattice: a fluid-pressurised thick-walled cylinder. Steady-state radial flow sets up a logarithmic pore-pressure field; Biot's coefficient flips the wall response (`b=0` thins, `b=1` thickens with full Biot), verified against the Grassl et al. (2015) poroelastic analytical. The first coupled SM-TM (staggered) example, driving the mechanical lattice from the transport lattice. |
 | [`lattice-coupling-displacement-2d/`](lattice-coupling-displacement-2d/) | 2D **two-way** coupled hydro-mechanical lattice, the mirror of the pressure example: a stiff steel inclusion with an expanding ITZ pushes the matrix outward (corrosion/swelling-style eigen-displacement), the ITZ stress is transferred to the transport lattice as a pore pressure, and with Biot coupling that pressure feeds back into the matrix stress. The transferred pore pressure matches the logarithmic field; the fed-back pressure makes the matrix thicken, matching the poroelastic annulus solution (vs the Lamé thinning of the uncoupled case). |
-| [`lattice-large-rotation/`](lattice-large-rotation/) | A slender cantilever bent into a full circle by a prescribed end rotation of `2π`, a large-rotation benchmark for the geometrically nonlinear lattice element `lattice3dnl` (the rigid-body–spring frame element of Abdelrhim & Grassl 2026). The reaction moment stays on the exact `M = (EI/L)·θ` line and the free end returns to the clamp, while the 8-element octagon converges to the elastica circle under refinement. |
-| [`lattice-buckling/`](lattice-buckling/) | A slender pin-pin strut with a small half-sine imperfection, compressed until it buckles, modelled with `lattice3dnl` and checked against the exact post-buckling elastica of the perfect strut (computed in MATLAB). The **elastic** case stiffens past the Euler load (`P/Pcr → 1.46`) and converges onto the elastica; the **elasto-plastic** case forms a plastic hinge that localises into the single midspan element, peaking at `P/Pcr ≈ 0.48` and then softening. Adds axial–bending coupling and plastic hinges on top of the large-rotation kinematics. |
-| [`aggregate-packing/`](aggregate-packing/) | Periodic packing of ellipsoidal aggregates in a 50 mm cubic RVE, produced by the stand-alone `aggregate` tool: sizes sampled from a Fuller grading curve, positions found by trial and error (random drop, reject on overlap, largest volume first), periodic across all faces. The geometric starting point for mesoscale concrete models — outputs an inclusion list (`packing.dat`) and a ParaView surface (`packing.vtu`) that includes the periodic ghost images. |
+| [`lattice-large-rotation/`](lattice-large-rotation/) | A slender cantilever bent into a full circle by a prescribed end rotation of `2*pi`, a large-rotation benchmark for the geometrically nonlinear lattice element `lattice3dnl` (the rigid-body-spring frame element of Abdelrhim & Grassl 2026). The reaction moment stays on the exact `M = (EI/L)*theta` line and the free end returns to the clamp, while the 8-element octagon converges to the elastica circle under refinement. |
+| [`lattice-buckling/`](lattice-buckling/) | A slender pin-pin strut with a small half-sine imperfection, compressed until it buckles, modelled with `lattice3dnl` and checked against the exact post-buckling elastica of the perfect strut (computed in MATLAB). The **elastic** case stiffens past the Euler load (`P/Pcr -> 1.46`) and converges onto the elastica; the **elasto-plastic** case forms a plastic hinge that localises into the single midspan element, peaking at `P/Pcr ~ 0.48` and then softening. Adds axial-bending coupling and plastic hinges on top of the large-rotation kinematics. |
+| [`aggregate-packing/`](aggregate-packing/) | Periodic packing of ellipsoidal aggregates in a 50 mm cubic RVE, produced by the stand-alone `aggregate` tool: sizes sampled from a Fuller grading curve, positions found by trial and error (random drop, reject on overlap, largest volume first), periodic across all faces. The geometric starting point for mesoscale concrete models. Outputs an inclusion list (`packing.dat`) and a ParaView surface (`packing.vtu`) that includes the periodic ghost images. |
 
 More to follow as blog posts are published.
 
@@ -77,7 +78,7 @@ current directory mounted at `/work`:
 ```
 
 Once inside the container, `cd /work/<example>` and run any command (oofem,
-extractor, gnuplot, …). Files you create are visible on your host.
+extractor, gnuplot, ...). Files you create are visible on your host.
 
 ## Feedback
 

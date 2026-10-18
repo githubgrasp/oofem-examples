@@ -1,5 +1,5 @@
 #!/bin/bash
-# Reproduce: CFRP-confined concrete cylinder (100 mm diameter × 200 mm tall,
+# Reproduce: CFRP-confined concrete cylinder (100 mm diameter x 200 mm tall,
 # matching the unconfined case), axial compression. The CFRP wrap is
 # discretised as truss hoops that only carry circumferential force.
 #
@@ -20,7 +20,7 @@ if command -v t3d >/dev/null 2>&1 && command -v t3d2oofem >/dev/null 2>&1; then
     echo "Building oofem.in via t3d2oofem..."
     t3d2oofem oofem.t3d.ctrl mesh.out oofem.in
 elif [ -f oofem.in ]; then
-    echo "T3D not on PATH — using committed oofem.in."
+    echo "T3D not on PATH, using committed oofem.in."
 else
     echo "ERROR: T3D not on PATH and no oofem.in present." >&2
     exit 1
@@ -29,4 +29,4 @@ fi
 echo "Running OOFEM..."
 oofem -f oofem.in > std.out
 
-echo "Done. VTU files in $(pwd) — open with ParaView."
+echo "Done. VTU files in $(pwd). Open with ParaView."

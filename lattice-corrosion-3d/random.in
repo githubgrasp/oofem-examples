@@ -20,7 +20,7 @@ typeOfCDF = 1
 
 #Converter that relates real numbers to field dimensions.
 # Step = 1/converter. Here 1/320 = 3.125 mm, ~ autoLength/3 (still good FFT
-# fidelity). With 8x64x64 grid this gives 25 mm x 200 mm x 200 mm coverage —
+# fidelity). With 8x64x64 grid this gives 25 mm x 200 mm x 200 mm coverage,
 # wraps the 10 mm x 150 mm x 150 mm specimen with margin on all sides.
 # Larger step (smaller converter) is preferred over a finer grid because the
 # random.dat file size scales with grid points (8x64x64 ~ 256 KB).

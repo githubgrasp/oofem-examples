@@ -1,5 +1,5 @@
 oofem.out
-3D periodic lattice — SFRC cube, random ft, steel fibres bridging the crack
+3D periodic lattice: SFRC cube, random ft, steel fibres bridging the crack
 NonLinearStatic nmsteps 1 nsteps 100 contextOutputStep 1000 nmodules 2 profileopt 1
 nsteps 100 rtolv 1.e-3 reqIterations 100 stiffMode 1 manrmsteps 10 maxiter 200 controllmode 0 stepLength 1.e-6 minsteplength 1.e-6 maxrestarts 0 hpcmode 2 hpc 2 #@CTLNODE 32 hpcw 1 1. donotfixload
 vtkxmllattice primvars 1 1 cellvars 9 138 139 140 156 157 158 52 46 103 tstep_step 5 domain_all cross 1 crossstep 1

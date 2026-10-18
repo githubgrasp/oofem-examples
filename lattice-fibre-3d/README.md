@@ -1,6 +1,6 @@
-# 3D lattice — SFRC cube: with vs without fibres
+# 3D lattice: SFRC cube: with vs without fibres
 
-A periodic 30 × 30 × 30 mm concrete cube pulled in uniaxial tension, run
+A periodic 30 x 30 x 30 mm concrete cube pulled in uniaxial tension, run
 **twice on the identical matrix** to isolate what the fibres do:
 
 | subdir            | model                                                        |
@@ -64,12 +64,12 @@ material parameters, and the 2019 reference.
 
 ## Note on the axes
 
-**y-axis** — `ld.dat` column 2 is the CALM load level = total force on the
+**y-axis**: `ld.dat` column 2 is the CALM load level = total force on the
 loaded cell face. The macroscopic stress is `sigma_yy = load level / A`,
 with the cube cross-section `A = 0.03 * 0.03 = 9e-4 m^2`; `compare.gp`
 applies `YSCALE = 1/(A*1e6)` to plot MPa.
 
-**x-axis** — `ld.dat` column 1 is the control-node *displacement* `u_y`
+**x-axis**: `ld.dat` column 1 is the control-node *displacement* `u_y`
 (the node sits at the cell corner, so `u_y = eps_yy * l_p`). The
 macroscopic strain is `eps_yy = u_y / l_p` with `l_p = 0.03 m`;
 `compare.gp` divides by `LP` and scales to mm/m. (A quick check: in the

@@ -1,6 +1,6 @@
-# 2D direct tensile lattice — random vs uniform e0
+# 2D direct tensile lattice: random vs uniform e0
 
-Two 2D Voronoi-lattice analyses of a 100×100 mm concrete prism in direct
+Two 2D Voronoi-lattice analyses of a 100 x 100 mm concrete prism in direct
 uniaxial tension on a periodic mesh. Same geometry, same mean
 material parameters; only the spatial distribution of `e0` (the
 elastic-strain threshold for damage initiation) differs.
@@ -12,7 +12,7 @@ elastic-strain threshold for damage initiation) differs.
 
 The random field is generated with [`genran`](https://github.com/githubgrasp/genran)
 using the spectral representation of Shinozuka & Deodatis. It supports
-Gaussian, Weibull, and grafted Weibull–Gaussian distributions
+Gaussian, Weibull, and grafted Weibull-Gaussian distributions
 and a Gaussian-shaped autocorrelation. The lattice picks up the field
 through the `InterpolatingFunction` directive in `control.in`, which
 multiplies the per-element `e0` by the field value at the element's
@@ -60,15 +60,15 @@ including the parent-level `ld-compare.pdf`.
 
 `random/run.sh` runs a five-step pipeline:
 
-1. `generator mesh.in` — random node distribution → `mesh.nodes`.
-2. `qvoronoi p Fv < mesh.nodes > mesh.voronoi` — Voronoi tessellation.
-3. `genran random.in random.dat` — generate the spectral random field.
-4. `converter control.in mesh.nodes mesh.voronoi` — builds the lattice
+1. `generator mesh.in`: random node distribution to `mesh.nodes`.
+2. `qvoronoi p Fv < mesh.nodes > mesh.voronoi`: Voronoi tessellation.
+3. `genran random.in random.dat`: generate the spectral random field.
+4. `converter control.in mesh.nodes mesh.voronoi`: builds the lattice
    topology and assembles `oofem.in`. The `InterpolatingFunction`
    directive in `control.in` reads `random.dat`.
-5. `oofem -f oofem.in > std.out` — solve.
+5. `oofem -f oofem.in > std.out`: solve.
 
-`uniform/run.sh` skips step 3 — `control.in` has no `InterpolatingFunction`
+`uniform/run.sh` skips step 3: `control.in` has no `InterpolatingFunction`
 and the `latticedamage` material uses a constant `e0`.
 
 ## Inputs you can edit
@@ -89,8 +89,8 @@ Mean values, identical in both `control.in` files (on the `latticedamage` line).
 | parameter | value     | meaning                              |
 |-----------|-----------|--------------------------------------|
 | `e`       | 30 GPa    | elastic modulus                      |
-| `e0`      | 100×10⁻⁶  | mean strain at peak tensile stress   |
-| `wf`      | 33 µm     | crack opening at zero stress (mode I)|
+| `e0`      | 100&times;10<sup>-6</sup>  | mean strain at peak tensile stress   |
+| `wf`      | 33 &micro;m     | crack opening at zero stress (mode I)|
 | `coh`     | 2.0       | shear-to-tension cohesion ratio      |
 | `ec`      | 10        | compressive-to-tensile strength ratio|
 

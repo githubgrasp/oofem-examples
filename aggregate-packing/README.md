@@ -41,12 +41,12 @@ aggregates sit clear of the boundaries (nicer to visualise).
 | `#@periodicity`  | `3 1 1 1`                              | periodic on all three axes                      |
 | `#@seed`         | `8`                                    | RNG seed (fixes the packing)                    |
 | `#@maxiter`      | `1000`                                 | max trial placements per aggregate              |
-| `#@grading`      | `dmin 0.005 dmax 0.020 fraction 0.3`   | 5–20 mm aggregates, target volume fraction 0.3  |
+| `#@grading`      | `dmin 0.005 dmax 0.020 fraction 0.3`   | 5-20 mm aggregates, target volume fraction 0.3  |
 | `#@output`       | `packing.dat`                          | inclusion-list output                           |
 | `#@vtu`          | `packing.vtu`                          | ParaView surface output                         |
 
 The default aggregate shape is `ellipsoid` (random aspect ratio, with
-`sx ≤ sy ≤ sz` and `sx/sz ∈ [0.5, 1]`); add `shape sphere` to `#@grading`
+`sx <= sy <= sz` and `sx/sz in [0.5, 1]`); add `shape sphere` to `#@grading`
 for spheres instead.
 
 ## What comes out
@@ -92,7 +92,7 @@ otherwise identical.
 
 | file          | content                                                        |
 |---------------|----------------------------------------------------------------|
-| `packing.dat` | inclusion list — one line per aggregate (and per ghost image)  |
+| `packing.dat` | inclusion list: one line per aggregate (and per ghost image)  |
 | `packing.vtu` | tessellated aggregate surfaces for ParaView                    |
 
 `packing.dat` is committed as a small, deterministic precomputed result so
@@ -113,7 +113,7 @@ ellipsoid 2 ...
 ```
 
 `centre` is the aggregate centre, `angles` are the intrinsic Euler angles
-(Rz·Ry·Rx) of its orientation, and `radii` are the three semi-axes. With
+(Rz&middot;Ry&middot;Rx) of its orientation, and `radii` are the three semi-axes. With
 `shape sphere` the record collapses to `sphere <id> centre 3 ... radius <r>`.
 This is the same format the downstream generator and converter consume to
 seed a node mesh and classify material regions.
@@ -138,12 +138,12 @@ an ellipsoid-ellipsoid separation test, follows:
 
 > P. Grassl and A. Antonelli. *3D network modelling of fracture processes in
 > fibre-reinforced geomaterials.* International Journal of Solids and
-> Structures, vol. 156–157, pp. 234–242, 2019.
+> Structures, vol. 156-157, pp. 234-242, 2019.
 > [DOI](https://doi.org/10.1016/j.ijsolstr.2018.08.019)
 
 Implementation details, 2D disk packing, fibre placement, spherical
 aggregates, the overlap test (Wang et al. 2001, evaluated via the equivalent
-Alfano–Greer eigenvalue form), and the full `#@` directive reference — are in
+Alfano-Greer eigenvalue form), and the full `#@` directive reference are in
 the `aggregate` user manual shipped with the OOFEM source
 (`src/aggregate/doc/user_manual.md`) in the githubgrasp fork.
 

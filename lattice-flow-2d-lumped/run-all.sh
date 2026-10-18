@@ -4,7 +4,7 @@
 # suction profiles side-by-side at four time steps.
 #
 # NOTE: the consistent run is expected to oscillate or struggle to
-# converge — that is the demonstration. If it fails outright, the
+# converge; that is the demonstration. If it fails outright, the
 # pipeline still produces compare.pdf showing whatever steps did run.
 set -e
 cd "$(dirname "$0")"

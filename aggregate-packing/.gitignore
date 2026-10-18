@@ -4,6 +4,6 @@
 # packing without running aggregate first.
 packing.vtu
 
-# Placement trace (AGGREGATE_TRACE output) — regenerated on demand for the
+# Placement trace (AGGREGATE_TRACE output), regenerated on demand for the
 # local/ trial-and-error animation; not part of end-user reproduction.
 placement.trace

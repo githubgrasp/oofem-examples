@@ -1,6 +1,6 @@
 #!/bin/bash
 # Reproduce: CDPM2 single tetrahedron under uniaxial compression.
-# Blog: https://petergrassl.com/blog/<TODO-slug>/
+# Blog: https://petergrassl.com/blog/cdpm2-single-monotonic/
 set -e
 cd "$(dirname "$0")"
 

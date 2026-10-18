@@ -1,4 +1,4 @@
-# 3D lattice — corrosion-induced cracking of a thick-walled cylinder
+# 3D lattice: corrosion-induced cracking of a thick-walled cylinder
 
 A 10 mm-thick slice of a 150 mm concrete cylinder with a single 8 mm
 diameter steel bar along its axis. A 0.1 mm rust shell at the steel/
@@ -11,13 +11,13 @@ thick-walled cylinder problem with a discrete, random tessellation:
 
 1. **Random Voronoi lattice** built with `generator` + `qvoronoi` over a
    cylindrical domain, with extra densification at the rebar interface.
-2. **Material heterogeneity** through `genran` — `ft` of the concrete
+2. **Material heterogeneity** through `genran`: `ft` of the concrete
    matrix is randomised via a `Gaussian` random field with mean 1 and
    cov 0.2.
 3. **Corrosion eigenstrain** applied as an `StructTemperatureLoad` on
    the ITZ ring, with `calpha` and the load-time function chosen so the
    ramp produces a small radial expansion at the end of the run.
-4. **Bounded radial compression** via `latticeplastdam` — the plasticity
+4. **Bounded radial compression** via `latticeplastdam`: the plasticity
    surface caps the compressive stress around the bar, where a pure
    damage law would unphysically lose all stiffness.
 
@@ -54,12 +54,12 @@ Outputs:
 ## Workflow
 
 ```bash
-genran random.in random.dat                      # → random.dat
-generator mesh.in                                # → nodes.dat
-qvoronoi p Fv < nodes.dat > voronoi.dat          # → voronoi.dat
-converter control.in nodes.dat voronoi.dat      # → oofem.in
-oofem -f oofem.in > std.out                      # → oofem.out.*, oofem.out.m1.*.gp
-perl pressureExtractor.pl                        # → pressure.dat
+genran random.in random.dat                      # -> random.dat
+generator mesh.in                                # -> nodes.dat
+qvoronoi p Fv < nodes.dat > voronoi.dat          # -> voronoi.dat
+converter control.in nodes.dat voronoi.dat      # -> oofem.in
+oofem -f oofem.in > std.out                      # -> oofem.out.*, oofem.out.m1.*.gp
+perl pressureExtractor.pl                        # -> pressure.dat
 ```
 
 `pressureExtractor.pl` reads each `oofem.out.m1.<step>.gp` file, picks
@@ -79,7 +79,7 @@ stress, and writes one row per step.
 
 | material | role                              | key parameters                                       |
 |----------|-----------------------------------|------------------------------------------------------|
-| 1        | concrete matrix                   | `e 30 GPa`, `ft 3 MPa`, `fc 30 MPa`, `wf 50 µm`, random `ft` via `randvars 1 800` |
+| 1        | concrete matrix                   | `e 30 GPa`, `ft 3 MPa`, `fc 30 MPa`, `wf 50 um`, random `ft` via `randvars 1 800` |
 | 2        | steel rebar core (inside R=8 mm)  | `em 200 GPa`, `nu 0.3`, no expansion                 |
 | 3        | corrosion ITZ (0.1 mm shell)      | `e 200 GPa`, `a1 0.001` (shear-free), `calpha 0.15e-4` driving radial eigenstrain |
 

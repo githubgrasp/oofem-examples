@@ -10,7 +10,7 @@ ranint = -3
 xOrigin = -0.02
 yOrigin = -0.02
 
-# Powers of two — radix-2 FFT requirement.
+# Powers of two: radix-2 FFT requirement.
 realNumber1 = 256
 realNumber2 = 256
 

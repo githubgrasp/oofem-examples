@@ -1,6 +1,6 @@
 #!/bin/bash
 # Remove generated artefacts in the four sub-tests. Uses an explicit
-# allow-list — never `git clean -fdx`, which would wipe every untracked
+# allow-list: never `git clean -fdx`, which would wipe every untracked
 # file in the working tree (e.g. a sibling example folder you haven't
 # committed yet).
 set -e

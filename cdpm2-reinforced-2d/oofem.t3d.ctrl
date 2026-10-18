@@ -1,0 +1,64 @@
+oofem.out
+Leonhardt and Walther shear beam no. 5, plane stress, CDPM2 crack band
+NonLinearStatic nmsteps 2 nsteps 1 profileopt 1 nmodules 1 lstype 4 smtype 8 contextoutputstep 1000
+nsteps 220 rtolv 1.e-3 stiffMode 2 maxiter 100000 reqiterations 100000 controllmode 0 psi 0.0 hpcmode 2 hpc 2 15 2 hpcw 1 -1 steplength 1.e-5 minsteplength 1.e-5 donotfixload lstype 4 smtype 8
+nsteps 200 rtolv 1.e-3 stiffMode 2 maxiter 100000 reqiterations 200 controllmode 0 psi 0.0 hpcmode 2 hpc 6 15 2 19 2 18 2 hpcw 3 -1 100 -100 steplength 2.e-4 forcedinitialsteplength 1.e-5 minsteplength 1.e-6 donotfixload lstype 4 smtype 8
+vtkxml primvars 1 1 cellvars 4 1 4 13 27 tstep_step 5 domain_all
+domain 2dplanestress
+OutputManager tstep_all dofman_output {15 4 18 19}
+2 3 2 0 1
+SimpleCS 1 thick 0.19
+SimpleCS 2 area 1.06186e-3
+con2dpm 1 d 0 E 30.483e9 n 0.2 talpha 0. wf 59.373e-6 fc 28.5e6 ft 2.247e6 hp 0.01 yieldtol 1.e-6 asoft 15. stype 2 kinit 0.3 ecc 0.518 efc 3.e-5 ahard 8.e-2 bhard 3.3e-3 chard 2. dhard 1.e-6 dilation 0.85
+isole 2 d 0 n 0.3 e 200.e9 talpha 0.
+isole 3 d 0 n 0.3 e 200.e9 talpha 0.
+BoundaryCondition 1 loadTimeFunction 1 prescribedvalue 0.0
+Nodalload 2 loadTimeFunction 1 components 2 0.0 1.0
+ConstantFunction 1 f(t) 1.0
+
+# symmetry plane x = 1.275: u_x = 0
+vertex 4 5
+nodeprop bc 2 1 0
+
+curve 4
+nodeprop bc 2 1 0
+
+# support: centre of bottom plate, u_y = 0
+vertex 12
+nodeprop bc 2 0 1
+
+# load: centre of top plate
+vertex 15
+nodeprop load 1 2
+
+# concrete
+patch 1 2
+elemprop crossSect 1 mat 1
+triatype trplanestress2d
+
+# steel plates
+patch 3 4
+elemprop crossSect 1 mat 2
+triatype trplanestress2d
+
+# reinforcement 2 x d26: trusses on hanging nodes. No masterElement is given,
+# so OOFEM finds the host concrete element of each node itself (perfect bond).
+curve 12
+nodetype hangingnode
+nodeprop doftype 2 2 2
+elemprop crossSect 2 mat 3 cs 1
+edgetype truss2d
+
+vertex 9 10
+nodetype hangingnode
+nodeprop doftype 2 2 2
+
+###### Used for Extractor
+###
+#%BEGIN_CHECK%
+#LOADLEVEL
+#DOFMAN  number 4 dof 2 type d
+#DOFMAN  number 15 dof 2 type d
+#DOFMAN  number 18 dof 2 type d
+#DOFMAN  number 19 dof 2 type d
+#%END_CHECK%

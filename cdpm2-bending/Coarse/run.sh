@@ -1,6 +1,6 @@
 #!/bin/bash
 # Reproduce one mesh of the CDPM2 three-point-bending study (plane stress).
-# Blog: https://petergrassl.com/blog/<TODO-slug>/
+# Blog: https://petergrassl.com/blog/cdpm2-bending/
 #
 # Runs OOFEM on the committed standalone input (oofem.in), extracts the
 # load-CMOD data, and plots the single-mesh curve. No mesh generation is

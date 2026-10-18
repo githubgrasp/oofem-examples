@@ -1,7 +1,7 @@
 #!/bin/bash
 # Reproduce: CDPM2 single tetrahedron under pure shear stress
-# (only σxy ≠ 0; all normal strains free → conventional shear failure).
-# Blog: https://petergrassl.com/blog/<TODO-slug>/
+# (only sigma_xy != 0; all normal strains free, so conventional shear failure).
+# Blog: https://petergrassl.com/blog/cdpm2-single-monotonic/
 set -e
 cd "$(dirname "$0")"
 

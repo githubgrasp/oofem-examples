@@ -8,12 +8,12 @@ ncrosssect 1 nmat 1 nbc 1 nic 1 nltf 2 nset 1
 # Transport cross-section (converter now tags each latticemt2D with crossSect).
 simpletransportcs 1 mat 1
 # Van Genuchten benchmark with mild curves (m = 0.5 / n = 2). The capacity
-# c(p) peaks at p ≈ a; the relative permeability k_r drops to ~0.7% at
-# u = 2 a (S ≈ 0.45) but stays non-zero. This is the standard regime in
+# c(p) peaks at p ~ a; the relative permeability k_r drops to ~0.7% at
+# u = 2 a (S ~ 0.45) but stays non-zero. This is the standard regime in
 # which lumped converges monotonically and consistent shows oscillations
-# near the wetting front — the textbook Celia (1990) demonstration.
+# near the wetting front, the textbook Celia (1990) demonstration.
 latticetransmat 1 d 1. k 1.e-4 vis 1. thetas 1. thetar 0. thetam 1. contype 1 m 0.5 a 1000. paev 0.
-# Dry IC u = 2000 (S ≈ 0.45) meets saturated boundary u = 0 from t = 0.
+# Dry IC u = 2000 (S ~ 0.45) meets saturated boundary u = 0 from t = 0.
 # Adaptive time stepping via deltatfunction (LTF 2): dt = 1e-6 for the
 # first 50 steps to absorb the initial matrix stiffness, then grows
 # linearly to 1e-4 by step 500. The modified Newton-Raphson loop

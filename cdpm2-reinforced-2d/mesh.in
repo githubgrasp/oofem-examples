@@ -1,0 +1,64 @@
+# Leonhardt & Walther beam no. 5 (Xenos & Grassl 2016), half beam, h = 0.02 m
+# t3d -d 0.02 -p 8 -i mesh.in -o mesh.out
+#
+# x = 0 is the beam end, x = 1.275 the symmetry plane (midspan).
+# Units: m. Out-of-plane thickness 0.19 m (set in oofem.t3d.ctrl).
+
+# beam outline
+vertex 1 xyz 0.0 0.0 0.0 size def * 10.0
+vertex 2 xyz 0.25 0.0 0.0 size def * 10.0
+vertex 3 xyz 0.35 0.0 0.0
+vertex 4 xyz 1.275 0.0 0.0
+vertex 5 xyz 1.275 0.32 0.0
+vertex 6 xyz 1.1475 0.32 0.0
+vertex 7 xyz 1.0725 0.32 0.0
+vertex 8 xyz 0.0 0.32 0.0 size def * 10.0
+# reinforcement 2 x d26 at y = 0.05: free curve, not attached to the
+# concrete mesh. OOFEM embeds its nodes as hanging nodes (see oofem.t3d.ctrl).
+vertex 9 xyz 0.0 0.05 0.0
+vertex 10 xyz 1.275 0.05 0.0
+# support plate 100 x 30 mm (centre x = 0.30)
+vertex 11 xyz 0.25 -0.03 0.0 size def * 10.0
+vertex 12 xyz 0.30 -0.03 0.0 size def * 10.0
+vertex 13 xyz 0.35 -0.03 0.0 size def * 10.0
+# loading plate 75 x 30 mm (centre x = 0.30 + 0.81 = 1.11)
+vertex 14 xyz 1.0725 0.35 0.0 size def * 10.0
+vertex 15 xyz 1.11 0.35 0.0 size def * 10.0
+vertex 16 xyz 1.1475 0.35 0.0 size def * 10.0
+# boundary between coarse end region and refined region
+vertex 17 xyz 0.25 0.32 0.0 size def * 10.0
+# control points across the splitting crack along the reinforcement
+# (indirect displacement control after the peak, see oofem.t3d.ctrl)
+vertex 18 xyz 0.75 0.0 0.0
+vertex 19 xyz 0.75 0.10 0.0
+
+# beam curves
+curve 1 vertex 1 2
+curve 2 vertex 2 3
+curve 3 vertex 3 18
+curve 5 vertex 18 4
+curve 4 vertex 4 5
+curve 6 vertex 5 6
+curve 7 vertex 6 7
+curve 8 vertex 7 17
+curve 9 vertex 17 8
+curve 10 vertex 8 1
+curve 21 vertex 2 17
+# plate curves
+curve 13 vertex 2 11
+curve 14 vertex 11 12
+curve 15 vertex 12 13
+curve 16 vertex 13 3
+curve 17 vertex 7 14
+curve 18 vertex 14 15
+curve 19 vertex 15 16
+curve 20 vertex 16 6
+# reinforcement
+curve 12 vertex 9 10 output yes
+
+# patches
+# 1 refined region, 2 coarse end region, 3/4 steel plates
+patch 1 normal 0 0 1 boundary curve 2 3 5 4 6 7 8 -21 fixed vertex 19 size def
+patch 2 normal 0 0 1 boundary curve 1 21 9 10 size def * 10.0
+patch 3 normal 0 0 1 boundary curve -2 13 14 15 16 size def * 10.0
+patch 4 normal 0 0 -1 boundary curve 7 17 18 19 20 size def * 10.0

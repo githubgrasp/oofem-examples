@@ -1,5 +1,5 @@
 # Periodic 3D SM mesh on 30x30x30 mm cube. Lattice nodes are placed without
-# reference to the fibres — those come in at the converter stage via
+# reference to the fibres; those come in at the converter stage via
 # #@inclusionfile and are discretised on top of the matrix Voronoi.
 #@output nodes.dat
 #@domain 3

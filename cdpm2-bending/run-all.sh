@@ -1,6 +1,6 @@
 #!/bin/bash
 # Reproduce: CDPM2 three-point bending (plane stress), ligament mesh refinement.
-# Blog: https://petergrassl.com/blog/<TODO-slug>/
+# Blog: https://petergrassl.com/blog/cdpm2-bending/
 #
 # Runs all three meshes (Coarse / Medium / Fine) and builds the mesh-refinement
 # comparison figure ld_mesh_compare.{pdf,png}: a peak-region detail panel and a
@@ -8,7 +8,7 @@
 #
 # Each run is a full nonlinear analysis and can take tens of minutes per mesh.
 # The committed ld.dat files already hold the results, so if you only want the
-# comparison figure you can skip the runs — see SKIP_RUNS below.
+# comparison figure you can skip the runs (see SKIP_RUNS below).
 #
 #   bash run-all.sh            # run all three meshes, then plot
 #   SKIP_RUNS=1 bash run-all.sh # plot from the committed ld.dat only
@@ -24,7 +24,7 @@ if [ -z "${SKIP_RUNS:-}" ]; then
     ( cd "$m" && bash run.sh )
   done
 else
-  echo "SKIP_RUNS set — plotting from committed ld.dat without re-running."
+  echo "SKIP_RUNS set: plotting from committed ld.dat without re-running."
 fi
 
 echo

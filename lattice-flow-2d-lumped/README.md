@@ -1,23 +1,23 @@
-# 2D unsaturated lattice transport — why lumped capacity matters
+# 2D unsaturated lattice transport: why lumped capacity matters
 
-A 100×100 mm prism with van Genuchten unsaturated transport, run twice on
+A 100 x 100 mm prism with van Genuchten unsaturated transport, run twice on
 the same mesh: once with **lumped** capacity and once with the
 **consistent** capacity matrix (default in OOFEM's
 `latticemt2D`). Initially the specimen is partially unsaturated
-(`u_IC = 2000` Pa, `S ≈ 0.45`); the bottom face is saturated (`u_BC = 0`)
+(`u_IC = 2000` Pa, `S ~ 0.45`); the bottom face is saturated (`u_BC = 0`)
 from `t = 0`. The wetting front propagates upward through the steep `c(p)`
-peak around `p ≈ a`, which is where the choice of capacity matrix matters.
+peak around `p ~ a`, which is where the choice of capacity matrix matters.
 
 | sub-test       | capacity matrix                         |
 |----------------|-----------------------------------------|
-| `lumped/`      | diagonal — monotone, no overshoot       |
-| `consistent/`  | row-sum-preserving 2×2 off-diagonal     |
+| `lumped/`      | diagonal: monotone, no overshoot       |
+| `consistent/`  | row-sum-preserving 2 x 2 off-diagonal     |
 
-The classical Celia–Bouloutas–Zarba (1990) result for Richards-type
+The classical Celia-Bouloutas-Zarba (1990) result for Richards-type
 problems: with the consistent capacity matrix, the off-diagonal coupling
 produces transient overshoots above the dry-side initial value that
 linger because the relative permeability `k_r(p)` is asymmetric (high on
-the wet side → fast damping, low on the dry side → slow damping). Lumped
+the wet side gives fast damping, low on the dry side slow damping). Lumped
 capacity is row-monotone and avoids the overshoot entirely.
 
 In this run the consistent variant overshoots the IC bound (`p = 2000`)
@@ -29,7 +29,7 @@ both variants agree on the long-term profile.
 
 A direct step from `u_IC = 2000` to `u_BC = 0` with a fixed `dt` gives
 the nonlinear solver a nearly-singular first-step matrix (the dry-side
-`k_r ≈ 0.7%`). OOFEM's `nltransienttransportproblem` uses **modified
+`k_r ~ 0.7%`). OOFEM's `nltransienttransportproblem` uses **modified
 Newton-Raphson**: the conductivity-plus-capacity matrix is assembled
 once per step and held constant for all iterations within that step,
 only the residual updates. With a too-large initial `dt` no number of
@@ -40,9 +40,9 @@ This example uses OOFEM's `deltatfunction` to drive the solver with a
 
     PiecewiseLinFunction 2 nPoints 3 t 3 0. 50. 500. f(t) 3 1e-6 1e-6 1e-4
 
-→ `dt = 10⁻⁶` for the first 50 steps (absorbs the initial stiffness),
-then growing linearly to `dt = 10⁻⁴` by step 500. The modified Newton-
-Raphson loop converges throughout for both variants — even with the
+gives `dt = 1e-6` for the first 50 steps (absorbs the initial stiffness),
+then growing linearly to `dt = 1e-4` by step 500. The modified Newton-
+Raphson loop converges throughout for both variants, even with the
 step BC.
 
 ## Reproduce
@@ -82,8 +82,8 @@ Top-level outputs:
 
 | file           | content                                                  |
 |----------------|----------------------------------------------------------|
-| `compare.pdf`  | 2×2 panels at steps 10/30/50/80 (max-per-band lines)     |
-| `compare.png`  | same as PDF, 1200×1200 PNG for LinkedIn/blog             |
+| `compare.pdf`  | 2 x 2 panels at steps 10/30/50/80 (max-per-band lines)     |
+| `compare.png`  | same as PDF, 1200 x 1200 PNG for LinkedIn/blog             |
 
 `bash clean.sh` (at this level) removes everything generated across both
 sub-tests.
@@ -92,13 +92,13 @@ sub-tests.
 
 Each `run.sh` runs the standard four-step pipeline:
 
-1. `generator mesh.in` → `mesh.nodes`
+1. `generator mesh.in` to `mesh.nodes`
 2. `qvoronoi p Fv < mesh.nodes > mesh.voronoi`
-3. `converter control.in mesh.nodes mesh.voronoi` → `oofem.in`
-4. `oofem -f oofem.in > std.out` → `oofem.out.m0.*.vtu`
+3. `converter control.in mesh.nodes mesh.voronoi` to `oofem.in`
+4. `oofem -f oofem.in > std.out` to `oofem.out.m0.*.vtu`
 
 Then at the parent level, `compare.py` extracts profiles and `gnuplot`
-overlays both variants on the same 2×2 figure with a dashed reference
+overlays both variants on the same 2 x 2 figure with a dashed reference
 line at the IC bound.
 
 ## Inputs you can edit
@@ -119,16 +119,16 @@ The only difference between the two `control.in` files is the
 
 | parameter | value    | meaning                              |
 |-----------|----------|--------------------------------------|
-| `k`       | 10⁻⁴     | intrinsic permeability               |
+| `k`       | 10<sup>-4</sup>     | intrinsic permeability               |
 | `vis`     | 1        | viscosity                            |
-| `m`       | 0.5      | van Genuchten shape (≡ `n = 2`)      |
+| `m`       | 0.5      | van Genuchten shape (&equiv; `n = 2`)      |
 | `a`       | 1000 Pa  | air-entry suction (peak of `c(p)`)   |
 | `thetas`  | 1        | saturated water content              |
 | `thetar`  | 0        | residual water content               |
 | `paev`    | 0        | suction below which `k_r = 1`        |
 
 Mild curves were chosen deliberately so both lumped and consistent
-converge — the textbook benchmark regime (Celia et al. 1990). With
+converge, the textbook benchmark regime (Celia et al. 1990). With
 sharper concrete-like parameters the consistent variant typically fails
 to converge at all (see the project memory on adaptive-`dt` patterns).
 

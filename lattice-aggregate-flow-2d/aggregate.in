@@ -4,13 +4,13 @@
 # Disks via Fuller grading; in 2D mode `fraction` is interpreted as area fraction.
 #@output packing.dat
 #@box 2 0.1 0.1
-# Periodic packing — disks can wrap or cross the rect faces. The generator
+# Periodic packing: disks can wrap or cross the rect faces. The generator
 # handles boundary-crossing disks via per-intersection anchor pairs on the
 # face (see Grid::generateInclusionBoundaryAnchors), so wall clearance is
 # not required. Disk-vs-disk overlap, however, must leave room for both
-# ITZ rings plus a `diam` mesh-spacing buffer — so the placer requires a
+# ITZ rings plus a `diam` mesh-spacing buffer, so the placer requires a
 # centre-to-centre gap of `r1 + r2 + diam + 2 * itz`. Tune `#@diam` /
-# `#@itz` to match the mesher's `#@diam` and `#@inclusionfile … itz`.
+# `#@itz` to match the mesher's `#@diam` and `#@inclusionfile ... itz`.
 #@periodicity 2 1 1
 #@seed 42
 #@maxiter 1000

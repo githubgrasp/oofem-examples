@@ -1,7 +1,7 @@
 #!/bin/bash
-# Reproduce: CDPM2 single tetrahedron under simple shear (γxy only,
-# all normal strains constrained to zero — confinement builds up).
-# Blog: https://petergrassl.com/blog/<TODO-slug>/
+# Reproduce: CDPM2 single tetrahedron under simple shear (gamma_xy only,
+# all normal strains constrained to zero, so confinement builds up).
+# Blog: https://petergrassl.com/blog/cdpm2-single-monotonic/
 set -e
 cd "$(dirname "$0")"
 

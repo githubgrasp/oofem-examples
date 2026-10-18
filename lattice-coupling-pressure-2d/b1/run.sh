@@ -1,7 +1,7 @@
 #!/bin/bash
 # Reproduce ONE Biot case of the fluid-pressurised thick-walled cylinder.
 # Self-contained: generates its own mesh and runs the coupled (staggered)
-# analysis entirely in this folder — runnable on its own (bash run.sh) without
+# analysis entirely in this folder, runnable on its own (bash run.sh) without
 # the sibling case. The Biot coefficient is set in control.in (latticelinearelastic bio).
 # Pipeline: generator -> qvoronoi -> converter -> oofem -> compare.py -> gnuplot
 set -e

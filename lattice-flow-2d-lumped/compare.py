@@ -8,7 +8,7 @@ at selected time steps. Writes per variant per step:
   consistent/profile_<step>.dat        x y p
   consistent/profile_<step>_binned.dat y p_mean
 
-No analytical reference is computed — there is no closed form for the
+No analytical reference is computed; there is no closed form for the
 van Genuchten unsaturated case used by this example.
 """
 import os

@@ -1,5 +1,5 @@
 #!/bin/bash
-# Remove generated artefacts across all three meshes. Explicit allow-list —
+# Remove generated artefacts across all three meshes. Explicit allow-list:
 # never `git clean -fdx`, which would also wipe the maintainer-only local/
 # folder and any sibling untracked work.
 #

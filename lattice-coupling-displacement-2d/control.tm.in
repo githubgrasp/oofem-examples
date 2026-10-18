@@ -1,5 +1,5 @@
 oofem.tm.out
-2D inclusion transport — matrix + ITZ flow, low-k steel inclusion
+2D inclusion transport: matrix + ITZ flow, low-k steel inclusion
 TransientTransport nsteps 100 deltat 1.0 alpha 1.0 nmodules 1 profileopt 1
 vtkxmllattice tstep_step 1 dofman_all primvars 1 5
 domain 2dMassLatticeTransport

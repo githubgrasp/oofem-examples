@@ -11,7 +11,7 @@ latticecs 2 material 2
 latticecs 3 material 3
 # Concrete: combined plasticity + damage. Plasticity gives a finite compressive
 # yield surface, so the radial compression around the corroding rebar is
-# bounded — pure damage models keep accumulating tensile damage from the
+# bounded; pure damage models keep accumulating tensile damage from the
 # compression-side strains and unphysically lose stiffness. ft randomised via
 # random.dat.
 latticeplastdam 1 d 0 talpha 0. calpha 0. e 30.e9 ft 3.e6 fc 30.e6 wf 50.e-6 ahard 1.e-3 randvars 1 800 randgen 1 3

@@ -1,7 +1,7 @@
-# CFRP-confined concrete cylinder — confined vs unconfined
+# CFRP-confined concrete cylinder: confined vs unconfined
 
 Two companion 3D analyses of the same concrete cylinder
-(100 mm diameter × 200 mm tall) under axial compression, with the same
+(100 mm diameter x 200 mm tall) under axial compression, with the same
 prescribed end displacement. The only difference is the boundary: in
 `confined/` the cylinder is wrapped with a CFRP jacket, in `unconfined/`
 it is bare. Concrete is modelled with CDPM2 (`con2dpm`).
@@ -22,7 +22,7 @@ surface. Confinement wins fast enough that the axial load capacity keeps
 growing despite the stiffness loss. 
 
 The CFRP wrap is discretised as `truss3d` elements oriented in the
-circumferential direction only — the wrap carries hoop force but no
+circumferential direction only: the wrap carries hoop force but no
 axial or shear force. This mirrors a circumferentially wound CFRP sheet,
 which is strongly orthotropic: stiff and strong along the fibres, soft
 across them. Modelling the wrap as an isotropic continuum shell would impose an
@@ -32,12 +32,12 @@ One detail to keep in mind when looking at the damage field: the top
 and bottom end faces of the cylinder have prescribed axial displacement
 but are also restrained from radial expansion (the prescribed-displacement
 BC fixes all three DOFs at the loaded nodes). That acts as a built-in
-confinement source near the end zones — a platen-like effect — so even
+confinement source near the end zones (a platen-like effect), so even
 the unconfined cylinder is laterally confined for free at z = 0 and
 z = L. Damage in the unconfined case therefore localises in the middle
 of the specimen, away from the over-confined end bands. The contour to
-look at is the compressive damage variable ω_c in CDPM2 (the tensile
-damage ω_t follows ω_c under this load path).
+look at is the compressive damage variable &omega;<sub>c</sub> in CDPM2 (the tensile
+damage &omega;<sub>t</sub> follows &omega;<sub>c</sub> under this load path).
 
 ## Reproduce
 
@@ -74,7 +74,7 @@ Per sub-folder:
 | `std.out`                       | OOFEM stdout                                     |
 | `oofem.out`                     | OOFEM solver output                              |
 | `oofem.out.m0.*.vtu`            | per-step VTU files for ParaView                  |
-| `ld.dat`                        | load–displacement at the top platen              |
+| `ld.dat`                        | load-displacement at the top platen              |
 
 ## Workflow
 
@@ -109,7 +109,7 @@ isole 2 d 1.8e3 n 0.3 e 254e9
 
 CFRP wrap geometry (confined only). The hoops sit at a fixed vertical
 spacing along the cylinder (controlled in `mesh.in`); each hoop is
-assigned a `SimpleCS` whose area equals **spacing × wrap thickness**, so
+assigned a `SimpleCS` whose area equals **spacing x wrap thickness**, so
 the discrete hoops carry the same total hoop force per unit height as a
 continuous wrap of that thickness:
 
@@ -117,9 +117,9 @@ continuous wrap of that thickness:
 |--------------------|----------------------------------------------------------|
 | wrap thickness `t` | 0.334 mm (typical for a single CFRP layer)               |
 | hoop spacing `s`   | 6.25 mm (31 intermediate hoops + 2 endcap hoops)         |
-| full-hoop area     | `s · t = 2.0875e-6 m²` — 31 intermediate hoops           |
-| endcap-hoop area   | `0.5 · s · t = 1.04375e-6 m²` — 2 endcap hoops (half tributary length) |
+| full-hoop area     | `s * t = 2.0875e-6 m^2`, 31 intermediate hoops           |
+| endcap-hoop area   | `0.5 * s * t = 1.04375e-6 m^2`, 2 endcap hoops (half tributary length) |
 
 To change layer count or wrap thickness, edit the hoop spacing in
 `confined/mesh.in` and the two `SimpleCS area` lines in
-`confined/oofem.t3d.ctrl` so that the area still equals spacing × thickness.
+`confined/oofem.t3d.ctrl` so that the area still equals spacing x thickness.

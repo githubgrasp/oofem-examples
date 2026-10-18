@@ -23,4 +23,4 @@ for d in idm1 idm1nl; do
 done
 
 echo
-echo "Done. VTU files in idm1/ and idm1nl/ — open with ParaView."
+echo "Done. VTU files in idm1/ and idm1nl/. Open with ParaView."

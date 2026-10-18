@@ -1,5 +1,5 @@
 #!/bin/bash
-# Remove generated artefacts. Explicit allow-list — never `git clean -fdx`.
+# Remove generated artefacts. Explicit allow-list: never `git clean -fdx`.
 set -e
 cd "$(dirname "$0")"
 

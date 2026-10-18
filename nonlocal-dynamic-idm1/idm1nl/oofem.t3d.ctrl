@@ -52,7 +52,7 @@ nodeprop load 1 9
 #Explicit dynamic loading
 #Incremental-iterative static analysis 
 #NonLinearStatic nmsteps 1 nsteps 1 profileopt 1  nmodules 1 contextOutputStep 1000
-#nsteps 200 rtolf 1.e-3 stiffMode 0 maxiter 1000 controllmode 1 donotfixload manrmsteps 1§.
+#nsteps 200 rtolf 1.e-3 stiffMode 0 maxiter 1000 controllmode 1 donotfixload manrmsteps 1.
 #NlDEIDynamic nsteps 1 contextOutputStep 1000000 dumpcoef 0. deltat 0.2 profileopt 1 nmodules 1
 #NonLinearStatic nmsteps 1 nsteps 1 profileopt 1  nmodules 1 contextOutputStep 1000
 #nsteps 1 rtolf 1.e-3 stiffMode 0 maxiter 1000 controllmode 1 donotfixload manrmsteps 1

@@ -8,7 +8,7 @@ pore pressure feeds back into the matrix stress (transport -> mechanical). This
 is the mirror image of the companion fluid-pressure example.
 
 Two analytical comparisons, both for the same thick-walled-cylinder geometry
-(matrix annulus a..b) and both ABSOLUTE — predicted from the simulated pore
+(matrix annulus a..b) and both ABSOLUTE, predicted from the simulated pore
 pressure, with no amplitude fitting (the same spirit as the fluid-pressure
 example, which predicts displacement from the prescribed cavity pressure):
 
@@ -25,7 +25,7 @@ example, which predicts displacement from the prescribed cavity pressure):
      giving u(r) = (kappa/2) r ln r + D r + C1/r,  kappa = b Pa (1-nu^2)/(E ln(b/ap)),
      with D, C1 fixed by the two stress BCs. At b = 0 this is the classic Lame
      annulus under inner pressure Pa (wall thins); b = 1 adds the body force
-     (wall thickens). No anchoring — the amplitude is a prediction.
+     (wall thickens). No anchoring: the amplitude is a prediction.
 
 Reads:  control.in (matrix a1, E, bio), oofem.sm.in / oofem.tm.in (geometry),
         oofem.sm.out (u), oofem.tm.out (P_f).
@@ -134,7 +134,7 @@ drows.sort()
 
 u_a_sim = mean([ur for r, ur in drows if r < a + 0.0015])   # measured, for reporting only
 
-# Absolute prediction — no amplitude fitting. The coupling pressure Pa is the ITZ
+# Absolute prediction, no amplitude fitting. The coupling pressure Pa is the ITZ
 # axial stress and is the radial traction the ITZ applies to the matrix. With a
 # THIN ITZ the matrix inner edge a = r_i + itz and the coupling ring ap = r_i +
 # itz/2 both collapse onto ~r_i, so there is no radius mismatch: the annulus is

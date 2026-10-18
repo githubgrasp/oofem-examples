@@ -1,15 +1,15 @@
-# 2D lattice transport — verification against 1D analytical (erfc)
+# 2D lattice transport: verification against 1D analytical (erfc)
 
-A 100×100 mm prism with prescribed pressure on the bottom face and zero
+A 100 x 100 mm prism with prescribed pressure on the bottom face and zero
 pressure (dry) initial condition everywhere else. Linear, isotropic
 transport (constant capacity `c` and permeability `k`), so the governing
-equation reduces to 1D diffusion with diffusivity `D = k / (vis · c)`.
-The total run time is short enough that the far face stays at `p ≈ 0`, so the early-time semi-infinite limit `p(y, t) ≈ erfc(y / (2√(D t)))` is also a useful intuition.
+equation reduces to 1D diffusion with diffusivity `D = k / (vis * c)`.
+The total run time is short enough that the far face stays at `p ~ 0`, so the early-time semi-infinite limit `p(y, t) ~ erfc(y / (2sqrt(D t)))` is also a useful intuition.
 
 The purpose of this example is twofold:
 
 1. **Introduce the transport lattice as the geometric dual** of the
-   mechanical lattice. Both share the underlying Voronoi–Delaunay
+   mechanical lattice. Both share the underlying Voronoi-Delaunay
    tessellation, but each lives on a different part of the duality:
    structural frame elements (`lattice2d`) along the Delaunay
    edges, transport conduit elements (`latticemt2D`) along the dual
@@ -50,19 +50,19 @@ Outputs:
 | `oofem.out.m0.*.vtu`            | per-step VTU files for ParaView                  |
 | `profile_<step>.dat`            | per-node `(x, y, p)` at four snapshot steps      |
 | `analytical_<step>.dat`         | finite-slab analytical `(y, p)` at the same `t`  |
-| `compare.pdf`                   | 2×2 panels: lattice scatter + analytical curve   |
+| `compare.pdf`                   | 2 x 2 panels: lattice scatter + analytical curve   |
 
 `bash clean.sh` removes everything generated.
 
 ## Workflow
 
 ```bash
-generator mesh.in                                # → mesh.nodes
-qvoronoi p Fv < mesh.nodes > mesh.voronoi        # → mesh.voronoi
-converter control.in mesh.nodes mesh.voronoi     # → oofem.in
-oofem -f oofem.in > std.out                      # → oofem.out.m0.*.vtu
-python3 compare.py                               # → profile_*.dat, analytical_*.dat
-gnuplot ... (inline in run.sh)                   # → compare.pdf
+generator mesh.in                                # -> mesh.nodes
+qvoronoi p Fv < mesh.nodes > mesh.voronoi        # -> mesh.voronoi
+converter control.in mesh.nodes mesh.voronoi     # -> oofem.in
+oofem -f oofem.in > std.out                      # -> oofem.out.m0.*.vtu
+python3 compare.py                               # -> profile_*.dat, analytical_*.dat
+gnuplot ... (inline in run.sh)                   # -> compare.pdf
 ```
 
 `compare.py` parses each requested VTU, extracts the nodal pressure
@@ -84,14 +84,14 @@ same time grid. The plot overlays lattice scatter on the analytical curve.
 | parameter | value   | meaning                          |
 |-----------|---------|----------------------------------|
 | `d`       | 1       | density                          |
-| `k`       | 10⁻⁴    | intrinsic permeability           |
+| `k`       | 10<sup>-4</sup>    | intrinsic permeability           |
 | `vis`     | 1       | viscosity                        |
 | `c`       | 1       | volumetric capacity              |
 | `thetas`  | 1       | saturated water content          |
 | `thetar`  | 0       | residual water content           |
 
-→ diffusivity `D = k / (vis · c) = 10⁻⁴ m²/s`. Run length 5 s ⇒ diffusion
-length `√(D·t) ≈ 22 mm`, well below the 100 mm specimen height (semi-
+This gives the diffusivity `D = k / (vis * c) = 1e-4 m^2/s`. With a run length of 5 s, the diffusion
+length `sqrt(D*t) ~ 22 mm`, well below the 100 mm specimen height (semi-
 infinite regime).
 
 ## Referenced by

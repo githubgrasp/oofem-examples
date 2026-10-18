@@ -1,6 +1,6 @@
 #!/bin/bash
 # Remove generated artefacts in both capacity variants.
-# Explicit allow-list — never `git clean -fdx`.
+# Explicit allow-list: never `git clean -fdx`.
 set -e
 cd "$(dirname "$0")"
 

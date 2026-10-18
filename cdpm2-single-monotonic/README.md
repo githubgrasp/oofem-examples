@@ -1,19 +1,19 @@
-# CDPM2 — single-element monotonic verification set
+# CDPM2: single-element monotonic verification set
 
 Four single-tetrahedron, single-Gauss-point analyses that together cover an important range of the response of the Concrete Damage Plasticity Model 2 (`con2dpm`) under monotonic loading. Same element, same material parameters; only the boundary conditions and loading change.
 
 | sub-test       | strain state imposed              | stress state           |
 |----------------|-----------------------------------|------------------------|
-| `Tension/`     | uniaxial tension (lateral free)   | σxx ≠ 0; rest = 0      |
-| `Compression/` | uniaxial compression (lat. free)  | σxx ≠ 0; rest = 0      |
-| `SimpleShear/` | pure γxy, all normal strains = 0  | σxy + confinement      |
-| `PureShear/`   | only γxy elastically (free dilatn)| σxy ≠ 0; rest = 0      |
+| `Tension/`     | uniaxial tension (lateral free)   | &sigma;<sub>xx</sub> &ne; 0; rest = 0      |
+| `Compression/` | uniaxial compression (lat. free)  | &sigma;<sub>xx</sub> &ne; 0; rest = 0      |
+| `SimpleShear/` | pure &gamma;<sub>xy</sub>, all normal strains = 0  | &sigma;<sub>xy</sub> + confinement      |
+| `PureShear/`   | only &gamma;<sub>xy</sub> elastically (free dilatn)| &sigma;<sub>xy</sub> &ne; 0; rest = 0      |
 
 The simple-shear / pure-shear pairing is deliberate:
 
-- **simple shear** suppresses dilation → confinement builds up.
-- **pure shear** lets normal strains develop → conventional shear failure
-  along the σ1 direction at 45° to element axes.
+- **simple shear** suppresses dilation, so confinement builds up.
+- **pure shear** lets normal strains develop, giving conventional shear failure
+  along the &sigma;<sub>1</sub> direction at 45&deg; to element axes.
 
 Anyone implementing CDPM2 should reproduce all four.
 
@@ -63,7 +63,7 @@ compare sensitivities.
 | `n`       | 0.15       | Poisson's ratio                      |
 | `fc`      | 30 MPa     | uniaxial compressive strength        |
 | `ft`      | 3 MPa      | uniaxial tensile strength            |
-| `wf`      | 148.13 µm  | crack opening at zero stress (mode I)|
+| `wf`      | 148.13 &micro;m  | crack opening at zero stress (mode I)|
 | `hp`      | 0.01       | hardening parameter                  |
 
 ## Why single tetra / single GP

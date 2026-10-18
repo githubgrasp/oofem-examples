@@ -11,13 +11,13 @@ xOrigin = -0.015
 yOrigin = -0.015
 zOrigin = -0.015
 
-# Powers of two — radix-2 FFT requirement.
+# Powers of two: radix-2 FFT requirement.
 # 16 x 16 x 16 grid with step 4 mm spans 64 mm, fully wrapping the bounding box.
 realNumber1 = 16
 realNumber2 = 16
 realNumber3 = 16
 
-# Autocorrelation length ~10 mm — coarse-aggregate scale of heterogeneity.
+# Autocorrelation length ~10 mm: coarse-aggregate scale of heterogeneity.
 autoLength1 = 0.01
 autoLength2 = 0.01
 autoLength3 = 0.01
@@ -28,7 +28,7 @@ autoLength3 = 0.01
 # lattice nodes sticking past the periodic cell.
 converter = 250
 
-# Gaussian marginal, mean 1, CoV 20% — multiplicative factor on ft (e0).
+# Gaussian marginal, mean 1, CoV 20%: multiplicative factor on ft (e0).
 typeOfCDF = 1
 mean = 1.
 cov  = 0.2

@@ -19,7 +19,7 @@ if command -v t3d >/dev/null 2>&1 && command -v converter >/dev/null 2>&1; then
     echo "Assembling oofem.in..."
     converter control.in mesh.out
 elif [ -f oofem.in ]; then
-    echo "T3D not on PATH — using committed oofem.in."
+    echo "T3D not on PATH, using committed oofem.in."
 else
     echo "ERROR: T3D not on PATH and no oofem.in present." >&2
     exit 1
@@ -30,4 +30,4 @@ echo "Running OOFEM (NlDEIDynamic, explicit)..."
 # and "user time consumed" (INFO) chatter. Warnings and errors still print.
 oofem -l 1 -f oofem.in > std.out
 
-echo "Done. VTU files in $(pwd) — open with ParaView."
+echo "Done. VTU files in $(pwd). Open with ParaView."

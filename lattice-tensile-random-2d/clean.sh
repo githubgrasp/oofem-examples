@@ -1,6 +1,6 @@
 #!/bin/bash
 # Remove generated artefacts in the random and uniform sub-cases.
-# Explicit allow-list — never `git clean -fdx`, which would wipe every
+# Explicit allow-list: never `git clean -fdx`, which would wipe every
 # untracked file in the working tree.
 set -e
 cd "$(dirname "$0")"

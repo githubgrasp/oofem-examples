@@ -1,14 +1,14 @@
 # Buckling of a strut: elastic and elasto-plastic, with the large-rotation lattice model
 
 A slender imperfect strut pinned on both sides is compressed until it buckles, modelled with the
-large-rotation lattice element `lattice3dnl` (the rigid-body–spring frame
+large-rotation lattice element `lattice3dnl` (the rigid-body-spring frame
 element of Abdelrhim and Grassl (2026), see [Further reading](#further-reading)).
 Two responses are compared against the exact post-buckling repsonse of the
 perfect strut:
 
-- **elastic** — the load rises *above* the critical Euler buckling load as the strut deflects
+- **elastic**: the load rises *above* the critical Euler buckling load as the strut deflects
   laterally, and the imperfect lattice converges onto the solution of the perfect strut;
-- **elasto-plastic** — a plastic hinge forms and the load *drops* soon after
+- **elasto-plastic**: a plastic hinge forms and the load *drops* soon after
   buckling.
 
 ## Referenced by
@@ -17,29 +17,29 @@ perfect strut:
 
 ## The problem
 
-A straight elastic strut of length `L = π m`, pinned at both ends, is loaded in
+A straight elastic strut of length `L = pi m`, pinned at both ends, is loaded in
 axial compression by a prescribed end shortening. The classical result is that
 it stays straight until the axial load reaches the Euler critical load
 
-    Pcr = π² EI / L²   =   EI   =   1.66e6 N   (here L = π, so Pcr = EI)
+    Pcr = pi^2 EI / L^2   =   EI   =   1.66e6 N   (here L = pi, so Pcr = EI)
 
 and then buckles laterally. For the *perfect* strut the load keeps rising slowly above `Pcr` as the lateral
 deflection grows (large-displacement stiffening). This branch is computed
 independently in MATLAB (`Matlab/`) and shipped as `Matlab/matlabPerfect.dat`
-(end rotation `θ` vs `P/Pcr`) — the reference the lattice is checked against.
+(end rotation `theta` vs `P/Pcr`), the reference the lattice is checked against.
 
-The model carries a small **half-sine geometric imperfection**, amplitude `≈ 0.03 m` (`≈ L/100`), peaking
+The model carries a small **half-sine geometric imperfection**, amplitude `~ 0.03 m` (`~ L/100`), peaking
 at midspan. The imperfection removes the sharp bifurcation: the strut starts to
 deflect from the first load increment, reaches `Pcr` **later and at larger
 lateral deflection**, and then converges onto the perfect elastica.
 
-The *same* imperfect geometry is run with one material throughout — every
-element identical — in two variants:
+The *same* imperfect geometry is run with one material throughout (every
+element identical) in two variants:
 
 | case      | folder      | material (all elements)      | what happens                                         |
 |-----------|-------------|------------------------------|------------------------------------------------------|
-| elastic   | `elastic/`  | `latticeframeelastic`        | load climbs to `P/Pcr ≈ 1.46`, tracking the theory   |
-| plastic   | `plastic/`  | `latticeframesteelplastic`   | load peaks at `P/Pcr ≈ 0.48`, then softens           |
+| elastic   | `elastic/`  | `latticeframeelastic`        | load climbs to `P/Pcr ~ 1.46`, tracking the theory   |
+| plastic   | `plastic/`  | `latticeframesteelplastic`   | load peaks at `P/Pcr ~ 0.48`, then softens           |
 
 In the elasto-plastic case the large lateral deflection before `Pcr` drives the
 bending moment at midspan up to the yield surface, activating a **plastic
@@ -58,10 +58,10 @@ plastic hinges** on top of the same large-rotation kinematics.
 |----------------|------------------------------------------------------------------------|
 | element        | `lattice3dnl` (large-rotation 3D lattice/frame)                        |
 | discretisation | 11 equal elements, 12 nodes                                            |
-| geometry       | pin-pin strut, chord `L ≈ 3.14 m`, half-sine imperfection `≈ L/100`    |
-| section        | `area = 0.01 m²`, `Iy = Iz = 8.3e-6 m⁴`, `Ik = 16.6e-6 m⁴`, `shape 3`  |
-| material       | `E = 200 GPa`, `ν = 0.3` (steel); one material for all elements         |
-| plastic yield  | `Nx0 = 2.0e6 N`, `Mx0 = 0.0889e6`, `My0 = Mz0 = 0.05e6 N·m` (plastic)  |
+| geometry       | pin-pin strut, chord `L ~ 3.14 m`, half-sine imperfection `~ L/100`    |
+| section        | `area = 0.01 m^2`, `Iy = Iz = 8.3e-6 m^4`, `Ik = 16.6e-6 m^4`, `shape 3`  |
+| material       | `E = 200 GPa`, `nu = 0.3` (steel); one material for all elements         |
+| plastic yield  | `Nx0 = 2.0e6 N`, `Mx0 = 0.0889e6`, `My0 = Mz0 = 0.05e6 N*m` (plastic)  |
 | supports       | node 1 pinned (rotation free), node 12 axial roller                    |
 | drive          | prescribed end shortening at node 12 (displacement control)            |
 | steps          | 1000 (`NonlinearStatic`, `controlmode 1`)                             |
@@ -104,24 +104,24 @@ load-rotation history into `ld.dat`.
 | `<case>/oofem.out.m0.*.vtu`        | per-step VTU for ParaView (deformed strut)       |
 | `plastic/oofem.out.m0.*.cross.vtu` | rigid-body cross-sections for ParaView           |
 | `<case>/ld.dat`                    | load-rotation history (see column map below)     |
-| `Matlab/matlabPerfect.dat`         | perfect-strut elastica reference (`θ` vs `P/Pcr`) |
+| `Matlab/matlabPerfect.dat`         | perfect-strut elastica reference (`theta` vs `P/Pcr`) |
 
 ## The data in `ld.dat`
 
-Each row is one step. Column `1` is the end rotation `θ` at the pin (rad),
+Each row is one step. Column `1` is the end rotation `theta` at the pin (rad),
 column `2` the axial reaction = applied load `P` (N), column `3` the step,
-columns `4–15` the axial (x) displacements of nodes `1–12`, and columns
-`16–27` the lateral (y) displacements of nodes `1–12` (midspan = columns
-`21/22`). Plotting `column 2 / 1.66e6` against `column 1` gives `P/Pcr` vs `θ`,
+columns `4-15` the axial (x) displacements of nodes `1-12`, and columns
+`16-27` the lateral (y) displacements of nodes `1-12` (midspan = columns
+`21/22`). Plotting `column 2 / 1.66e6` against `column 1` gives `P/Pcr` vs `theta`,
 directly comparable with `Matlab/matlabPerfect.dat`.
 
 ## Further reading
 
 The large-rotation lattice element `lattice3dnl` is a rigid-body based frame
-element for large rotations, with coupled axial–bending
+element for large rotations, with coupled axial-bending
 plasticity; this buckling strut is one of the benchmarks in
 
 > G. Abdelrhim and P. Grassl. *A 3D frame element for large rotations based on
-> the rigid-body–spring concept for analysing the failure of structures.*
+> the rigid-body-spring concept for analysing the failure of structures.*
 > International Journal of Solids and Structures, vol. 327, 113812, 2026.
 > [DOI](https://doi.org/10.1016/j.ijsolstr.2025.113812)

@@ -1,7 +1,7 @@
 #!/bin/bash
 # Remove generated artefacts; KEEP the b0/ b1/ source inputs (mesh.in, control.in,
 # control.tm.in, oofem.smtm.in, run.sh, compare.py) and local/. Explicit
-# allow-list — never `git clean -fdx` (that would also wipe the sources and local/).
+# allow-list: never `git clean -fdx` (that would also wipe the sources and local/).
 set -e
 cd "$(dirname "$0")"
 

@@ -9,7 +9,7 @@ Outputs (written next to this script):
   analytical_<step>.dat    y p     (analytical curve on a fine grid)
 
 Problem: 1D linear diffusion in a slab of height H, prescribed p=1 at y=0,
-no-flux at y=H, zero initial pressure. Diffusivity D = k/(vis·c). All
+no-flux at y=H, zero initial pressure. Diffusivity D = k/(vis*c). All
 parameters here must match control.in.
 """
 import math

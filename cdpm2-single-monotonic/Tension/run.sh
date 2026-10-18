@@ -1,6 +1,6 @@
 #!/bin/bash
 # Reproduce: CDPM2 single tetrahedron under uniaxial tension.
-# Blog: https://petergrassl.com/blog/<TODO-slug>/
+# Blog: https://petergrassl.com/blog/cdpm2-single-monotonic/
 #
 # Outputs (all in this directory):
 #   std.out    - OOFEM stdout

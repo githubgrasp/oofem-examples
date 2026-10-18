@@ -5,9 +5,9 @@ separated by a thin **interfacial transition zone (ITZ)**. The ITZ expands
 radially (an eigen-displacement, as in a corrosion / swelling problem), pushing
 the surrounding matrix outward. The compressive axial stress this generates in
 the radial ITZ struts is transferred to the **transport** lattice as a pore
-pressure (the *mechanical → transport* coupling), and through Biot's
+pressure (the *mechanical to transport* coupling), and through Biot's
 effective-stress coupling (`b = 1`) that pore pressure feeds **back** into the
-matrix stress (the *transport → mechanical* coupling) — a genuinely two-way
+matrix stress (the *transport to mechanical* coupling), a genuinely two-way
 staggered analysis.
 
 This is the mirror image of the companion
@@ -21,33 +21,33 @@ It uses the displacement-driven (Dirichlet) coupling of:
 
 > P. Grassl, C. Fahy, D. Gallipoli, S.J. Wheeler,
 > [*A hydro-mechanical lattice approach for modelling hydraulic fracture*](https://petergrassl.com/publications/grafahgal15a/),
-> J. Mech. Phys. Solids **75** (2015) 104–118.
+> J. Mech. Phys. Solids **75** (2015) 104-118.
 
 ## The physics in two figures
 
-The matrix is a thick-walled cylinder (annulus `a … b`, free outer edge). Both
-fields are classical and both are **predicted from the computed pore pressure**
-— no amplitude fitting:
+The matrix is a thick-walled cylinder (annulus `a ... b`, free outer edge). Both
+fields are classical and both are **predicted from the computed pore pressure**,
+with no amplitude fitting:
 
-- **`pressure.pdf` — the forward-transferred quantity.** With the outer boundary
+- **`pressure.pdf`: the forward-transferred quantity.** With the outer boundary
   drained (`P_f = 0`) and no storage (`c = 0`), steady radial conduction gives a
-  **logarithmic** pore-pressure field `P_f(r) = P_a · ln(b/r) / ln(b/a_p)` between
+  **logarithmic** pore-pressure field `P_f(r) = P_a * ln(b/r) / ln(b/a_p)` between
   the ITZ-midline coupling ring (radius `a_p`, where the pressure is injected) and
   the drained outer edge. The transport lattice nodes fall on this curve.
-- **`displacement.pdf` — the fed-back response.** The coupling pressure `P_a` *is*
+- **`displacement.pdf`: the fed-back response.** The coupling pressure `P_a` *is*
   the ITZ axial stress, i.e. the radial traction the ITZ applies to the matrix, so
-  the matrix annulus is loaded by `σ_r(a) = P_a` (inner), `σ_r(b) = 0` (free outer),
+  the matrix annulus is loaded by `sigma_r(a) = P_a` (inner), `sigma_r(b) = 0` (free outer),
   plus the distributed Biot body force. The radial displacement is the
-  **poroelastic** solution `u_r(r) = (κ/2) r ln r + D r + C1/r`, `κ ∝ b·P_a`. The
-  feedback makes the wall **thicken** — `u_r` *increases* with radius — instead of
+  **poroelastic** solution `u_r(r) = (kappa/2) r ln r + D r + C1/r`, `kappa ~ b*P_a`. The
+  feedback makes the wall **thicken** (`u_r` *increases* with radius) instead of
   the Lamé thinning of the uncoupled (`b = 0`) case. With `a1 = 1` the lattice
-  Poisson ratio is `ν = 0`. (At `b = 0`, `κ = 0`, recovering the Lamé annulus under
+  Poisson ratio is `nu = 0`. (At `b = 0`, `kappa = 0`, recovering the Lamé annulus under
   inner pressure `P_a`.)
 
 Both curves are absolute predictions from `P_a` (the same spirit as the pressure
 example, which predicts displacement from the prescribed cavity pressure): the
 pressure matches to ~0.3 %, the displacement to ~2 % (the irregular lattice being
-slightly more compliant than the nominal modulus — the same small effective-
+slightly more compliant than the nominal modulus, the same small effective-
 property offset the pressure example notes).
 
 ## Reproduce
@@ -65,7 +65,7 @@ exact image used to produce the figures in the linked blog post, replace
 `:latest` with the per-example tag
 `ghcr.io/githubgrasp/oofem-public:lattice-coupling-displacement-2d`.
 
-Or with a local build — `generator`, `qvoronoi`, `converter`, `oofem` on the
+Or with a local build (`generator`, `qvoronoi`, `converter`, `oofem` on the
 PATH, plus `python3` and `gnuplot`:
 
 ```bash
@@ -75,40 +75,40 @@ bash clean.sh    # back to a git-clean folder (keeps sources + local/)
 
 ### Pipeline (`run.sh`)
 
-1. `generator mesh.in` — seeds a random node cloud in the disk, with rings on the
+1. `generator mesh.in`: seeds a random node cloud in the disk, with rings on the
    inclusion and ITZ circles (deterministic).
-2. `qvoronoi` — Voronoi tessellation (dual transport lattice).
-3. `converter control.in mesh.nodes mesh.voronoi` — writes the coupled
+2. `qvoronoi`: Voronoi tessellation (dual transport lattice).
+3. `converter control.in mesh.nodes mesh.voronoi`: writes the coupled
    `oofem.sm.in` (mechanical, Delaunay edges) and `oofem.tm.in` (transport,
    Voronoi edges) in one pass (`#@grid 2dSMTM`).
-4. `oofem -f oofem.smtm.in` — staggered **SM-first** mechanical→transport solve.
+4. `oofem -f oofem.smtm.in`: staggered **SM-first** mechanical-to-transport solve.
    `profileopt 1` reorders the skyline solver.
-5. `compare.py` + `gnuplot` — profiles and the two PDFs.
+5. `compare.py` + `gnuplot`: profiles and the two PDFs.
 
 ### Key input ingredients
 
-- `#@diskinclusion 1 … radius 0.008 itz 0.00001 inside 2 interface 3` — the steel
+- `#@diskinclusion 1 ... radius 0.008 itz 0.00001 inside 2 interface 3`: the steel
   inclusion (material 2) and its thin ITZ shell (material 3) inside the matrix.
   The ITZ is deliberately thin (0.01 mm) so the mechanical matrix inner radius
-  and the transport coupling ring both collapse onto ≈ `r_i`, leaving no
+  and the transport coupling ring both collapse onto &asymp; `r_i`, leaving no
   radius mismatch between the two cylinders.
-- `#@bodyload 3 3` + `StructTemperatureLoad 3` — the ITZ eigen-expansion (applied
+- `#@bodyload 3 3` + `StructTemperatureLoad 3`: the ITZ eigen-expansion (applied
   to every ITZ element, material 3).
-- `#@coupling inclusion 1 dirichlet ltf 1` — emits one `LatticeDirichletCoupling`
+- `#@coupling inclusion 1 dirichlet ltf 1`: emits one `LatticeDirichletCoupling`
   per ITZ-midline transport node, driven by its two flanking radial ITZ structural
-  elements (compression → pore pressure). This is the *mechanical → transport*
+  elements (compression to pore pressure). This is the *mechanical to transport*
   coupling; the staggered driver runs SM-first (`coupling 3 1 2 0` in
   `oofem.smtm.in`) so the mechanical stress exists before the transport reads it.
-- `latticelinearelastic 1 … bio 1.0` + `#@couplingflag` — the *transport →
-  mechanical* feedback: every matrix element adds `σ_total = σ_eff + b·P_f`, reading
+- `latticelinearelastic 1 ... bio 1.0` + `#@couplingflag`: the *transport to
+  mechanical* feedback: every matrix element adds `sigma_total = sigma_eff + b*P_f`, reading
   the pore pressure of its dual transport element. `#@couplingflag` writes the
   `couplingnumber` linking each `lattice2D` to its dual `latticemt2D`.
-- `#@edgebc region 1 bc 1` — holds the **outer** boundary at zero pore pressure
+- `#@edgebc region 1 bc 1`: holds the **outer** boundary at zero pore pressure
   (drainage), so the steady field is logarithmic. Without it the outer boundary is
   insulated and the field would be uniform.
 - transport materials: matrix and ITZ are conductive (`k = 1e-19`); the steel
   inclusion is effectively impermeable (`k = 1e-25`), so flow threads only through
-  the matrix. Zero capacity (`c 0.`) → steady state each step.
+  the matrix. Zero capacity (`c 0.`) gives a steady state in each step.
 
 The ITZ expansion is ramped over the steps, so the saved VTU frames animate in
 ParaView; the field shapes are self-similar, so the final step is used for the
@@ -123,20 +123,20 @@ generated (gitignored): mesh.nodes, oofem.*.in/out,
                         disp_lattice.dat / disp_analytic.dat,
                         pres_lattice.dat / pres_analytic.dat,
                         pressure.pdf, displacement.pdf
-local/ (gitignored):    vtu/  — ParaView opens oofem.tm.out.m0.pvd (pore
-                        pressure) or oofem.sm.out.m0.pvd (displacement)
+local/ (gitignored):    vtu/  (ParaView opens oofem.tm.out.m0.pvd (pore
+                        pressure) or oofem.sm.out.m0.pvd (displacement))
 ```
 
 ## Notes
 
-- **`a1 = 1` on the matrix.** Gives the matrix an effective Poisson ratio `ν = 0`,
+- **`a1 = 1` on the matrix.** Gives the matrix an effective Poisson ratio `nu = 0`,
   which makes the poroelastic comparison a clean closed form. The ITZ uses a small
   `a1` and a thermal-expansion coefficient to act as the eigen-strain driver. Biot
-  feedback (`bio 1.0`) is applied to the matrix only — the validated bulk region.
+  feedback (`bio 1.0`) is applied to the matrix only, the validated bulk region.
 - **Predicted, not fitted.** Both analytical curves are absolute predictions from
   the single measured quantity `P_a` (the mean ITZ-midline pore pressure): it sets
-  the logarithmic pressure field, the inner mechanical traction `σ_r(a) = P_a`, and
-  the Biot term `κ ∝ b·P_a`. Nothing is fitted to the displacement field — the
+  the logarithmic pressure field, the inner mechanical traction `sigma_r(a) = P_a`, and
+  the Biot term `kappa ~ b*P_a`. Nothing is fitted to the displacement field: the
   amplitude is a prediction, so the ~2 % gap is a genuine effective-property
   residual, not a leftover degree of freedom.
 - **Two-way coupling.** This example couples in both directions: deformation drives
