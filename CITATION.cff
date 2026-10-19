@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use these examples, please cite them as below."
+type: software
+title: "oofem-examples: reproducible OOFEM analyses"
+abstract: "Reproducible OOFEM analyses that accompany blog posts at petergrassl.com. Each folder is a self-contained example with input files, run scripts and a README, run in a published Docker image without compilation."
+authors:
+  - family-names: Grassl
+    given-names: Peter
+    orcid: "https://orcid.org/0000-0002-5862-4460"
+doi: 10.5281/zenodo.23473097
+repository-code: "https://github.com/githubgrasp/oofem-examples"
+url: "https://petergrassl.com"
+license: MIT
+keywords:
+  - OOFEM
+  - finite element method
+  - lattice model
+  - concrete fracture
+  - reproducibility

@@ -1,5 +1,7 @@
 # oofem-examples
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23473097.svg)](https://doi.org/10.5281/zenodo.23473097)
+
 Reproducible OOFEM analyses that accompany blog posts at
 [petergrassl.com](https://petergrassl.com). Each folder is a self-contained
 example: input file, run script, README explaining what it shows.
@@ -79,6 +81,20 @@ current directory mounted at `/work`:
 
 Once inside the container, `cd /work/<example>` and run any command (oofem,
 extractor, gnuplot, ...). Files you create are visible on your host.
+
+## Citing
+
+The repository is archived on Zenodo. To cite it, use the DOI
+[10.5281/zenodo.23473097](https://doi.org/10.5281/zenodo.23473097), which
+always resolves to the latest release. Each release also has its own DOI,
+listed on the Zenodo page; cite that one if you need the exact version you
+used (v1.0:
+[10.5281/zenodo.23473098](https://doi.org/10.5281/zenodo.23473098)).
+
+Example (APA, v1.0):
+
+> Grassl, P. (2026). *githubgrasp/oofem-examples: v1.0* (Version v1.0)
+> [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.23473098
 
 ## License
 
