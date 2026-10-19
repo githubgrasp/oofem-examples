@@ -80,6 +80,17 @@ current directory mounted at `/work`:
 Once inside the container, `cd /work/<example>` and run any command (oofem,
 extractor, gnuplot, ...). Files you create are visible on your host.
 
+## License
+
+The example sources in this repository (input files, scripts, mesh
+generators, READMEs) are released under the [MIT License](LICENSE).
+
+OOFEM itself is not covered by this license: it is distributed under the
+GNU LGPL v2.1 or later (see the
+[OOFEM fork](https://github.com/githubgrasp/oofem/blob/main/LICENSE)), and
+the Docker images bundle it together with other third-party tools under
+their own licenses.
+
 ## Feedback
 
 Issues and questions: open one on the
