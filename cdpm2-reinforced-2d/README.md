@@ -143,3 +143,11 @@ To regenerate it from the T3D source:
 t3d -d 0.02 -p 8 -i mesh.in -o mesh.out
 t3d2oofem oofem.t3d.ctrl mesh.out oofem.in
 ```
+
+## Citing
+
+This example is part of the oofem-examples repository, archived on Zenodo.
+To cite it, use the DOI
+[10.5281/zenodo.23473097](https://doi.org/10.5281/zenodo.23473097), which
+always resolves to the latest release. See the
+[top-level README](../README.md#citing) for version-specific DOIs.

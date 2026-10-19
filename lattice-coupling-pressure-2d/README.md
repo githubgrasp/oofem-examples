@@ -120,3 +120,11 @@ local/              maintainer-only, gitignored (repo-root **/local/)
 - **Resolution.** `#@diam 0.001` gives &asymp;1300 nodes (101 uniform rim nodes); the
   full two-case run takes ~25 s. Increase `#@diam` in `mesh.in` for a quicker,
   coarser demo, or decrease it for an even tighter scatter at the cost of runtime.
+
+## Citing
+
+This example is part of the oofem-examples repository, archived on Zenodo.
+To cite it, use the DOI
+[10.5281/zenodo.23473097](https://doi.org/10.5281/zenodo.23473097), which
+always resolves to the latest release. See the
+[top-level README](../README.md#citing) for version-specific DOIs.

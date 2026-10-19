@@ -81,3 +81,11 @@ and the periodic cell carries lattice cross-section on both sides of the
 boundary, so the effective load-bearing area exceeds the nominal `A`. Both
 curves share the same factor, so the *comparison* (bridging vs. plain) is
 unaffected. Refining the mesh reduces this effect.
+
+## Citing
+
+This example is part of the oofem-examples repository, archived on Zenodo.
+To cite it, use the DOI
+[10.5281/zenodo.23473097](https://doi.org/10.5281/zenodo.23473097), which
+always resolves to the latest release. See the
+[top-level README](../README.md#citing) for version-specific DOIs.

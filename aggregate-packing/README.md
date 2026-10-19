@@ -147,3 +147,11 @@ Alfano-Greer eigenvalue form), and the full `#@` directive reference are in
 the `aggregate` user manual shipped with the OOFEM source
 (`src/aggregate/doc/user_manual.md`) in the githubgrasp fork.
 
+
+## Citing
+
+This example is part of the oofem-examples repository, archived on Zenodo.
+To cite it, use the DOI
+[10.5281/zenodo.23473097](https://doi.org/10.5281/zenodo.23473097), which
+always resolves to the latest release. See the
+[top-level README](../README.md#citing) for version-specific DOIs.

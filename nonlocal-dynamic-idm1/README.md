@@ -103,3 +103,11 @@ stability limit, bringing the step count to ~1074). VTK output every 10 steps.
 ## Referenced by
 
 - Blog post: https://petergrassl.com/blog/nonlocal-dynamic-idm1/
+
+## Citing
+
+This example is part of the oofem-examples repository, archived on Zenodo.
+To cite it, use the DOI
+[10.5281/zenodo.23473097](https://doi.org/10.5281/zenodo.23473097), which
+always resolves to the latest release. See the
+[top-level README](../README.md#citing) for version-specific DOIs.

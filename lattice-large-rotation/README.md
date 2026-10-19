@@ -101,3 +101,11 @@ classical bending benchmarks it is verified against. It is developed in:
 > the rigid-body-spring concept for analysing the failure of structures.*
 > International Journal of Solids and Structures, vol. 327, 113812, 2026.
 > [DOI](https://doi.org/10.1016/j.ijsolstr.2025.113812)
+
+## Citing
+
+This example is part of the oofem-examples repository, archived on Zenodo.
+To cite it, use the DOI
+[10.5281/zenodo.23473097](https://doi.org/10.5281/zenodo.23473097), which
+always resolves to the latest release. See the
+[top-level README](../README.md#citing) for version-specific DOIs.

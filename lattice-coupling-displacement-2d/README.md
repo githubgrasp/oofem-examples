@@ -149,4 +149,11 @@ local/ (gitignored):    vtu/  (ParaView opens oofem.tm.out.m0.pvd (pore
   subproblems from one shared numbering (`#@grid 2dSMTM`), numbering both meshes
   before emitting either file, so the cross-references work in both directions
   regardless of order.
-```
+
+## Citing
+
+This example is part of the oofem-examples repository, archived on Zenodo.
+To cite it, use the DOI
+[10.5281/zenodo.23473097](https://doi.org/10.5281/zenodo.23473097), which
+always resolves to the latest release. See the
+[top-level README](../README.md#citing) for version-specific DOIs.

@@ -97,3 +97,11 @@ infinite regime).
 ## Referenced by
 
 - Blog post: https://petergrassl.com/blog/lattice-flow-2d-erfc/
+
+## Citing
+
+This example is part of the oofem-examples repository, archived on Zenodo.
+To cite it, use the DOI
+[10.5281/zenodo.23473097](https://doi.org/10.5281/zenodo.23473097), which
+always resolves to the latest release. See the
+[top-level README](../README.md#citing) for version-specific DOIs.
