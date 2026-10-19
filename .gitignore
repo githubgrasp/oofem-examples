@@ -20,6 +20,9 @@ Dockerfile.public
 # Not for end-user reproduction.
 **/local/
 
+# Python bytecode (written when an example imports a helper module)
+__pycache__/
+
 # macOS
 .DS_Store
 

@@ -1,0 +1,5 @@
+# Scratch file that OOFEM can leave behind (clean.sh removes it as well).
+# oofem.out*, std.out, *.vtu, *.pvd, *.log and editor backups are handled by
+# the repo-root .gitignore; ld.dat is intentionally kept trackable as a
+# precomputed result.
+tmp_model_info

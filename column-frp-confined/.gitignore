@@ -1,0 +1,5 @@
+# Legacy VTK output (clean.sh removes it as well).
+# oofem.out*, std.out, mesh.out, *.vtu, *.pvd, *.osf, *.log and editor backups
+# are handled by the repo-root .gitignore; oofem.in and ld.dat are
+# intentionally kept trackable (fallback input and precomputed result).
+*.vtk
