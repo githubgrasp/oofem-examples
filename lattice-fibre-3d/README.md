@@ -21,6 +21,10 @@ Expected result: both curves rise to the same matrix cracking peak
 opens, while the **fibre case softens to a bridging plateau** (~1.5 MPa)
 carried by the fibres crossing the crack.
 
+## Referenced by
+
+- Blog post: https://petergrassl.com/blog/lattice-fibre-3d/
+
 ## Reproduce
 
 With the public Docker image (no compilation needed):

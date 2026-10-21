@@ -23,6 +23,10 @@ It uses the displacement-driven (Dirichlet) coupling of:
 > [*A hydro-mechanical lattice approach for modelling hydraulic fracture*](https://petergrassl.com/publications/grafahgal15a/),
 > J. Mech. Phys. Solids **75** (2015) 104-118.
 
+## Referenced by
+
+- Blog post: https://petergrassl.com/blog/lattice-coupling-displacement-2d/
+
 ## The physics in two figures
 
 The matrix is a thick-walled cylinder (annulus `a ... b`, free outer edge). Both

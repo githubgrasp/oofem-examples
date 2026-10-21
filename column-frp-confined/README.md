@@ -39,6 +39,10 @@ of the specimen, away from the over-confined end bands. The contour to
 look at is the compressive damage variable &omega;<sub>c</sub> in CDPM2 (the tensile
 damage &omega;<sub>t</sub> follows &omega;<sub>c</sub> under this load path).
 
+## Referenced by
+
+- Blog post: https://petergrassl.com/blog/column-frp-confined/
+
 ## Reproduce
 
 Both `oofem.in` files are committed, so the public Docker image (no T3D
