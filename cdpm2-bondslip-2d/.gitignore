@@ -1,0 +1,6 @@
+# Intermediate input written by t3d2oofem before the duplicate tool adds the
+# bond links (clean.sh removes it as well).
+# oofem.out*, std.out, mesh.out, *.vtu, *.pvd, *.osf, local/ and editor
+# backups are covered by the repo-root .gitignore.
+# ld.dat, ld-perfect.dat and ld.pdf/png are committed.
+oofemTemp.in

@@ -25,7 +25,7 @@ if [ -z "${SKIP_RUN:-}" ]; then
   echo "Running OOFEM (about 4 min)..."
   oofem -f oofem.in > std.out
   echo "Extracting load-deflection data..."
-  extractor -f oofem.in > ld.dat
+  extractor.py -f oofem.in > ld.dat
 else
   echo "SKIP_RUN set: plotting from the committed ld.dat."
 fi

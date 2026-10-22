@@ -20,7 +20,7 @@ echo "[$MESH] Running OOFEM (this can take a while)..."
 oofem -f oofem.in > std.out
 
 echo "[$MESH] Extracting load-CMOD data..."
-extractor -f oofem.in > ld.dat
+extractor.py -f oofem.in > ld.dat
 
 echo "[$MESH] Plotting ld.pdf..."
 # Load[kN] = -col1/1000 ; CMOD[mm] = (u_x(node4) - u_x(node3)) * 1000
