@@ -1,0 +1,88 @@
+# Leonhardt & Walther beam no. 5 (Xenos & Grassl 2016), half beam, h = 0.02 m,
+# reinforcement as a solid steel strip with interfaces to the concrete
+# t3d -d 0.02 -p 8 -i mesh.in -o mesh.out
+#
+# x = 0 is the beam end, x = 1.275 the symmetry plane (midspan).
+# Units: m. Out-of-plane thickness 0.19 m for the concrete (set in
+# oofem.t3d.ctrl).
+#
+# The two 26 mm bars are one steel strip centred at y = 0.05 with height
+# 0.022517 and out-of-plane thickness 0.047159 (set in oofem.t3d.ctrl), so
+# that both the area and the moment of inertia equal those of the two bars.
+# The strip has its own vertices and curves; the coinciding concrete curves
+# along its top and bottom are joined to it by interface elements. Curves
+# forming an interface must have the same orientation. Over the height of the
+# strip there is only steel: the concrete below and above the strip is
+# connected to the steel, and through it to each other, only by the
+# interface elements.
+
+# beam outline
+vertex 1 xyz 0.0 0.0 0.0
+vertex 2 xyz 0.25 0.0 0.0
+vertex 3 xyz 0.35 0.0 0.0
+vertex 4 xyz 1.275 0.0 0.0
+vertex 5 xyz 1.275 0.32 0.0
+vertex 6 xyz 1.1475 0.32 0.0
+vertex 7 xyz 1.0725 0.32 0.0
+vertex 8 xyz 0.0 0.32 0.0
+# concrete below the strip (cover): top edge at y = 0.038742
+vertex 9 xyz 0.0 0.038742 0.0 size def * 0.375
+vertex 10 xyz 1.275 0.038742 0.0 size def * 0.375
+# support plate 100 x 30 mm (centre x = 0.30)
+vertex 11 xyz 0.25 -0.03 0.0 size def * 10.0
+vertex 12 xyz 0.30 -0.03 0.0 size def * 10.0
+vertex 13 xyz 0.35 -0.03 0.0 size def * 10.0
+# loading plate 75 x 30 mm (centre x = 0.30 + 0.81 = 1.11)
+vertex 14 xyz 1.0725 0.35 0.0 size def * 10.0
+vertex 15 xyz 1.11 0.35 0.0 size def * 10.0
+vertex 16 xyz 1.1475 0.35 0.0 size def * 10.0
+# concrete above the strip: bottom edge at y = 0.061258
+vertex 17 xyz 0.0 0.061258 0.0 size def * 0.375
+vertex 18 xyz 1.275 0.061258 0.0 size def * 0.375
+# steel strip (own vertices, coinciding with 9, 10, 17, 18)
+vertex 19 xyz 0.0 0.038742 0.0 size def * 0.375
+vertex 20 xyz 1.275 0.038742 0.0 size def * 0.375
+vertex 21 xyz 1.275 0.061258 0.0 size def * 0.375
+vertex 22 xyz 0.0 0.061258 0.0 size def * 0.375
+
+# concrete below the strip
+curve 1 vertex 1 2
+curve 2 vertex 2 3
+curve 3 vertex 3 4
+curve 4 vertex 4 10
+curve 5 vertex 9 10
+curve 6 vertex 9 1
+# concrete above the strip
+curve 7 vertex 17 18
+curve 8 vertex 18 5
+curve 9 vertex 5 6
+curve 10 vertex 6 7
+curve 11 vertex 7 8
+curve 12 vertex 8 17
+# steel strip
+curve 13 vertex 19 20
+curve 14 vertex 20 21
+curve 15 vertex 22 21
+curve 16 vertex 22 19
+# plate curves
+curve 17 vertex 2 11
+curve 18 vertex 11 12
+curve 19 vertex 12 13
+curve 20 vertex 13 3
+curve 21 vertex 7 14
+curve 22 vertex 14 15
+curve 23 vertex 15 16
+curve 24 vertex 16 6
+
+# patches
+# 1 concrete below the strip, 2 concrete above the strip, 3 steel strip,
+# 4/5 steel plates
+patch 1 normal 0 0 1 boundary curve 1 2 3 4 -5 6 size def
+patch 2 normal 0 0 1 boundary curve 7 8 9 10 11 12 size def
+patch 3 normal 0 0 1 boundary curve 13 14 -15 16 size def * 0.375
+patch 4 normal 0 0 1 boundary curve -2 17 18 19 20 size def * 10.0
+patch 5 normal 0 0 -1 boundary curve 10 21 22 23 24 size def * 10.0
+
+# interfaces: concrete curve (master) and steel curve (slave)
+interface 1 type curve 5 13
+interface 2 type curve 7 15

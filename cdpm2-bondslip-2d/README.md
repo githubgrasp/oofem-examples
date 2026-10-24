@@ -180,6 +180,14 @@ across it.
 > Mechanics 189 (2018) 13-26.
 > [doi:10.1016/j.engfracmech.2017.10.008](https://doi.org/10.1016/j.engfracmech.2017.10.008)
 
+> Sciegaj A, Grassl P, Larsson F, Runesson K, Lundgren K. *Upscaling of
+> three-dimensional reinforced concrete representative volume elements to
+> effective beam and plate models.* International Journal of Solids and
+> Structures 202 (2020) 835-853.
+> [doi:10.1016/j.ijsolstr.2020.07.006](https://doi.org/10.1016/j.ijsolstr.2020.07.006)
+> (origin of the node-to-node bond links between reinforcement and concrete
+> used here)
+
 Experiment: F. Leonhardt, R. Walther, *Schubversuche an einfeldrigen
 Stahlbetonbalken mit und ohne Schubbewehrung zur Ermittlung der
 Schubtragfähigkeit und der oberen Schubspannungsgrenze*, Deutscher Ausschuss
