@@ -1,7 +1,7 @@
 oofem.out
 Leonhardt and Walther shear beam no. 5, plane stress, CDPM2 crack band, bond-slip, reinforcement as frame (lattice2d)
 NonLinearStatic nmsteps 1 nsteps 1 profileopt 1 nmodules 1 lstype 4 smtype 8 contextoutputstep 1000
-nsteps 260 rtolv 1.e-3 stiffMode 2 maxiter 100000 reqiterations 100000 controllmode 0 psi 0.0 hpcmode 2 hpc 2 15 2 hpcw 1 -1 steplength 1.e-5 minsteplength 1.e-5 donotfixload lstype 4 smtype 8 manrmsteps 10
+nsteps 195 rtolv 1.e-3 stiffMode 2 maxiter 100000 reqiterations 100000 controllmode 0 psi 0.0 hpcmode 2 hpc 2 15 2 hpcw 1 -1 steplength 1.e-5 minsteplength 1.e-5 donotfixload lstype 4 smtype 8 manrmsteps 10
 vtkxml primvars 1 1 cellvars 4 1 4 13 27 tstep_step 5 domain_all
 domain 2dplanestress
 OutputManager tstep_all dofman_output {15 4}
@@ -1204,70 +1204,70 @@ node 1195 coords 3 1.100854e+00 3.350000e-01 0.000000e+00
 node 1196 coords 3 1.119147e+00 3.350000e-01 0.000000e+00
 node 1197 coords 3 1.136525e+00 3.349999e-01 0.000000e+00
 node 1198 coords 3 1.083476e+00 3.350000e-01 0.000000e+00
-continuumframenode 1199 coords 3 0.000000e+00 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1200 coords 3 2.023810e-02 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1201 coords 3 4.047619e-02 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1202 coords 3 6.071429e-02 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1203 coords 3 8.095238e-02 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1204 coords 3 1.011905e-01 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1205 coords 3 1.214286e-01 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1206 coords 3 1.416667e-01 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1207 coords 3 1.619048e-01 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1208 coords 3 1.821429e-01 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1209 coords 3 2.023810e-01 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1210 coords 3 2.226191e-01 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1211 coords 3 2.428571e-01 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1212 coords 3 2.630952e-01 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1213 coords 3 2.833333e-01 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1214 coords 3 3.035714e-01 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1215 coords 3 3.238095e-01 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1216 coords 3 3.440476e-01 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1217 coords 3 3.642857e-01 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1218 coords 3 3.845238e-01 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1219 coords 3 4.047619e-01 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1220 coords 3 4.250000e-01 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1221 coords 3 4.452381e-01 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1222 coords 3 4.654762e-01 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1223 coords 3 4.857143e-01 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1224 coords 3 5.059524e-01 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1225 coords 3 5.261905e-01 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1226 coords 3 5.464286e-01 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1227 coords 3 5.666667e-01 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1228 coords 3 5.869048e-01 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1229 coords 3 6.071429e-01 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1230 coords 3 6.273810e-01 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1231 coords 3 6.476190e-01 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1232 coords 3 6.678571e-01 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1233 coords 3 6.880952e-01 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1234 coords 3 7.083333e-01 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1235 coords 3 7.285714e-01 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1236 coords 3 7.488095e-01 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1237 coords 3 7.690476e-01 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1238 coords 3 7.892857e-01 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1239 coords 3 8.095238e-01 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1240 coords 3 8.297619e-01 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1241 coords 3 8.500000e-01 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1242 coords 3 8.702381e-01 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1243 coords 3 8.904762e-01 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1244 coords 3 9.107143e-01 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1245 coords 3 9.309524e-01 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1246 coords 3 9.511905e-01 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1247 coords 3 9.714286e-01 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1248 coords 3 9.916667e-01 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1249 coords 3 1.011905e+00 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1250 coords 3 1.032143e+00 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1251 coords 3 1.052381e+00 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1252 coords 3 1.072619e+00 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1253 coords 3 1.092857e+00 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1254 coords 3 1.113095e+00 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1255 coords 3 1.133333e+00 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1256 coords 3 1.153571e+00 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1257 coords 3 1.173809e+00 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1258 coords 3 1.194048e+00 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1259 coords 3 1.214286e+00 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1260 coords 3 1.234524e+00 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1261 coords 3 1.254762e+00 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
-continuumframenode 1262 coords 3 1.275000e+00 5.000000e-02 0.000000e+00 dofidmask 3 1 2 6 doftype 3 2 2 2
+hangingnode 1199 coords 3 0.000000e+00 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1200 coords 3 2.023810e-02 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1201 coords 3 4.047619e-02 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1202 coords 3 6.071429e-02 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1203 coords 3 8.095238e-02 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1204 coords 3 1.011905e-01 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1205 coords 3 1.214286e-01 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1206 coords 3 1.416667e-01 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1207 coords 3 1.619048e-01 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1208 coords 3 1.821429e-01 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1209 coords 3 2.023810e-01 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1210 coords 3 2.226191e-01 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1211 coords 3 2.428571e-01 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1212 coords 3 2.630952e-01 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1213 coords 3 2.833333e-01 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1214 coords 3 3.035714e-01 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1215 coords 3 3.238095e-01 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1216 coords 3 3.440476e-01 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1217 coords 3 3.642857e-01 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1218 coords 3 3.845238e-01 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1219 coords 3 4.047619e-01 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1220 coords 3 4.250000e-01 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1221 coords 3 4.452381e-01 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1222 coords 3 4.654762e-01 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1223 coords 3 4.857143e-01 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1224 coords 3 5.059524e-01 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1225 coords 3 5.261905e-01 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1226 coords 3 5.464286e-01 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1227 coords 3 5.666667e-01 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1228 coords 3 5.869048e-01 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1229 coords 3 6.071429e-01 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1230 coords 3 6.273810e-01 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1231 coords 3 6.476190e-01 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1232 coords 3 6.678571e-01 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1233 coords 3 6.880952e-01 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1234 coords 3 7.083333e-01 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1235 coords 3 7.285714e-01 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1236 coords 3 7.488095e-01 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1237 coords 3 7.690476e-01 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1238 coords 3 7.892857e-01 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1239 coords 3 8.095238e-01 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1240 coords 3 8.297619e-01 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1241 coords 3 8.500000e-01 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1242 coords 3 8.702381e-01 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1243 coords 3 8.904762e-01 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1244 coords 3 9.107143e-01 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1245 coords 3 9.309524e-01 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1246 coords 3 9.511905e-01 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1247 coords 3 9.714286e-01 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1248 coords 3 9.916667e-01 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1249 coords 3 1.011905e+00 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1250 coords 3 1.032143e+00 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1251 coords 3 1.052381e+00 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1252 coords 3 1.072619e+00 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1253 coords 3 1.092857e+00 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1254 coords 3 1.113095e+00 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1255 coords 3 1.133333e+00 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1256 coords 3 1.153571e+00 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1257 coords 3 1.173809e+00 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1258 coords 3 1.194048e+00 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1259 coords 3 1.214286e+00 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1260 coords 3 1.234524e+00 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1261 coords 3 1.254762e+00 5.000000e-02 0.000000e+00 doftype 2 2 2
+hangingnode 1262 coords 3 1.275000e+00 5.000000e-02 0.000000e+00 doftype 2 2 2
 lattice2d 1 nodes 2 9 172 crossSect 2 mat 3
 lattice2d 2 nodes 2 172 173 crossSect 2 mat 3
 lattice2d 3 nodes 2 173 174 crossSect 2 mat 3
@@ -3451,77 +3451,77 @@ trplanestress2d 2180 nodes 3 1196 170 1197 crossSect 1 mat 2
 trplanestress2d 2181 nodes 3 1197 95 1196 crossSect 1 mat 2
 trplanestress2d 2182 nodes 3 1196 96 1195 crossSect 1 mat 2
 trplanestress2d 2183 nodes 3 1195 97 1198 crossSect 1 mat 2
-latticelink2d 2184 nodes 2 9 1199 crossSect 3 mat 4 length 0.010119 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2185 nodes 2 172 1200 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2186 nodes 2 173 1201 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2187 nodes 2 174 1202 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2188 nodes 2 175 1203 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2189 nodes 2 176 1204 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2190 nodes 2 177 1205 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2191 nodes 2 178 1206 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2192 nodes 2 179 1207 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2193 nodes 2 180 1208 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2194 nodes 2 181 1209 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2195 nodes 2 182 1210 crossSect 3 mat 4 length 0.020238 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2196 nodes 2 183 1211 crossSect 3 mat 4 length 0.020238 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2197 nodes 2 184 1212 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2198 nodes 2 185 1213 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2199 nodes 2 186 1214 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2200 nodes 2 187 1215 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2201 nodes 2 188 1216 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2202 nodes 2 189 1217 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2203 nodes 2 190 1218 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2204 nodes 2 191 1219 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2205 nodes 2 192 1220 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2206 nodes 2 193 1221 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2207 nodes 2 194 1222 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2208 nodes 2 195 1223 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2209 nodes 2 196 1224 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2210 nodes 2 197 1225 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2211 nodes 2 198 1226 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2212 nodes 2 199 1227 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2213 nodes 2 200 1228 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2214 nodes 2 201 1229 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2215 nodes 2 202 1230 crossSect 3 mat 4 length 0.020238 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2216 nodes 2 203 1231 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2217 nodes 2 204 1232 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2218 nodes 2 205 1233 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2219 nodes 2 206 1234 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2220 nodes 2 207 1235 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2221 nodes 2 208 1236 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2222 nodes 2 209 1237 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2223 nodes 2 210 1238 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2224 nodes 2 211 1239 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2225 nodes 2 212 1240 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2226 nodes 2 213 1241 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2227 nodes 2 214 1242 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2228 nodes 2 215 1243 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2229 nodes 2 216 1244 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2230 nodes 2 217 1245 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2231 nodes 2 218 1246 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2232 nodes 2 219 1247 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2233 nodes 2 220 1248 crossSect 3 mat 4 length 0.0202382 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2234 nodes 2 221 1249 crossSect 3 mat 4 length 0.0202382 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2235 nodes 2 222 1250 crossSect 3 mat 4 length 0.020238 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2236 nodes 2 223 1251 crossSect 3 mat 4 length 0.020238 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2237 nodes 2 224 1252 crossSect 3 mat 4 length 0.020238 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2238 nodes 2 225 1253 crossSect 3 mat 4 length 0.020238 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2239 nodes 2 226 1254 crossSect 3 mat 4 length 0.020238 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2240 nodes 2 227 1255 crossSect 3 mat 4 length 0.020238 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2241 nodes 2 228 1256 crossSect 3 mat 4 length 0.020238 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2242 nodes 2 229 1257 crossSect 3 mat 4 length 0.0202385 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2243 nodes 2 230 1258 crossSect 3 mat 4 length 0.0202385 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2244 nodes 2 231 1259 crossSect 3 mat 4 length 0.020238 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2245 nodes 2 232 1260 crossSect 3 mat 4 length 0.020238 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2246 nodes 2 233 1261 crossSect 3 mat 4 length 0.020238 diameter 0.052 dirvector 3 1 0 0
-latticelink2d 2247 nodes 2 10 1262 crossSect 3 mat 4 length 0.010119 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2184 nodes 2 9 1199 crossSect 3 mat 4 length 0.010119 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2185 nodes 2 172 1200 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2186 nodes 2 173 1201 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2187 nodes 2 174 1202 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2188 nodes 2 175 1203 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2189 nodes 2 176 1204 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2190 nodes 2 177 1205 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2191 nodes 2 178 1206 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2192 nodes 2 179 1207 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2193 nodes 2 180 1208 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2194 nodes 2 181 1209 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2195 nodes 2 182 1210 crossSect 3 mat 4 length 0.020238 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2196 nodes 2 183 1211 crossSect 3 mat 4 length 0.020238 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2197 nodes 2 184 1212 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2198 nodes 2 185 1213 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2199 nodes 2 186 1214 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2200 nodes 2 187 1215 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2201 nodes 2 188 1216 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2202 nodes 2 189 1217 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2203 nodes 2 190 1218 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2204 nodes 2 191 1219 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2205 nodes 2 192 1220 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2206 nodes 2 193 1221 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2207 nodes 2 194 1222 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2208 nodes 2 195 1223 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2209 nodes 2 196 1224 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2210 nodes 2 197 1225 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2211 nodes 2 198 1226 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2212 nodes 2 199 1227 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2213 nodes 2 200 1228 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2214 nodes 2 201 1229 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2215 nodes 2 202 1230 crossSect 3 mat 4 length 0.020238 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2216 nodes 2 203 1231 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2217 nodes 2 204 1232 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2218 nodes 2 205 1233 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2219 nodes 2 206 1234 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2220 nodes 2 207 1235 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2221 nodes 2 208 1236 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2222 nodes 2 209 1237 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2223 nodes 2 210 1238 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2224 nodes 2 211 1239 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2225 nodes 2 212 1240 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2226 nodes 2 213 1241 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2227 nodes 2 214 1242 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2228 nodes 2 215 1243 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2229 nodes 2 216 1244 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2230 nodes 2 217 1245 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2231 nodes 2 218 1246 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2232 nodes 2 219 1247 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2233 nodes 2 220 1248 crossSect 3 mat 4 length 0.0202382 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2234 nodes 2 221 1249 crossSect 3 mat 4 length 0.0202382 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2235 nodes 2 222 1250 crossSect 3 mat 4 length 0.020238 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2236 nodes 2 223 1251 crossSect 3 mat 4 length 0.020238 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2237 nodes 2 224 1252 crossSect 3 mat 4 length 0.020238 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2238 nodes 2 225 1253 crossSect 3 mat 4 length 0.020238 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2239 nodes 2 226 1254 crossSect 3 mat 4 length 0.020238 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2240 nodes 2 227 1255 crossSect 3 mat 4 length 0.020238 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2241 nodes 2 228 1256 crossSect 3 mat 4 length 0.020238 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2242 nodes 2 229 1257 crossSect 3 mat 4 length 0.0202385 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2243 nodes 2 230 1258 crossSect 3 mat 4 length 0.0202385 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2244 nodes 2 231 1259 crossSect 3 mat 4 length 0.020238 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2245 nodes 2 232 1260 crossSect 3 mat 4 length 0.020238 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2246 nodes 2 233 1261 crossSect 3 mat 4 length 0.020238 diameter 0.052 dirvector 3 1 0 0
+bondlink2dtruss 2247 nodes 2 10 1262 crossSect 3 mat 4 length 0.010119 diameter 0.052 dirvector 3 1 0 0
 SimpleCS 1 thick 0.19
 latticecs 2 material 3 shape 1 radius 0.018385 area 1.06186e-3 iz 4.4863e-8
-latticecs 3 material 4
+interfacecs 3 material 4
 con2dpm 1 d 0 E 30.483e9 n 0.2 talpha 0. wf 59.373e-6 fc 28.5e6 ft 2.247e6 hp 0.01 yieldtol 1.e-6 asoft 15. stype 2 kinit 0.3 ecc 0.518 efc 3.e-5 ahard 8.e-2 bhard 3.3e-3 chard 2. dhard 1.e-6 dilation 0.85
 isole 2 d 0 n 0.3 e 200.e9 talpha 0.
 latticeframeelastic 3 d 0 e 200.e9 n 0.3 talpha 0.
-latticeslip 4 talpha 0. d 0. e 4.53e10 a1 1000. a2 0. type 2 t0 11.32e6 s1 1.e-3 s2 2.e-3 s3 8.5e-3 tf 4.53e6 alpha 0.4
+linkslip 4 kn 4.53e10 kl 4.53e13 type 2 t0 11.32e6 s1 1.e-3 s2 2.e-3 s3 8.5e-3 tf 4.53e6 alpha 0.4
 BoundaryCondition 1 loadTimeFunction 1 prescribedvalue 0.0
 Nodalload 2 loadTimeFunction 1 components 2 0.0 1.0
 ConstantFunction 1 f(t) 1.0

@@ -14,7 +14,7 @@
 #   t3d2oofem oofem.t3d.ctrl mesh.out oofemTemp.in
 #   duplicate oofemTemp.in oofem.in --diameter 0.052 --bond 3 4
 #
-#   bash run.sh             # run the analysis (about 13 min), then plot
+#   bash run.sh             # run the analysis (about 5 min), then plot
 #   SKIP_RUN=1 bash run.sh  # plot from the committed ld.dat only
 #
 # Outputs:
@@ -26,7 +26,7 @@ set -e
 cd "$(dirname "$0")"
 
 if [ -z "${SKIP_RUN:-}" ]; then
-  echo "Running OOFEM (about 13 min)..."
+  echo "Running OOFEM (about 5 min)..."
   oofem -f oofem.in > std.out
   echo "Extracting load-deflection data..."
   extractor.py -f oofem.in > ld.dat
