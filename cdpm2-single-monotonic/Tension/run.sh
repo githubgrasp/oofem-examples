@@ -14,7 +14,7 @@ echo "Running OOFEM..."
 oofem -f oofem.in > std.out
 
 echo "Extracting stress-strain data..."
-extractor -f oofem.in > ld.dat
+extractor.py -f oofem.in > ld.dat
 
 echo "Generating plot..."
 gnuplot <<'EOF'

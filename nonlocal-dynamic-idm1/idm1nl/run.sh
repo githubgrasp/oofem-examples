@@ -21,7 +21,7 @@ fi
 
 if command -v t3d >/dev/null 2>&1 && command -v t3d2oofem >/dev/null 2>&1; then
     echo "Generating mesh with T3D..."
-    t3d -X -i mesh.in -o mesh.out -d 0.001 -p 512
+    t3d -i mesh.in -o mesh.out -d 0.001 -p 512
     echo "Building oofem.in via t3d2oofem..."
     t3d2oofem oofem.t3d.ctrl mesh.out oofem.in
 elif [ -f oofem.in ]; then

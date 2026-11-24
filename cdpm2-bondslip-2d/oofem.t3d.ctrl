@@ -47,7 +47,7 @@ triatype trplanestress2d
 # (oofem fork, tools/duplicate) then
 #   - adds a duplicated, fully hanging node at the position of each bar node
 #     (it follows the host concrete element), and
-#   - joins each pair with a bondlink2dtruss (crossSect 3, mat 4: linkslip):
+#   - joins each pair with an intelpoint (crossSect 3, mat 4: linkslip):
 #     bond-slip law along the bar, lateral stiffness kl across it.
 curve 12
 elemprop crossSect 2 mat 3 cs 1

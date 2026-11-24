@@ -1,6 +1,6 @@
 oofem.out
 2D unsaturated transport on 100x100 mm rect, van Genuchten (mild), consistent capacity
-nltransienttransportproblem nsteps 500 rtol 1.e-3 alpha 1. nsmax 200 nmodules 1 deltatfunction 2
+nltransienttransportproblem nsteps 500 finalt 2.2823e-2 rtol 1.e-3 alpha 1. nsmax 200 nmodules 1 deltatfunction 2
 vtkxmllattice tstep_step 1 dofman_all primvars 1 5
 domain 2dMassLatticeTransport
 OutputManager tstep_all dofman_all
@@ -18,6 +18,9 @@ latticetransmat 1 d 1. k 1.e-4 vis 1. thetas 1. thetar 0. thetam 1. contype 1 m 
 # first 50 steps to absorb the initial matrix stiffness, then grows
 # linearly to 1e-4 by step 500. The modified Newton-Raphson loop
 # converges throughout.
+# finalt: OOFEM ends the analysis on time, not on nsteps, so finalt is set
+# to the time of step 500 (t = 0.0228235 with this dt function). Without
+# it the run continues to t = 500 (nsteps x default dt of 1).
 BoundaryCondition 1 loadTimeFunction 1 prescribedvalue 2000.
 InitialCondition 1 conditions 1 u 2000. valtype 1 dofs 1 11 set 1
 ConstantFunction 1 f(t) 0.

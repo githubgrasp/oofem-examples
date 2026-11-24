@@ -29,7 +29,6 @@ gnuplot <<'EOF'
 TITLE = "Homogeneous 2D lattice van Genuchten flow: lumped vs consistent capacity"
 STEPS_STR = "10 30 50 80"
 
-set multiplot_layout = ''  # placeholder so the heredoc reads cleanly
 
 do for [out in "pdf png"] {
     if (out eq "pdf") {

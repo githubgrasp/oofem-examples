@@ -8,7 +8,7 @@ therefore carry dowel forces across the cracks. The concrete is modelled
 with the crack-band (local) version of the Concrete Damage Plasticity Model
 2 (`con2dpm`) in **plane stress**. Each bar node is connected to a hanging
 node at the same position, constrained to the concrete element it lies in,
-by a `bondlink2dtruss` element with the `linkslip` bond-slip law, as in
+by an `intelpoint` interface element with the `linkslip` bond-slip law, as in
 `cdpm2-bondslip-2d`. Half the beam is analysed (symmetry at midspan).
 
 The mesh has an element size of 20 mm in the refined region (1262 nodes, of
@@ -78,7 +78,7 @@ The reinforcement and the bond:
 | part                  | model      | parameters                                                     |
 |-----------------------|------------|----------------------------------------------------------------|
 | reinforcement (mat 3, cs 2) | `latticeframeelastic`, `lattice2d`, `latticecs` (`shape 1`) | `E = 200 GPa`, `nu = 0.3`, `radius 0.018385`, `area 1.06186e-3` (`A_s` of 2 bars of 26 mm), `iz 4.4863e-8`, at 50 mm above the bottom face |
-| bond (mat 4, cs 3)    | `linkslip` type 2, `bondlink2dtruss`, `interfacecs` | `t0 = 11.32 MPa`, `s1 = 1 mm`, `s2 = 2 mm`, `s3 = 8.5 mm`, `tf = 4.53 MPa`, `alpha = 0.4`, `kn = 4.53e10 Pa/m`, `kl = 4.53e13 Pa/m` |
+| bond (mat 4, cs 3)    | `linkslip` type 2, `intelpoint`, `interfacecs` | `t0 = 11.32 MPa`, `s1 = 1 mm`, `s2 = 2 mm`, `s3 = 8.5 mm`, `tf = 4.53 MPa`, `alpha = 0.4`, `kn = 4.53e10 Pa/m`, `kl = 4.53e13 Pa/m` |
 
 The reinforcement section:
 
@@ -111,9 +111,10 @@ then, as for the trusses in `cdpm2-bondslip-2d`,
 - adds, for every bar node, a hanging node at the same position
   (`doftype 2 2 2`, no `masterElement`: OOFEM finds the host concrete
   element and interpolates the node's displacements from it), and
-- joins the bar node and the hanging node with a `bondlink2dtruss`, whose
-  bond length is the length of bar assigned to the bar node (half of each
-  adjacent element).
+- joins the hanging node and the bar node with an `intelpoint` (nodes in
+  that order), whose `area` is the bar perimeter (pi x 52 mm for the two
+  bars) times the length of bar assigned to the bar node (half of each
+  adjacent element), and whose `normal` is the bar direction.
 
 The bar end at the symmetry plane (vertex 10) has `u_x = 0` and zero
 rotation (`dofidmask 3 1 2 6 bc 3 1 0 1`).

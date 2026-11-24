@@ -60,7 +60,7 @@ committed `oofem.in`.
 
 `run.sh` runs:
 
-1. *(only if t3d available)* `t3d -X -i mesh.in -o mesh.out -d 0.001 -p 512`
+1. *(only if t3d available)* `t3d -i mesh.in -o mesh.out -d 0.001 -p 512`
 2. *(only if t3d2oofem available)* `t3d2oofem oofem.t3d.ctrl mesh.out oofem.in`
 3. `oofem -f oofem.in > std.out`: explicit dynamic solve.
 

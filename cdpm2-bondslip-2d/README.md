@@ -7,7 +7,7 @@ concrete is modelled with the crack-band (local) version of the Concrete
 Damage Plasticity Model 2 (`con2dpm`) in **plane stress**. The longitudinal
 reinforcement is modelled with truss elements. Each bar node is connected to
 a hanging node at the same position, constrained to the concrete element it
-lies in, by a `bondlink2dtruss` element with the `linkslip` bond-slip law.
+lies in, by an `intelpoint` interface element with the `linkslip` bond-slip law.
 Half the beam is analysed (symmetry at midspan).
 
 The mesh has an element size of 20 mm in the refined region (1262 nodes, of
@@ -73,7 +73,7 @@ The reinforcement and the bond:
 | part                  | model      | parameters                                                     |
 |-----------------------|------------|----------------------------------------------------------------|
 | reinforcement (mat 3) | `isole`, `truss2d` | `E = 200 GPa`, 2 bars of 26 mm, `A_s = 1061.9 mm^2`, at 50 mm above the bottom face |
-| bond (mat 4, cs 3)    | `linkslip` type 2, `bondlink2dtruss`, `interfacecs` | `t0 = 11.32 MPa`, `s1 = 1 mm`, `s2 = 2 mm`, `s3 = 8.5 mm`, `tf = 4.53 MPa`, `alpha = 0.4`, `kn = 4.53e10 Pa/m`, `kl = 4.53e13 Pa/m` |
+| bond (mat 4, cs 3)    | `linkslip` type 2, `intelpoint`, `interfacecs` | `t0 = 11.32 MPa`, `s1 = 1 mm`, `s2 = 2 mm`, `s3 = 8.5 mm`, `tf = 4.53 MPa`, `alpha = 0.4`, `kn = 4.53e10 Pa/m`, `kl = 4.53e13 Pa/m` |
 
 The bond-slip law is the Model Code 2010 law for pull-out failure in good
 bond conditions, with `fck = fcm - 8 MPa = 20.5 MPa`:
@@ -106,11 +106,12 @@ then
 - adds, for every bar node, a hanging node at the same position
   (`doftype 2 2 2`, no `masterElement`: OOFEM finds the host concrete element
   and interpolates the node's displacements from it), and
-- joins the bar node and the hanging node with a `bondlink2dtruss`, whose
-  bond length is the tributary length of the bar node (half an element at the
-  bar ends).
+- joins the hanging node and the bar node with an `intelpoint` (nodes in
+  that order), whose `area` is the bar perimeter (pi x 52 mm for the two
+  bars) times the tributary length of the bar node (half an element at the
+  bar ends), and whose `normal` is the bar direction.
 
-`bondlink2dtruss` resolves the relative displacement of the two nodes into
+`intelpoint` resolves the relative displacement of the two nodes into
 the slip along the bar (`linkslip` bond-slip law) and the lateral component
 across it (stiffness `kl`). The bar end at the symmetry plane (vertex 10) has
 its own `u_x = 0`, because the bar no longer follows the concrete in x.

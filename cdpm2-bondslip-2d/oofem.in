@@ -3452,70 +3452,70 @@ trplanestress2d 2180 nodes 3 1196 170 1197 crossSect 1 mat 2
 trplanestress2d 2181 nodes 3 1197 95 1196 crossSect 1 mat 2
 trplanestress2d 2182 nodes 3 1196 96 1195 crossSect 1 mat 2
 trplanestress2d 2183 nodes 3 1195 97 1198 crossSect 1 mat 2
-bondlink2dtruss 2184 nodes 2 9 1199 crossSect 3 mat 4 length 0.010119 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2185 nodes 2 172 1200 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2186 nodes 2 173 1201 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2187 nodes 2 174 1202 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2188 nodes 2 175 1203 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2189 nodes 2 176 1204 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2190 nodes 2 177 1205 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2191 nodes 2 178 1206 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2192 nodes 2 179 1207 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2193 nodes 2 180 1208 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2194 nodes 2 181 1209 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2195 nodes 2 182 1210 crossSect 3 mat 4 length 0.020238 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2196 nodes 2 183 1211 crossSect 3 mat 4 length 0.020238 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2197 nodes 2 184 1212 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2198 nodes 2 185 1213 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2199 nodes 2 186 1214 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2200 nodes 2 187 1215 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2201 nodes 2 188 1216 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2202 nodes 2 189 1217 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2203 nodes 2 190 1218 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2204 nodes 2 191 1219 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2205 nodes 2 192 1220 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2206 nodes 2 193 1221 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2207 nodes 2 194 1222 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2208 nodes 2 195 1223 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2209 nodes 2 196 1224 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2210 nodes 2 197 1225 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2211 nodes 2 198 1226 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2212 nodes 2 199 1227 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2213 nodes 2 200 1228 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2214 nodes 2 201 1229 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2215 nodes 2 202 1230 crossSect 3 mat 4 length 0.020238 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2216 nodes 2 203 1231 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2217 nodes 2 204 1232 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2218 nodes 2 205 1233 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2219 nodes 2 206 1234 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2220 nodes 2 207 1235 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2221 nodes 2 208 1236 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2222 nodes 2 209 1237 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2223 nodes 2 210 1238 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2224 nodes 2 211 1239 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2225 nodes 2 212 1240 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2226 nodes 2 213 1241 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2227 nodes 2 214 1242 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2228 nodes 2 215 1243 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2229 nodes 2 216 1244 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2230 nodes 2 217 1245 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2231 nodes 2 218 1246 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2232 nodes 2 219 1247 crossSect 3 mat 4 length 0.0202381 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2233 nodes 2 220 1248 crossSect 3 mat 4 length 0.0202382 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2234 nodes 2 221 1249 crossSect 3 mat 4 length 0.0202382 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2235 nodes 2 222 1250 crossSect 3 mat 4 length 0.020238 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2236 nodes 2 223 1251 crossSect 3 mat 4 length 0.020238 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2237 nodes 2 224 1252 crossSect 3 mat 4 length 0.020238 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2238 nodes 2 225 1253 crossSect 3 mat 4 length 0.020238 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2239 nodes 2 226 1254 crossSect 3 mat 4 length 0.020238 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2240 nodes 2 227 1255 crossSect 3 mat 4 length 0.020238 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2241 nodes 2 228 1256 crossSect 3 mat 4 length 0.020238 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2242 nodes 2 229 1257 crossSect 3 mat 4 length 0.0202385 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2243 nodes 2 230 1258 crossSect 3 mat 4 length 0.0202385 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2244 nodes 2 231 1259 crossSect 3 mat 4 length 0.020238 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2245 nodes 2 232 1260 crossSect 3 mat 4 length 0.020238 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2246 nodes 2 233 1261 crossSect 3 mat 4 length 0.020238 diameter 0.052 dirvector 3 1 0 0
-bondlink2dtruss 2247 nodes 2 10 1262 crossSect 3 mat 4 length 0.010119 diameter 0.052 dirvector 3 1 0 0
+intelpoint 2184 nodes 2 1199 9 crossSect 3 mat 4 area 1.653068e-03 normal 3 1 0 0
+intelpoint 2185 nodes 2 1200 172 crossSect 3 mat 4 area 3.306153e-03 normal 3 1 0 0
+intelpoint 2186 nodes 2 1201 173 crossSect 3 mat 4 area 3.306153e-03 normal 3 1 0 0
+intelpoint 2187 nodes 2 1202 174 crossSect 3 mat 4 area 3.306153e-03 normal 3 1 0 0
+intelpoint 2188 nodes 2 1203 175 crossSect 3 mat 4 area 3.306153e-03 normal 3 1 0 0
+intelpoint 2189 nodes 2 1204 176 crossSect 3 mat 4 area 3.306153e-03 normal 3 1 0 0
+intelpoint 2190 nodes 2 1205 177 crossSect 3 mat 4 area 3.306153e-03 normal 3 1 0 0
+intelpoint 2191 nodes 2 1206 178 crossSect 3 mat 4 area 3.306153e-03 normal 3 1 0 0
+intelpoint 2192 nodes 2 1207 179 crossSect 3 mat 4 area 3.306153e-03 normal 3 1 0 0
+intelpoint 2193 nodes 2 1208 180 crossSect 3 mat 4 area 3.306153e-03 normal 3 1 0 0
+intelpoint 2194 nodes 2 1209 181 crossSect 3 mat 4 area 3.306153e-03 normal 3 1 0 0
+intelpoint 2195 nodes 2 1210 182 crossSect 3 mat 4 area 3.306137e-03 normal 3 1 0 0
+intelpoint 2196 nodes 2 1211 183 crossSect 3 mat 4 area 3.306137e-03 normal 3 1 0 0
+intelpoint 2197 nodes 2 1212 184 crossSect 3 mat 4 area 3.306153e-03 normal 3 1 0 0
+intelpoint 2198 nodes 2 1213 185 crossSect 3 mat 4 area 3.306153e-03 normal 3 1 0 0
+intelpoint 2199 nodes 2 1214 186 crossSect 3 mat 4 area 3.306153e-03 normal 3 1 0 0
+intelpoint 2200 nodes 2 1215 187 crossSect 3 mat 4 area 3.306153e-03 normal 3 1 0 0
+intelpoint 2201 nodes 2 1216 188 crossSect 3 mat 4 area 3.306153e-03 normal 3 1 0 0
+intelpoint 2202 nodes 2 1217 189 crossSect 3 mat 4 area 3.306153e-03 normal 3 1 0 0
+intelpoint 2203 nodes 2 1218 190 crossSect 3 mat 4 area 3.306153e-03 normal 3 1 0 0
+intelpoint 2204 nodes 2 1219 191 crossSect 3 mat 4 area 3.306153e-03 normal 3 1 0 0
+intelpoint 2205 nodes 2 1220 192 crossSect 3 mat 4 area 3.306153e-03 normal 3 1 0 0
+intelpoint 2206 nodes 2 1221 193 crossSect 3 mat 4 area 3.306153e-03 normal 3 1 0 0
+intelpoint 2207 nodes 2 1222 194 crossSect 3 mat 4 area 3.306153e-03 normal 3 1 0 0
+intelpoint 2208 nodes 2 1223 195 crossSect 3 mat 4 area 3.306153e-03 normal 3 1 0 0
+intelpoint 2209 nodes 2 1224 196 crossSect 3 mat 4 area 3.306153e-03 normal 3 1 0 0
+intelpoint 2210 nodes 2 1225 197 crossSect 3 mat 4 area 3.306153e-03 normal 3 1 0 0
+intelpoint 2211 nodes 2 1226 198 crossSect 3 mat 4 area 3.306153e-03 normal 3 1 0 0
+intelpoint 2212 nodes 2 1227 199 crossSect 3 mat 4 area 3.306153e-03 normal 3 1 0 0
+intelpoint 2213 nodes 2 1228 200 crossSect 3 mat 4 area 3.306153e-03 normal 3 1 0 0
+intelpoint 2214 nodes 2 1229 201 crossSect 3 mat 4 area 3.306153e-03 normal 3 1 0 0
+intelpoint 2215 nodes 2 1230 202 crossSect 3 mat 4 area 3.306137e-03 normal 3 1 0 0
+intelpoint 2216 nodes 2 1231 203 crossSect 3 mat 4 area 3.306153e-03 normal 3 1 0 0
+intelpoint 2217 nodes 2 1232 204 crossSect 3 mat 4 area 3.306153e-03 normal 3 1 0 0
+intelpoint 2218 nodes 2 1233 205 crossSect 3 mat 4 area 3.306153e-03 normal 3 1 0 0
+intelpoint 2219 nodes 2 1234 206 crossSect 3 mat 4 area 3.306153e-03 normal 3 1 0 0
+intelpoint 2220 nodes 2 1235 207 crossSect 3 mat 4 area 3.306153e-03 normal 3 1 0 0
+intelpoint 2221 nodes 2 1236 208 crossSect 3 mat 4 area 3.306153e-03 normal 3 1 0 0
+intelpoint 2222 nodes 2 1237 209 crossSect 3 mat 4 area 3.306153e-03 normal 3 1 0 0
+intelpoint 2223 nodes 2 1238 210 crossSect 3 mat 4 area 3.306153e-03 normal 3 1 0 0
+intelpoint 2224 nodes 2 1239 211 crossSect 3 mat 4 area 3.306153e-03 normal 3 1 0 0
+intelpoint 2225 nodes 2 1240 212 crossSect 3 mat 4 area 3.306153e-03 normal 3 1 0 0
+intelpoint 2226 nodes 2 1241 213 crossSect 3 mat 4 area 3.306153e-03 normal 3 1 0 0
+intelpoint 2227 nodes 2 1242 214 crossSect 3 mat 4 area 3.306153e-03 normal 3 1 0 0
+intelpoint 2228 nodes 2 1243 215 crossSect 3 mat 4 area 3.306153e-03 normal 3 1 0 0
+intelpoint 2229 nodes 2 1244 216 crossSect 3 mat 4 area 3.306153e-03 normal 3 1 0 0
+intelpoint 2230 nodes 2 1245 217 crossSect 3 mat 4 area 3.306153e-03 normal 3 1 0 0
+intelpoint 2231 nodes 2 1246 218 crossSect 3 mat 4 area 3.306153e-03 normal 3 1 0 0
+intelpoint 2232 nodes 2 1247 219 crossSect 3 mat 4 area 3.306153e-03 normal 3 1 0 0
+intelpoint 2233 nodes 2 1248 220 crossSect 3 mat 4 area 3.306169e-03 normal 3 1 0 0
+intelpoint 2234 nodes 2 1249 221 crossSect 3 mat 4 area 3.306169e-03 normal 3 1 0 0
+intelpoint 2235 nodes 2 1250 222 crossSect 3 mat 4 area 3.306137e-03 normal 3 1 0 0
+intelpoint 2236 nodes 2 1251 223 crossSect 3 mat 4 area 3.306137e-03 normal 3 1 0 0
+intelpoint 2237 nodes 2 1252 224 crossSect 3 mat 4 area 3.306137e-03 normal 3 1 0 0
+intelpoint 2238 nodes 2 1253 225 crossSect 3 mat 4 area 3.306137e-03 normal 3 1 0 0
+intelpoint 2239 nodes 2 1254 226 crossSect 3 mat 4 area 3.306137e-03 normal 3 1 0 0
+intelpoint 2240 nodes 2 1255 227 crossSect 3 mat 4 area 3.306137e-03 normal 3 1 0 0
+intelpoint 2241 nodes 2 1256 228 crossSect 3 mat 4 area 3.306137e-03 normal 3 1 0 0
+intelpoint 2242 nodes 2 1257 229 crossSect 3 mat 4 area 3.306218e-03 normal 3 1 0 0
+intelpoint 2243 nodes 2 1258 230 crossSect 3 mat 4 area 3.306218e-03 normal 3 1 0 0
+intelpoint 2244 nodes 2 1259 231 crossSect 3 mat 4 area 3.306137e-03 normal 3 1 0 0
+intelpoint 2245 nodes 2 1260 232 crossSect 3 mat 4 area 3.306137e-03 normal 3 1 0 0
+intelpoint 2246 nodes 2 1261 233 crossSect 3 mat 4 area 3.306137e-03 normal 3 1 0 0
+intelpoint 2247 nodes 2 1262 10 crossSect 3 mat 4 area 1.653068e-03 normal 3 1 0 0
 SimpleCS 1 thick 0.19
 SimpleCS 2 area 1.06186e-3
 interfacecs 3 material 4
