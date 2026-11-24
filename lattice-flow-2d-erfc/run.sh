@@ -34,8 +34,9 @@ set xrange [0:0.1]
 set yrange [-0.05:1.1]
 set key top right
 
-# Must match STEPS in compare.py and deltat in control.in (0.05 s)
-times = "0.5 1.5 3.0 5.0"
+# Must match STEPS in compare.py and deltat in control.in (0.05 s);
+# step n is at t = (n-1) * deltat since step 1 sits at t = 0
+times = "0.45 1.45 2.95 4.95"
 steps = "10  30  60  100"
 
 do for [i=1:4] {

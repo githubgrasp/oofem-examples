@@ -77,7 +77,7 @@ def main():
 
     ygrid = [i * H / 200 for i in range(201)]
     for step in STEPS:
-        t = step * DELTAT
+        t = (step - 1) * DELTAT  # step 1 is at t = 0
         with open(os.path.join(here, f"analytical_{step}.dat"), "w") as f:
             f.write(f"# y p (t={t} s)\n")
             for y in ygrid:
